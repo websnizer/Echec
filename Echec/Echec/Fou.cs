@@ -8,5 +8,6 @@ namespace Echec
 {
     class Fou
     {
+        //Ajout random
     }
 }
