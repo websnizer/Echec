@@ -8,5 +8,9 @@ namespace Echec
 {
     class Plateau
     {
+        public Plateau()
+        {
+
+        }
     }
 }
