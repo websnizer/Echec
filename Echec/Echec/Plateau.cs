@@ -10,7 +10,7 @@ namespace Echec
     {
         public Plateau()
         {
-
+            //Constructeur
         }
     }
 }
