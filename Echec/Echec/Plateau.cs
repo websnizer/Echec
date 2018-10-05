@@ -9,6 +9,7 @@ namespace Echec
     public class Plateau
     {
         private Piece[,] m_echiquier; //Tableau qui représente l'échiquier avec ses pièces
+        private Stack<Piece[,]> m_historique; //Historique des échiquiers
 
         public Plateau() //Constructeur
         {
@@ -69,48 +70,59 @@ namespace Echec
             m_echiquier[7, 7] = new Tour(true, "Tour", true, false); //Blanc, nom, possibilité de collisions, n'a pas bougé
         }
 
+        private void ajouterHistorique() //Ajouter l'échiquier à l'historique avant de le modifier
+        {
+            m_historique.Push(m_echiquier);
+        }
+
+        private void retourHistoriquePrec() //Revenir à l'échiquier précédent
+        {
+            m_echiquier = m_historique.Peek();
+            m_historique.Pop();
+        }
+
         public int validerCoup(int[] p_posPiece, int[] p_posCase, bool p_tour) //Valider si le coup est légal et sinon renvoyer un code d'erreur
         {
             int x = p_posPiece[0]; //x de la pièce
             int y = p_posPiece[1]; //y de la pièce
 
-            if (m_echiquier[x, y] == null) //Si la case de départ est vide
+            //Vérifier si la case de départ est vide
+            if (m_echiquier[x, y] == null)
             {
                 return 1; //Il n'y a pas de pièce à jouer sur cette case
             }
-
             bool couleurPiece = m_echiquier[x, y].Couleur; //Couleur de la pièce
-
+            //Vérifier si la pièce est celle du joueur auquel c'est le tour
             if (!verifierTour(couleurPiece, p_tour))
             {
                 return 2; //Ce n'est pas le tour du joueur
             }
-
+            //Vérifier si le joueur essaie de déplacer une pièce sur sa propre case
             if ((p_posPiece[0] == p_posCase[0]) && (p_posPiece[1] == p_posCase[1])) //Si les cases sont les mêmes
             {
                 return 3; //Le joueur essaie de déplacer la pièce sur sa propre case
             }
-
+            //Vérifier si la case a un pion allié
             int etatCase = caseEtat(p_posCase, couleurPiece); //État de la case
             if (etatCase == 1)
             {
                 return 4; //Il y a une pièce alliée sur la case
             }
-
+            //Vérifier si le déplacement est possible pour la pièce
             if (!m_echiquier[x, y].validerDeplacement(p_posPiece, p_posCase, (etatCase == 0)))
             {
                 return 5; //La pièce ne peut pas se déplacer de cette façon
-            }  
-
-            if (m_echiquier[x, y].Collision) //Si la pièce ne peut pas passer par dessus d'autres pièces
+            }
+            //Vérifier si le déplacement cause des collisions en route
+            if (m_echiquier[x, y].Collision) //Si la pièce n'a pas la permission de passer par dessus d'autres pièces
             {
                 if (collision(p_posPiece, p_posCase))
                 {
                     return 6; //Une pièce est dans le chemin et empêche le déplacement
                 }
             }
-            
-            if (miseEnEchec(p_posPiece, p_posCase, couleurPiece)) //Vérifier si le joueur se met lui-même en échec avec ce mouvement
+            //Vérifier si le joueur se met lui-même en état d'échec avec ce mouvement
+            if (miseEnEchec(p_posPiece, p_posCase, couleurPiece)) 
             {
                 return 7; //Le joueur se met lui-même en échec avec ce coup
             }
@@ -162,6 +174,8 @@ namespace Echec
             int xCase = p_posCase[0]; //x de la case
             int yCase = p_posCase[1]; //y de la case
 
+            ajouterHistorique(); //Ajouter l'échiquier à l'historique avant de le changer
+
             m_echiquier[xCase, yCase] = m_echiquier[xPiece, yPiece];
             m_echiquier[xPiece, yPiece] = null;
         }
@@ -197,28 +211,17 @@ namespace Echec
             return false;
         }
 
-        private bool miseEnEchec(int[] p_posPiece, int[] p_posCase, bool p_joueur) //Vérifier si le joueur se met en échec avec son dernier déplacement avant de l'accepter
+        private bool miseEnEchec(int[] p_posPiece, int[] p_posCase, bool p_joueur) //Vérifier si le joueur se met en échec avec le déplacement voulu
         {
             bool miseEnEchec; //Si le joueur se met en échec
-            Piece anciennePiece = null; //La pièce qui sera effacée dans le déplacement temporaire
             int xCase = p_posCase[0]; //x de la case
             int yCase = p_posCase[1]; //y de la case
-
-            if (m_echiquier[xCase, yCase] != null) //Si une pièce sera effacée, la stocker
-            {
-                anciennePiece = m_echiquier[xCase, yCase];
-            }
 
             deplacerPiece(p_posPiece, p_posCase); //Déplacer la pièce temporairement pour le test
 
             miseEnEchec = echec(p_joueur); //Tester la mise en échec
 
-            deplacerPiece(p_posCase, p_posPiece); //Ramener la pièce à sa place
-
-            if (anciennePiece != null) //Si une pièce a été stockée, la remettre sur le plateau
-            {
-                m_echiquier[xCase, yCase] = anciennePiece;
-            }
+            retourHistoriquePrec(); //Récupérer l'historique précédent pour remettre les pièces à leur place
 
             return miseEnEchec;
         }
