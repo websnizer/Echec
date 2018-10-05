@@ -10,14 +10,14 @@ namespace Echec
 	{
 		protected bool m_couleur; //La couleur de la piece. true=blanc false=noir
 		protected string m_nom; //Le nom de la pièce 
-		bool m_collision; //Permet les collision ou non
+		protected bool m_collision; //Permet les collision ou non
 
 		//Constructeur de piece
 		public Piece(bool p_couleur, string p_nom, bool p_collision)
 		{
 			m_couleur = p_couleur;
 			m_nom = p_nom;
-			m_collision = p_collision;
+			m_collision = true;
 		}
 
 		//Vérifier si le déplacement fait partie de ses mouvements.
@@ -28,6 +28,11 @@ namespace Echec
 		{
 			//Aucune valeur puisque tous les enfants override?
 			return false;
+		}
+
+		public virtual List<int[]> routeDeplacement(int[] p_posPiece, int[] p_posCase, bool p_caseVide)
+		{
+			return null;
 		}
 
 		//Accesseur de la donnée membre collision
