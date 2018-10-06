@@ -20,17 +20,17 @@ namespace Echec
         public override string ToString() { //Sérialiser l'échiquier
             string serial = ""; //Chaine à retourner
 
-            for (int i = 0; i < 8; i++)
+            for (int x = 0; x < 8; x++)
             {
-                for (int j = 0; j < 8; j++)
+                for (int y = 0; y < 8; y++)
                 {
-                    if (m_echiquier[i, j] == null) //Si la case est vide
+                    if (m_echiquier[x, y] == null) //Si la case est vide
                     {
                         serial += "x,";
                     }
                     else //Sinon sérialiser la pièce
                     {
-                        serial += m_echiquier[i, j].ToString() + ",";
+                        serial += m_echiquier[x, y].ToString() + ",";
                     }
                 }
             }
@@ -42,31 +42,31 @@ namespace Echec
         {
             //Placer les pièces noires
             m_echiquier[0, 0] = new Tour(false, "Tour", true, false); //Noir, nom, possibilité de collisions, n'a pas bougé
-            m_echiquier[0, 1] = new Cavalier(false, "Cavalier", false); //Noir, nom, pas de possibilité de collisions
-            m_echiquier[0, 2] = new Fou(false, "Fou", true); //Noir, nom, possibilité de collisions
-            m_echiquier[0, 3] = new Reine(false, "Reine", true); //Noir, nom, possibilité de collisions
-            m_echiquier[0, 4] = new Roi(false, "Roi", true, false); //Noir, nom, possibilité de collisions, n'a pas bougé
-            m_echiquier[0, 5] = new Fou(false, "Fou", true); //Noir, nom, possibilité de collisions
-            m_echiquier[0, 6] = new Cavalier(false, "Cavalier", false); //Noir, nom, pas de possibilité de collisions
-            m_echiquier[0, 7] = new Tour(false, "Tour", true, false); //Noir, nom, possibilité de collisions, n'a pas bougé
+            m_echiquier[1, 0] = new Cavalier(false, "Cavalier", false); //Noir, nom, pas de possibilité de collisions
+            m_echiquier[2, 0] = new Fou(false, "Fou", true); //Noir, nom, possibilité de collisions
+            m_echiquier[3, 0] = new Reine(false, "Reine", true); //Noir, nom, possibilité de collisions
+            m_echiquier[4, 0] = new Roi(false, "Roi", true, false); //Noir, nom, possibilité de collisions, n'a pas bougé
+            m_echiquier[5, 0] = new Fou(false, "Fou", true); //Noir, nom, possibilité de collisions
+            m_echiquier[6, 0] = new Cavalier(false, "Cavalier", false); //Noir, nom, pas de possibilité de collisions
+            m_echiquier[7, 0] = new Tour(false, "Tour", true, false); //Noir, nom, possibilité de collisions, n'a pas bougé
             //Placer les pions noirs
-            for (int i = 0; i < 8; i++)
+            for (int x = 0; x < 8; x++)
             {
-                m_echiquier[1, i] = new Pion(false, "Pion", true, false); //Noir, nom, possibilité de collisions, n'a pas bougé
+                m_echiquier[x, 1] = new Pion(false, "Pion", true, false); //Noir, nom, possibilité de collisions, n'a pas bougé
             }
             //Placer les pions blancs
-            for (int i = 0; i < 8; i++)
+            for (int x = 0; x < 8; x++)
             {
-                m_echiquier[6, i] = new Pion(true, "Pion", true, false); //Blanc, nom, possibilité de collisions, n'a pas bougé
+                m_echiquier[x, 6] = new Pion(true, "Pion", true, false); //Blanc, nom, possibilité de collisions, n'a pas bougé
             }
             //Placer les pièces noires
-            m_echiquier[7, 0] = new Tour(true, "Tour", true, false); //Blanc, nom, possibilité de collisions, n'a pas bougé
-            m_echiquier[7, 1] = new Cavalier(true, "Cavalier", false); //Blanc, nom, pas de possibilité de collisions
-            m_echiquier[7, 2] = new Fou(true, "Fou", true); //Blanc, nom, possibilité de collisions
-            m_echiquier[7, 3] = new Reine(true, "Reine", true); //Blanc, nom, possibilité de collisions
-            m_echiquier[7, 4] = new Roi(true, "Roi", true, false); //Blanc, nom, possibilité de collisions, n'a pas bougé
-            m_echiquier[7, 5] = new Fou(true, "Fou", true); //Blanc, nom, possibilité de collisions
-            m_echiquier[7, 6] = new Cavalier(true, "Cavalier", false); //Blanc, nom, pas de possibilité de collisions
+            m_echiquier[0, 7] = new Tour(true, "Tour", true, false); //Blanc, nom, possibilité de collisions, n'a pas bougé
+            m_echiquier[1, 7] = new Cavalier(true, "Cavalier", false); //Blanc, nom, pas de possibilité de collisions
+            m_echiquier[2, 7] = new Fou(true, "Fou", true); //Blanc, nom, possibilité de collisions
+            m_echiquier[3, 7] = new Reine(true, "Reine", true); //Blanc, nom, possibilité de collisions
+            m_echiquier[4, 7] = new Roi(true, "Roi", true, false); //Blanc, nom, possibilité de collisions, n'a pas bougé
+            m_echiquier[5, 7] = new Fou(true, "Fou", true); //Blanc, nom, possibilité de collisions
+            m_echiquier[6, 7] = new Cavalier(true, "Cavalier", false); //Blanc, nom, pas de possibilité de collisions
             m_echiquier[7, 7] = new Tour(true, "Tour", true, false); //Blanc, nom, possibilité de collisions, n'a pas bougé
         }
 
@@ -184,23 +184,25 @@ namespace Echec
         {
             int[] posRoi = new int[2]; //La case du roi du joueur
 
-            for (int i = 0; i < 8; i++) //Trouver le roi
+            for (int x = 0; x < 8; x++) //Trouver le roi
             {
-                for (int j = 0; j < 8; j++)
+                for (int y = 0; y < 8; y++)
                 {
-                    if ((m_echiquier[i, j] is Roi) && (m_echiquier[i, j].Couleur == p_joueur)) //Si c'est un roi de la même couleur
+                    if ((m_echiquier[x, y] is Roi) && (m_echiquier[x, y].Couleur == p_joueur)) //Si c'est un roi de la même couleur
                     {
-                        posRoi[0] = i;
-                        posRoi[1] = j;
+                        posRoi[0] = x;
+                        posRoi[1] = y;
                     }
                 }
             }
 
-            for (int i = 0; i < 8; i++) //Tester si les pièces peuvent se rendre jusqu'au roi
+            for (int x = 0; x < 8; x++) //Tester si les pièces peuvent se rendre jusqu'au roi
             {
-                for (int j = 0; j < 8; j++)
+                for (int y = 0; y < 8; y++)
                 {
                     int[] posDepart = new int[2]; //La case à tester
+                    posDepart[0] = x;
+                    posDepart[1] = y;
                     if (validerCoup(posDepart, posRoi, !p_joueur) == 0)
                     {
                         return true;
