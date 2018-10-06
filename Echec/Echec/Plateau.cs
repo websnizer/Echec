@@ -163,7 +163,25 @@ namespace Echec
 
         private bool collision(int[] p_posPiece, int[] p_posCase) //Vérifier s'il y a une collision lors du déplacement
         {
-            //À FAIRE
+            int x = p_posPiece[0]; //x de la pièce
+            int y = p_posPiece[1]; //y de la pièce
+
+            //Stocker la liste des cases par laquelle la pièce devra se déplacer
+            List<int[]> route = m_echiquier[x, y].routeDeplacement(p_posPiece, p_posCase);
+
+            int xTest; //x à tester
+            int yTest; //y à tester
+
+            for (int i = 0; i < route.Count; i++) //Vérifier si chaque case est vide
+            {
+                xTest = (route[i])[0];
+                yTest = (route[i])[1];
+                if (m_echiquier[xTest, yTest] != null) //La case n'est pas vide
+                {
+                    return true;
+                }
+            }
+
             return false;
         }
 
@@ -196,11 +214,12 @@ namespace Echec
                 }
             }
 
+            int[] posDepart = new int[2]; //La case à tester
+
             for (int x = 0; x < 8; x++) //Tester si les pièces peuvent se rendre jusqu'au roi
             {
                 for (int y = 0; y < 8; y++)
                 {
-                    int[] posDepart = new int[2]; //La case à tester
                     posDepart[0] = x;
                     posDepart[1] = y;
                     if (validerCoup(posDepart, posRoi, !p_joueur) == 0)
