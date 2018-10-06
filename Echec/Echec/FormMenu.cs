@@ -12,9 +12,33 @@ namespace Echec
 {
     public partial class FormMenu : Form
     {
-        public FormMenu()
+		Echec m_echec;
+
+		public FormMenu(Echec p_echec)
         {
             InitializeComponent();
+			m_echec = p_echec;
         }
-    }
+
+		private void btn_Partie_Click(object sender, EventArgs e)
+		{
+			FormPartie m_form = new FormPartie();
+			m_form.Show();
+		}
+
+		private void jouer()
+		{
+
+		}
+
+		private void quitter()
+		{
+
+		}
+
+		private void afficherJoueurs()
+		{
+
+		}
+	}
 }

@@ -6,7 +6,29 @@ using System.Threading.Tasks;
 
 namespace Echec
 {
-    class Partie
+	public class Partie
     {
+
+		Joueur m_joueurBlanc;
+		Joueur m_joueurNoir;
+		FormPartie m_interface;
+		bool m_tour;
+		Plateau m_plateau;
+
+		public Partie(Joueur p_joueur1, Joueur p_joueur2)
+		{
+			m_joueurBlanc = p_joueur1;
+			m_joueurNoir = p_joueur2;
+		}
+
+		public void jouerCoup( int[] posPiece, int[] posCase)
+		{
+
+		}
+
+		private void verifierStatutJeu()
+		{
+
+		}
     }
 }

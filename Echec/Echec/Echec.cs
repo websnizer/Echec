@@ -6,17 +6,40 @@ using System.Windows.Forms;
 
 namespace Echec
 {
-    static class Echec
-    {
-        /// <summary>
-        /// Point d'entrée principal de l'application.
-        /// </summary>
-        [STAThread]
-        static void Main()
-        {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMenu());
-        }
+	public class Echec
+	{
+		List<Joueur> m_joueurs;
+		FormMenu m_menu;
+		string m_pathFichier;
+
+		[STAThread]
+
+		static void Main()
+		{
+			Application.EnableVisualStyles();
+			Application.SetCompatibleTextRenderingDefault(false);
+			Echec m_echec = new Echec();
+		}
+
+		public Echec()
+		{
+			m_menu = new FormMenu(this);
+			Application.Run(m_menu);
+		}
+
+		static void demarrerPartie()
+		{
+			
+		}
+
+		static void creerListeJoueur()
+		{
+
+		}
+
+		static void majFichierJoueurs()
+		{
+
+		}
     }
 }

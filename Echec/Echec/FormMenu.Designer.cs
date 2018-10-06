@@ -28,13 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+			this.btn_Partie = new System.Windows.Forms.Button();
+			this.SuspendLayout();
+			// 
+			// btn_Partie
+			// 
+			this.btn_Partie.Location = new System.Drawing.Point(12, 12);
+			this.btn_Partie.Name = "btn_Partie";
+			this.btn_Partie.Size = new System.Drawing.Size(163, 55);
+			this.btn_Partie.TabIndex = 0;
+			this.btn_Partie.Text = "Partie";
+			this.btn_Partie.UseVisualStyleBackColor = true;
+			this.btn_Partie.Click += new System.EventHandler(this.btn_Partie_Click);
+			// 
+			// FormMenu
+			// 
+			this.ClientSize = new System.Drawing.Size(187, 99);
+			this.Controls.Add(this.btn_Partie);
+			this.Name = "FormMenu";
+			this.ResumeLayout(false);
+
         }
 
-        #endregion
-    }
+		#endregion
+		private System.Windows.Forms.Button button3;
+		private System.Windows.Forms.Button btn_Partie;
+	}
 }
 
