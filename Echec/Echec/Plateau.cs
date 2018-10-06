@@ -17,7 +17,8 @@ namespace Echec
             preparerEchiquier();
         }
 
-        public override string ToString() { //Sérialiser l'échiquier
+        public override string ToString() //Sérialiser l'échiquier
+        { 
             string serial = ""; //Chaine à retourner
 
             for (int x = 0; x < 8; x++)
@@ -86,42 +87,52 @@ namespace Echec
             int x = p_posPiece[0]; //x de la pièce
             int y = p_posPiece[1]; //y de la pièce
 
-            //Vérifier si la case de départ est vide
+            //Cas erreur 1: Il n'y a pas de pièce à jouer sur cette case 
             if (m_echiquier[x, y] == null)
             {
-                return 1; //Il n'y a pas de pièce à jouer sur cette case
+                return 1;
             }
+
             bool couleurPiece = m_echiquier[x, y].Couleur; //Couleur de la pièce
-            //Vérifier si la pièce est celle du joueur auquel c'est le tour
+           
+            //Cas erreur 2: La pièce à jouer n'est pas une pièce du joueur auquel c'est le tour
             if (!verifierTour(couleurPiece, p_tour))
             {
-                return 2; //Ce n'est pas le tour du joueur
+                return 2;
             }
-            //Vérifier si le joueur essaie de déplacer une pièce sur sa propre case
-            if ((p_posPiece[0] == p_posCase[0]) && (p_posPiece[1] == p_posCase[1])) //Si les cases sont les mêmes
+
+            //Cas erreur 3: La case de départ et la case d'arrivée sont la même case
+            if ((p_posPiece[0] == p_posCase[0]) && (p_posPiece[1] == p_posCase[1]))
             {
-                return 3; //Le joueur essaie de déplacer la pièce sur sa propre case
+                return 3;
             }
-            //Vérifier si la case a un pion allié
+
             int etatCase = caseEtat(p_posCase, couleurPiece); //État de la case
+
+            //Cas erreur 4: Il y a une pièce alliée sur la case visée
             if (etatCase == 1)
             {
-                return 4; //Il y a une pièce alliée sur la case
+                return 4;
             }
-            //Vérifier si le déplacement est possible pour la pièce
+
+            //VÉRIFIER ROQUE (si roque sauter le cas 5, permettre)
+
+            //Cas erreur 5: La pièce ne peut pas se déplacer de cette façon
             if (!m_echiquier[x, y].validerDeplacement(p_posPiece, p_posCase, (etatCase == 0)))
             {
-                return 5; //La pièce ne peut pas se déplacer de cette façon
+                return 5;
             }
-            //Vérifier si le déplacement cause des collisions en route
+
+            //Cas erreur 6: Une pièce est dans le chemin et empêche le déplacement
             if (m_echiquier[x, y].Collision) //Si la pièce n'a pas la permission de passer par dessus d'autres pièces
             {
                 if (collision(p_posPiece, p_posCase))
                 {
-                    return 6; //Une pièce est dans le chemin et empêche le déplacement
+                    return 6;
                 }
             }
-            //Vérifier si le joueur se met lui-même en état d'échec avec ce mouvement
+
+            //Cas erreur 7: Le joueur se met lui-même en échec avec ce coup
             if (miseEnEchec(p_posPiece, p_posCase, couleurPiece)) 
             {
                 return 7; //Le joueur se met lui-même en échec avec ce coup
@@ -187,12 +198,14 @@ namespace Echec
 
         public void deplacerPiece(int[] p_posPiece, int[] p_posCase) //Déplacer la pièce sur l'échiquier
         {
+            ajouterHistorique(); //Ajouter l'échiquier à l'historique avant de le changer
+
+            //VÉRIFIER ROQUE (si roque sauter le reste, effectuer le roque)
+
             int xPiece = p_posPiece[0]; //x de la pièce
             int yPiece = p_posPiece[1]; //y de la pièce
             int xCase = p_posCase[0]; //x de la case
             int yCase = p_posCase[1]; //y de la case
-
-            ajouterHistorique(); //Ajouter l'échiquier à l'historique avant de le changer
 
             m_echiquier[xCase, yCase] = m_echiquier[xPiece, yPiece];
             m_echiquier[xPiece, yPiece] = null;
@@ -232,6 +245,16 @@ namespace Echec
             return false;
         }
 
+        public bool echecEtMat(bool p_joueur) //Vérifier si le joueur passé en paramètre (sa couleur) est en état d'échec et mat
+        {
+            return false;
+        }
+
+        public bool nulle() //Vérifier si le jeu se termine par une nulle
+        {
+            return false;
+        }
+
         private bool miseEnEchec(int[] p_posPiece, int[] p_posCase, bool p_joueur) //Vérifier si le joueur se met en échec avec le déplacement voulu
         {
             bool miseEnEchec; //Si le joueur se met en échec
@@ -245,6 +268,49 @@ namespace Echec
             retourHistoriquePrec(); //Récupérer l'historique précédent pour remettre les pièces à leur place
 
             return miseEnEchec;
+        }
+
+        public bool verifierPromo(int[] p_posPiece, int[] p_posCase, bool p_joueur) //Vérifier si un pion du joueur atteint le fond de l'échiquier
+        {
+            bool promo = false; //Présence de promo de pion
+            int xPiece = p_posPiece[0]; //x de la pièce
+            int yPiece = p_posPiece[1]; //y de la pièce
+            int yCase = p_posCase[1]; //y de la case
+
+            if (m_echiquier[xPiece, yPiece] is Pion) //Vérifier si la pièce est un pion
+            {
+                if (p_joueur) //Si joueur blanc, le fond est la rangée 0
+                {
+                    if (yCase == 0)
+                    {
+                        promo = true;
+                    }
+                }
+                else //Si joueur noir, le fond est la rangée 7
+                {
+                    if (yCase == 7)
+                    {
+                        promo = true;
+                    }
+                }
+            }
+
+            return promo;
+        }
+
+        public void promouvoirPion(int[] p_posCase, string p_pieceChoisie) //Changer le pion pour une pièce choisie
+        {
+            ajouterHistorique(); //Ajouter l'échiquier à l'historique avant de le changer
+        }
+
+        private bool verifierRoque(int[] p_posPiece, int[] p_posCase) //Vérifier si le joueur a voulu faire un roque
+        {
+            return false;
+        }
+
+        private void effectuerRoque(int[] p_posPiece, int[] p_posCase) //Effectuer un roque
+        {
+
         }
     }
 }
