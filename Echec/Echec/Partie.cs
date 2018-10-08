@@ -30,5 +30,18 @@ namespace Echec
 		{
 
 		}
+
+        public Joueur JoueurBlanc
+        {
+            get {return m_joueurBlanc; }
+            set {value = m_joueurBlanc; }
+        }
+
+
+        public Joueur JoueurNoir
+        {
+            get {return m_joueurNoir; }
+            set { m_joueurNoir = value; }
+        }
     }
 }

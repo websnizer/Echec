@@ -1,0 +1,10 @@
+Michael Roiz, 22, 6, 2630;
+Jaan Ehlvest, 22, 22, 2629;
+Vladimir Kramnik, 1, 0, 2769;
+Ilia Smirin, 8, 2, 2649;
+Daniel Fridman, 12, 6, 2628;
+Judit Polgar, 7, 3, 2707;
+Peter Leko, 5, 4, 2751;
+Levon Aronian, 10, 5, 2750;
+Vadim Milov, 1, 0, 2675;
+Hua Ni, 20, 4, 2681;

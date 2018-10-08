@@ -1,0 +1,11 @@
+C:\Users\Nathalie\Desktop\Echec-master\Echec\Echec\obj\Debug\Echec.csprojResolveAssemblyReference.cache
+C:\Users\Nathalie\Desktop\Echec-master\Echec\Echec\obj\Debug\Echec.Properties.Resources.resources
+C:\Users\Nathalie\Desktop\Echec-master\Echec\Echec\obj\Debug\Echec.csproj.GenerateResource.Cache
+C:\Users\Nathalie\Desktop\Echec-master\Echec\Echec\obj\Debug\Echec.csproj.CoreCompileInputs.cache
+C:\Users\Nathalie\Desktop\Echec-master\Echec\Echec\obj\Debug\Echec.FormMenu.resources
+C:\Users\Nathalie\Desktop\Echec-master\Echec\Echec\bin\Debug\Echec.exe.config
+C:\Users\Nathalie\Desktop\Echec-master\Echec\Echec\bin\Debug\Echec.exe
+C:\Users\Nathalie\Desktop\Echec-master\Echec\Echec\bin\Debug\Echec.pdb
+C:\Users\Nathalie\Desktop\Echec-master\Echec\Echec\obj\Debug\Echec.exe
+C:\Users\Nathalie\Desktop\Echec-master\Echec\Echec\obj\Debug\Echec.pdb
+C:\Users\Nathalie\Desktop\Echec-master\Echec\Echec\obj\Debug\Echec.FormPartie.resources

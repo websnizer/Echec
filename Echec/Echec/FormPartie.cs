@@ -14,10 +14,10 @@ namespace Echec
     {
 		Partie m_partie;
 
-        public FormPartie(Partie p_partie)
+        public FormPartie(/*Partie p_partie*/)
         {
             InitializeComponent();
-			m_partie = p_partie;
+			//m_partie = p_partie;
         }
 
 
@@ -84,5 +84,5 @@ namespace Echec
 									  .Concat(controls)
 									  .Where(c => c.GetType() == type);
 		}
-	}
+    }
 }

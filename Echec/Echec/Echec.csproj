@@ -70,6 +70,12 @@
     <Compile Include="Reine.cs" />
     <Compile Include="Roi.cs" />
     <Compile Include="Tour.cs" />
+    <EmbeddedResource Include="FormMenu.resx">
+      <DependentUpon>FormMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPartie.resx">
+      <DependentUpon>FormPartie.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
