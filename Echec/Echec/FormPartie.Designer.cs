@@ -120,7 +120,7 @@
 			this.label39 = new System.Windows.Forms.Label();
 			this.label40 = new System.Windows.Forms.Label();
 			this.label17 = new System.Windows.Forms.Label();
-			this.label18 = new System.Windows.Forms.Label();
+			this.lbl_infos = new System.Windows.Forms.Label();
 			this.label19 = new System.Windows.Forms.Label();
 			this.lst_historique = new System.Windows.Forms.ListBox();
 			this.listBox1 = new System.Windows.Forms.ListBox();
@@ -133,6 +133,7 @@
 			this.label11 = new System.Windows.Forms.Label();
 			this.label12 = new System.Windows.Forms.Label();
 			this.label13 = new System.Windows.Forms.Label();
+			this.lbl_codes = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox46)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox47)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox48)).BeginInit();
@@ -1252,26 +1253,25 @@
 			// 
 			this.label17.AutoSize = true;
 			this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label17.Location = new System.Drawing.Point(706, 10);
+			this.label17.Location = new System.Drawing.Point(705, 6);
 			this.label17.Name = "label17";
 			this.label17.Size = new System.Drawing.Size(159, 20);
 			this.label17.TabIndex = 225;
 			this.label17.Text = "Statut de la partie:";
 			// 
-			// label18
+			// lbl_infos
 			// 
-			this.label18.AutoSize = true;
-			this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label18.Location = new System.Drawing.Point(706, 40);
-			this.label18.Name = "label18";
-			this.label18.Size = new System.Drawing.Size(273, 20);
-			this.label18.TabIndex = 226;
-			this.label18.Text = "C\'est au tour des blancs de jouer";
+			this.lbl_infos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lbl_infos.Location = new System.Drawing.Point(706, 31);
+			this.lbl_infos.Name = "lbl_infos";
+			this.lbl_infos.Size = new System.Drawing.Size(338, 25);
+			this.lbl_infos.TabIndex = 226;
+			this.lbl_infos.Text = "C\'est au tour des blancs de jouer";
 			// 
 			// label19
 			// 
 			this.label19.AutoSize = true;
-			this.label19.Location = new System.Drawing.Point(707, 97);
+			this.label19.Location = new System.Drawing.Point(707, 224);
 			this.label19.Name = "label19";
 			this.label19.Size = new System.Drawing.Size(57, 13);
 			this.label19.TabIndex = 227;
@@ -1280,10 +1280,7 @@
 			// lst_historique
 			// 
 			this.lst_historique.FormattingEnabled = true;
-			this.lst_historique.Items.AddRange(new object[] {
-            "1: Pion E6 -> E5",
-            "2: Pion H1 -> H3"});
-			this.lst_historique.Location = new System.Drawing.Point(710, 116);
+			this.lst_historique.Location = new System.Drawing.Point(709, 246);
 			this.lst_historique.Name = "lst_historique";
 			this.lst_historique.Size = new System.Drawing.Size(334, 173);
 			this.lst_historique.TabIndex = 228;
@@ -1291,15 +1288,15 @@
 			// listBox1
 			// 
 			this.listBox1.FormattingEnabled = true;
-			this.listBox1.Location = new System.Drawing.Point(710, 344);
+			this.listBox1.Location = new System.Drawing.Point(709, 453);
 			this.listBox1.Name = "listBox1";
-			this.listBox1.Size = new System.Drawing.Size(334, 147);
+			this.listBox1.Size = new System.Drawing.Size(334, 238);
 			this.listBox1.TabIndex = 230;
 			// 
 			// label20
 			// 
 			this.label20.AutoSize = true;
-			this.label20.Location = new System.Drawing.Point(707, 325);
+			this.label20.Location = new System.Drawing.Point(706, 437);
 			this.label20.Name = "label20";
 			this.label20.Size = new System.Drawing.Size(64, 13);
 			this.label20.TabIndex = 229;
@@ -1409,11 +1406,20 @@
 			this.label13.Tag = "grid";
 			this.label13.Text = "8";
 			// 
+			// lbl_codes
+			// 
+			this.lbl_codes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lbl_codes.Location = new System.Drawing.Point(706, 61);
+			this.lbl_codes.Name = "lbl_codes";
+			this.lbl_codes.Size = new System.Drawing.Size(350, 150);
+			this.lbl_codes.TabIndex = 239;
+			// 
 			// FormPartie
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1059, 691);
+			this.Controls.Add(this.lbl_codes);
 			this.Controls.Add(this.label6);
 			this.Controls.Add(this.label7);
 			this.Controls.Add(this.label8);
@@ -1426,7 +1432,7 @@
 			this.Controls.Add(this.label20);
 			this.Controls.Add(this.lst_historique);
 			this.Controls.Add(this.label19);
-			this.Controls.Add(this.label18);
+			this.Controls.Add(this.lbl_infos);
 			this.Controls.Add(this.label17);
 			this.Controls.Add(this.label33);
 			this.Controls.Add(this.label34);
@@ -1690,7 +1696,7 @@
 		private System.Windows.Forms.Label label39;
 		private System.Windows.Forms.Label label40;
 		private System.Windows.Forms.Label label17;
-		private System.Windows.Forms.Label label18;
+		private System.Windows.Forms.Label lbl_infos;
 		private System.Windows.Forms.Label label19;
 		private System.Windows.Forms.ListBox lst_historique;
 		private System.Windows.Forms.ListBox listBox1;
@@ -1703,5 +1709,6 @@
 		private System.Windows.Forms.Label label11;
 		private System.Windows.Forms.Label label12;
 		private System.Windows.Forms.Label label13;
+		private System.Windows.Forms.Label lbl_codes;
 	}
 }

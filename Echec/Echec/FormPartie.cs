@@ -29,9 +29,62 @@ namespace Echec
 		}
 
 		//Afficher le statut de la partie à l'utilisateur
-		private void afficherStatut()
+		public void afficherStatut(int code)
 		{
-			
+			string message = "";
+			Color couleur = Color.Black;
+
+			switch (code)
+			{
+				case 0:
+					message = "Coup valide."; 
+					couleur = Color.Green;
+					break;
+				case 1:
+					message = "Coup invalide. \n Il n'y a pas de pièce à jouer sur cette case.";
+					couleur = Color.Red;
+					break;
+				case 2:
+					message = "Coup invalide. \n La pièce à jouer n'est pas une pièce du joueur auquel c'est le tour.";
+					couleur = Color.Red;
+					break;
+				case 3:
+					message = "Coup invalide. \n La case de départ et la case d'arrivée sont la même case.";
+					couleur = Color.Red;
+					break;
+				case 4:
+					message = "Coup invalide. \n Il y a une pièce alliée sur la case visée";
+					couleur = Color.Red;
+					break;
+				case 5:
+					message = "Coup invalide. \n La pièce ne peut pas se déplacer de cette façon";
+					couleur = Color.Red;
+					break;
+				case 6:
+					message = "Coup invalide. \n Une pièce est dans le chemin et empêche le déplacement";
+					couleur = Color.Red;
+					break;
+				case 7:
+					message = "Coup invalide. \n Le joueur se met lui-même en échec avec ce coup";
+					couleur = Color.Red;
+					break;
+				case 8:
+					message = m_partie.JoueurTour.NomJoueur + " est en Échec";
+					couleur = Color.HotPink;
+					break;
+				case 9:
+					message = m_partie.JoueurTour.NomJoueur + " peut upgrader son pion";
+					couleur = Color.Orange;
+					break;
+			}
+
+			lbl_codes.Text = message;
+			lbl_codes.ForeColor = couleur;
+		}
+
+		public void afficherTour(string p_joueur)
+		{
+			lbl_infos.Text = "C'est au tour de : " + p_joueur + ".";
 		}
 
 
@@ -42,10 +95,12 @@ namespace Echec
 		}
 
 		//Afficher l'historique des coups
-		public void afficherDeplacement(int[] p_posPiece, int[] p_posCase)
+		public void afficherDeplacement(int[] p_posPiece, int[] p_posCase, string p_joueurNom)
 		{
+			string joueur = "";
 			string count = (lst_historique.Items.Count + 1).ToString(); //Compte des données dans l'historique
-			string ajout = count + ": " + conversionCoordonnes(p_posPiece, p_posCase); //String à ajouter au listbox
+			string ajout = count + ": " + p_joueurNom + " " + conversionCoordonnes(p_posPiece, p_posCase); //String à ajouter au listbox
+
 			lst_historique.Items.Add(ajout);
 		}
 
@@ -54,14 +109,59 @@ namespace Echec
 		{
 			string[] coordsInitial = new string[2]; //Conversion des coordonnées initiales en coordonnées cadrillé
 			string[] coordsFinale = new string[2]; //Conversion des coordonnées finales en coordonnées cadrillé
+			string resultat = ""; //Le résultat de la conversion
 
 			//Conversion des coordonnées int en str
-			coordsInitial[0] = p_posPiece[0].ToString();
-			coordsInitial[1] = p_posPiece[1].ToString();
-			coordsFinale[0] = p_posCase[0].ToString();
-			coordsFinale[1] = p_posCase[1].ToString();
+			coordsInitial[0] = conversionUneCoordonne(p_posPiece[0]);
+			coordsInitial[1] = (p_posPiece[1] + 1).ToString();
+			coordsFinale[0] = conversionUneCoordonne(p_posCase[0]);
+			coordsFinale[1] = (p_posCase[1] + 1).ToString();
 
-			return "";
+			resultat = coordsInitial[0] + coordsInitial[1] + " -> " + coordsFinale[0] + coordsFinale[1];
+
+			return resultat;
+		}
+
+		private string conversionUneCoordonne(int coord)
+		{
+			string result = "";
+
+			switch (coord)
+			{
+				case 0:
+					result = "a";
+					break;
+
+				case 1:
+					result = "b";
+					break;
+
+				case 2:
+					result = "c";
+					break;
+
+				case 3:
+					result = "d";
+					break;
+
+				case 4:
+					result = "e";
+					break;
+
+				case 5:
+					result = "f";
+					break;
+
+				case 6:
+					result = "g";
+					break;
+
+				case 7:
+					result = "h";
+					break;
+			}
+
+			return result;
 		}
 
 		//On click sur une des cases
