@@ -46,6 +46,11 @@ namespace Echec
 			get{ return m_collision;}
 		}
 
+		public bool aBougee
+		{
+			get { return false; }
+		}
+
 		//Accesseur de la donnée membre Couleur
 		public bool Couleur
 		{
