@@ -84,16 +84,18 @@ namespace Echec
 
         public int validerCoup(int[] p_posPiece, int[] p_posCase, bool p_tour) //Valider si le coup est légal et sinon renvoyer un code d'erreur
         {
-            int x = p_posPiece[0]; //x de la pièce
-            int y = p_posPiece[1]; //y de la pièce
+            int xPiece = p_posPiece[0]; //x de la pièce
+            int yPiece = p_posPiece[1]; //y de la pièce
+            int xCase = p_posCase[0]; //x de la case
+            int yCase = p_posCase[1]; //y de la case
 
             //Cas erreur 1: Il n'y a pas de pièce à jouer sur cette case 
-            if (m_echiquier[x, y] == null)
+            if (m_echiquier[xPiece, yPiece] == null)
             {
                 return 1;
             }
 
-            bool couleurPiece = m_echiquier[x, y].Couleur; //Couleur de la pièce
+            bool couleurPiece = m_echiquier[xPiece, yPiece].Couleur; //Couleur de la pièce
            
             //Cas erreur 2: La pièce à jouer n'est pas une pièce du joueur auquel c'est le tour
             if (!verifierTour(couleurPiece, p_tour))
@@ -102,74 +104,51 @@ namespace Echec
             }
 
             //Cas erreur 3: La case de départ et la case d'arrivée sont la même case
-            if ((p_posPiece[0] == p_posCase[0]) && (p_posPiece[1] == p_posCase[1]))
+            if ((xPiece == xCase) && (yPiece == yCase))
             {
                 return 3;
             }
 
-            int etatCase = caseEtat(p_posCase, couleurPiece); //État de la case
-
             //Cas erreur 4: Il y a une pièce alliée sur la case visée
-            if (etatCase == 1)
+            if (m_echiquier[xCase, yCase].Couleur == couleurPiece)
             {
                 return 4;
             }
 
-            //VÉRIFIER ROQUE (si roque sauter le cas 5, permettre)
-
-            //Cas erreur 5: La pièce ne peut pas se déplacer de cette façon
-            if (!m_echiquier[x, y].validerDeplacement(p_posPiece, p_posCase, (etatCase == 0)))
+            if (!verifierRoque(p_posPiece, p_posCase)) //Vérifier si le joueur a voulu faire un roque et si ce roque est possible
             {
-                return 5;
-            }
-
-            //Cas erreur 6: Une pièce est dans le chemin et empêche le déplacement
-            if (m_echiquier[x, y].Collision) //Si la pièce n'a pas la permission de passer par dessus d'autres pièces
-            {
-                if (collision(p_posPiece, p_posCase))
+                //Cas erreur 5: La pièce ne peut pas se déplacer de cette façon
+                if (!m_echiquier[xPiece, yPiece].validerDeplacement(p_posPiece, p_posCase, m_echiquier[xCase, yCase] == null))
                 {
-                    return 6;
+                    return 5;
                 }
-            }
 
-            //Cas erreur 7: Le joueur se met lui-même en échec avec ce coup
-            if (miseEnEchec(p_posPiece, p_posCase, couleurPiece)) 
-            {
-                return 7; //Le joueur se met lui-même en échec avec ce coup
+                //Cas erreur 6: Une pièce est dans le chemin et empêche le déplacement
+                if (m_echiquier[xPiece, yPiece].Collision) //Si la pièce n'a pas la permission de passer par dessus d'autres pièces
+                {
+                    if (collision(p_posPiece, p_posCase))
+                    {
+                        return 6;
+                    }
+                }
+
+                //Cas erreur 7: Le joueur se met lui-même en échec avec ce coup
+                if (miseEnEchec(p_posPiece, p_posCase, couleurPiece))
+                {
+                    return 7;
+                }
             }
 
             return 0; //Le coup est accepté
         }
 
-        private bool verifierTour(bool p_couleurPiece, bool p_tour) //Vérifier si la pièce jouée est celle du joueur auquel c'est le tour
+        private bool verifierTour(bool p_couleur, bool p_tour) //Vérifier si la pièce jouée est celle du joueur auquel c'est le tour
         {
-            if (p_couleurPiece == p_tour)
+            if (p_couleur == p_tour)
             {
                 return true;
             }
             return false;
-        }
-
-        private int caseEtat(int[] p_posCase, bool p_couleur) //Vérifier si la case est vide ou occupée par une pièce ennemie ou alliée
-        {
-            int x = p_posCase[0]; //x de la case
-            int y = p_posCase[1]; //y de la case
-            int code; //Code de renvoi
-
-            if (m_echiquier[x, y] == null)
-            {
-                code = 0; //Case vide
-            }
-            else if (m_echiquier[x, y].Couleur == p_couleur)
-            {
-                code = 1; //Case occupée par un allié
-            }
-            else
-            {
-                code = 2; //Case occupée par un ennemi
-            }
-
-            return code;
         }
 
         private bool collision(int[] p_posPiece, int[] p_posCase) //Vérifier s'il y a une collision lors du déplacement
@@ -177,7 +156,7 @@ namespace Echec
             int x = p_posPiece[0]; //x de la pièce
             int y = p_posPiece[1]; //y de la pièce
 
-            //Stocker la liste des cases par laquelle la pièce devra se déplacer
+            //Stocker les cases par lesquelles la pièce devra se déplacer
             List<int[]> route = m_echiquier[x, y].routeDeplacement(p_posPiece, p_posCase);
 
             int xTest; //x à tester
@@ -198,20 +177,30 @@ namespace Echec
 
         public void deplacerPiece(int[] p_posPiece, int[] p_posCase) //Déplacer la pièce sur l'échiquier
         {
-            ajouterHistorique(); //Ajouter l'échiquier à l'historique avant de le changer
+            if (verifierRoque(p_posPiece, p_posCase)) //Si le joueur a voulu faire un roque
+            {
+                effectuerDeplacement(p_posPiece, p_posCase);
+            }
+            else //Sinon faire un déplacement normal
+            {
+                effectuerRoque(p_posPiece, p_posCase);
+            }
+        }
 
-            //VÉRIFIER ROQUE (si roque sauter le reste, effectuer le roque)
-
+        private void effectuerDeplacement(int[] p_posPiece, int[] p_posCase)
+        {
             int xPiece = p_posPiece[0]; //x de la pièce
             int yPiece = p_posPiece[1]; //y de la pièce
             int xCase = p_posCase[0]; //x de la case
             int yCase = p_posCase[1]; //y de la case
 
+            ajouterHistorique(); //Ajouter l'échiquier à l'historique avant de le changer
+
             m_echiquier[xCase, yCase] = m_echiquier[xPiece, yPiece];
             m_echiquier[xPiece, yPiece] = null;
         }
 
-        public bool echec(bool p_joueur) //Vérifier si le joueur passé en paramètre (sa couleur) est en état d'échec
+        public bool echec(bool p_couleur) //Vérifier si le joueur passé en paramètre est en état d'échec
         {
             int[] posRoi = new int[2]; //La case du roi du joueur
 
@@ -219,7 +208,7 @@ namespace Echec
             {
                 for (int y = 0; y < 8; y++)
                 {
-                    if ((m_echiquier[x, y] is Roi) && (m_echiquier[x, y].Couleur == p_joueur)) //Si c'est un roi de la même couleur
+                    if ((m_echiquier[x, y] is Roi) && (m_echiquier[x, y].Couleur == p_couleur)) //Si c'est un roi de la même couleur
                     {
                         posRoi[0] = x;
                         posRoi[1] = y;
@@ -235,7 +224,7 @@ namespace Echec
                 {
                     posDepart[0] = x;
                     posDepart[1] = y;
-                    if (validerCoup(posDepart, posRoi, !p_joueur) == 0)
+                    if (validerCoup(posDepart, posRoi, !p_couleur) == 0) //Jouer les coups comme si c'est le tour du joueur opposé
                     {
                         return true;
                     }
@@ -245,7 +234,7 @@ namespace Echec
             return false;
         }
 
-        public bool echecEtMat(bool p_joueur) //Vérifier si le joueur passé en paramètre (sa couleur) est en état d'échec et mat
+        public bool echecMat(bool p_couleur) //Vérifier si le joueur passé en paramètre est en état d'échec et mat
         {
             return false;
         }
@@ -255,62 +244,178 @@ namespace Echec
             return false;
         }
 
-        private bool miseEnEchec(int[] p_posPiece, int[] p_posCase, bool p_joueur) //Vérifier si le joueur se met en échec avec le déplacement voulu
+        private bool miseEnEchec(int[] p_posPiece, int[] p_posCase, bool p_couleur) //Vérifier si le joueur se met en échec avec le déplacement voulu
         {
             bool miseEnEchec; //Si le joueur se met en échec
-            int xCase = p_posCase[0]; //x de la case
-            int yCase = p_posCase[1]; //y de la case
+        
+            effectuerDeplacement(p_posPiece, p_posCase); //Déplacer la pièce temporairement pour le test
 
-            deplacerPiece(p_posPiece, p_posCase); //Déplacer la pièce temporairement pour le test
-
-            miseEnEchec = echec(p_joueur); //Tester la mise en échec
+            miseEnEchec = echec(p_couleur); //Tester la mise en échec
 
             retourHistoriquePrec(); //Récupérer l'historique précédent pour remettre les pièces à leur place
 
             return miseEnEchec;
         }
 
-        public bool verifierPromo(int[] p_posPiece, int[] p_posCase, bool p_joueur) //Vérifier si un pion du joueur atteint le fond de l'échiquier
+        public bool verifierPromo(int[] p_posCase) //Vérifier si un pion du joueur a atteint le fond de l'échiquier
         {
-            bool promo = false; //Présence de promo de pion
-            int xPiece = p_posPiece[0]; //x de la pièce
-            int yPiece = p_posPiece[1]; //y de la pièce
-            int yCase = p_posCase[1]; //y de la case
+            int x = p_posCase[0]; //x de la case
+            int y = p_posCase[1]; //y de la case
+            bool couleurPiece = m_echiquier[x, y].Couleur; //Couleur de la pièce
 
-            if (m_echiquier[xPiece, yPiece] is Pion) //Vérifier si la pièce est un pion
+            if (m_echiquier[x, y] is Pion) //Vérifier si la pièce est un pion
             {
-                if (p_joueur) //Si joueur blanc, le fond est la rangée 0
+                if (couleurPiece) //Si joueur blanc, le fond est la rangée 0
                 {
-                    if (yCase == 0)
+                    if (y == 0)
                     {
-                        promo = true;
+                        return true;
                     }
                 }
                 else //Si joueur noir, le fond est la rangée 7
                 {
-                    if (yCase == 7)
+                    if (y == 7)
                     {
-                        promo = true;
+                        return true;
                     }
                 }
             }
 
-            return promo;
+            return false;
         }
 
         public void promouvoirPion(int[] p_posCase, string p_pieceChoisie) //Changer le pion pour une pièce choisie
         {
+            int x = p_posCase[0]; //x de la pièce
+            int y = p_posCase[1]; //y de la pièce
+            bool couleurPiece = m_echiquier[x, y].Couleur; //Couleur de la pièce
+
             ajouterHistorique(); //Ajouter l'échiquier à l'historique avant de le changer
+
+            switch (p_pieceChoisie) //Changer selon la pièce désirée
+            {
+                case "Reine":
+                    m_echiquier[x, y] = new Reine(couleurPiece, "Reine", true);
+                    break;
+                case "Tour":
+                    m_echiquier[x, y] = new Tour(couleurPiece, "Tour", true, true);
+                    break;
+                case "Cavalier":
+                    m_echiquier[x, y] = new Fou(couleurPiece, "Fou", true);
+                    break;
+                case "Fou":
+                    m_echiquier[x, y] = new Cavalier(couleurPiece, "Cavalier", false);
+                    break;
+            }
         }
 
-        private bool verifierRoque(int[] p_posPiece, int[] p_posCase) //Vérifier si le joueur a voulu faire un roque
+        private bool verifierRoque(int[] p_posPiece, int[] p_posCase) //Vérifier si le joueur a voulu faire un roque et si ce roque est possible
         {
+            int xPiece = p_posPiece[0]; //x de la pièce
+            int yPiece = p_posPiece[1]; //y de la pièce
+            int xCase = p_posCase[0]; //x de la case
+            int yCase = p_posCase[1]; //y de la case
+            bool couleur = m_echiquier[xPiece, yPiece].Couleur; //Couleur de la pièce
+            List<int> xCasesEntre = new List<int>(); //Liste des coordonnées en x entre le roi et la tour
+
+            //La pièce est son roi et n'a jamais bougé du jeu
+            if (m_echiquier[xPiece, yPiece] is Roi) //&& !m_echiquier[xPiece, yPiece].aBouge
+            {
+                Piece tour; //La tour visée par le roque
+
+                if (xCase > xPiece) //Viser la tour supérieure
+                {
+                    tour = m_echiquier[xCase + 1, yCase];
+
+                    //La tour vers laquelle s'est déplacée le roi est bien une tour de sa couleur qui n'a jamais bougée
+                    if ((tour is Tour) && (tour.Couleur == couleur)) //&& !tour.aBouge
+                    { 
+                        xCasesEntre.Add(xCase + 1);
+                        xCasesEntre.Add(xCase + 2);
+                    }
+                }
+                else if (xCase < xPiece) //Viser la tour inférieure
+                {
+                    tour = m_echiquier[xCase - 2, yCase];
+
+                    //La tour vers laquelle s'est déplacée le roi est bien une tour de sa couleur qui n'a jamais bougée
+                    if ((tour is Tour) && (tour.Couleur == couleur)) //&& !tour.aBouge
+                    {
+                        xCasesEntre.Add(xCase - 1);
+                        xCasesEntre.Add(xCase - 2);
+                        xCasesEntre.Add(xCase - 3);
+                    }
+                }
+
+                //Vérifier que le roque désiré est bien légal avec les pièces désirées
+                if (xCasesEntre.Count > 0)
+                {
+                    return verifierRoqueLegal(xCasesEntre, p_posPiece, couleur);
+                }
+            }
+
             return false;
+        }
+
+        private bool verifierRoqueLegal(List<int> p_xCasesEntre, int[] p_posPiece, bool p_couleur)
+        {
+            int xPiece = p_posPiece[0]; //x de la pièce
+            int yPiece = p_posPiece[1]; //y de la pièce
+
+            if (!echec(p_couleur)) //Ne pas accepter le roque si le roi est présentement en échec
+            {
+                for (int i = 0; i < p_xCasesEntre.Count; i++) //Vérifier si chaque case est vide
+                {
+                    if (m_echiquier[p_xCasesEntre[i], yPiece] != null) //La case n'est pas vide
+                    {
+                        return false;
+                    }
+                }
+
+                int[] posTest = new int[2]; //La case à tester
+                posTest[1] = yPiece;
+
+                for (int i = 0; i < 2; i++) //Vérifier si les cases par lesquelles passe le roi sont menacées d'un échec
+                {
+                    posTest[0] = p_xCasesEntre[i];
+
+                    if (miseEnEchec(p_posPiece, posTest, p_couleur)) //Cette case est menacée d'un échec
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
         }
 
         private void effectuerRoque(int[] p_posPiece, int[] p_posCase) //Effectuer un roque
         {
+            int xPiece = p_posPiece[0]; //x de la pièce
+            int yPiece = p_posPiece[1]; //y de la pièce
+            int xCase = p_posCase[0]; //x de la case
+            int yCase = p_posCase[1]; //y de la case
 
+            effectuerDeplacement(p_posPiece, p_posCase); //Déplacer le roi vers sa case
+
+            int[] tour = new int[2]; //La tour visée par le roque
+            int[] tourCase = new int[2]; //La case visée par la tour
+
+            tour[1] = yCase;
+            tourCase[1] = yCase;
+
+            if (xCase > xPiece) //Viser la tour supérieure
+            {
+                tour[0] = xCase + 1;
+                tourCase[0] = xCase - 1;
+            }
+            else if (xCase < xPiece) //Viser la tour inférieure
+            {
+                tour[0] = xCase - 2;
+                tourCase[0] = xCase + 1;
+            }
+
+            effectuerDeplacement(tour, tourCase); //Déplacer la tour également
         }
     }
 }
