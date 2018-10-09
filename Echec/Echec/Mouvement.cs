@@ -16,7 +16,7 @@ namespace Echec
 		}
 
 		//Accesseur de la donnée membre aBougee
-		public bool aBougee
+		public override bool aBougee
 		{
 			get { return m_aBougee; }
 		}

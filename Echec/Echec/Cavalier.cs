@@ -103,5 +103,10 @@ namespace Echec
 			position[1] = y;
 			liste.Add(position);
 		}
+
+		public virtual bool aBougee
+		{
+			get { return false; }
+		}
 	}
 }

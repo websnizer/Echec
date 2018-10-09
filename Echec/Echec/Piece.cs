@@ -46,7 +46,7 @@ namespace Echec
 			get{ return m_collision;}
 		}
 
-		public bool aBougee
+		public virtual bool aBougee
 		{
 			get { return false; }
 		}

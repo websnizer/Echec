@@ -34,15 +34,21 @@ namespace Echec
 
 			test = m_plateau.validerCoup(p_posPiece, p_posCase, m_tour);
 
+			//m_interface.message( "Echec ? " + m_plateau.echec(!m_tour).ToString() );
 
-            m_interface.message( "Echec ? " + m_plateau.echec(!m_tour).ToString() );
-
-
-            m_interface.message(test.ToString());
+			//m_interface.message(test.ToString());
 			if (test == 0)
+			{
+				m_interface.afficherDeplacement(p_posPiece, p_posCase);
+				m_interface.effacerPiece();
+				m_interface.afficherPiece(m_plateau.ToString());
 				m_tour = !m_tour;
+			}
+			else
+			{
 
-			m_interface.afficherPiece(m_plateau.ToString());
+			}
+
 
 		}
 
