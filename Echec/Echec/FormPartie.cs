@@ -128,35 +128,35 @@ namespace Echec
 
 			switch (coord)
 			{
-				case 0:
+				case 7:
 					result = "a";
 					break;
 
-				case 1:
+				case 6:
 					result = "b";
 					break;
 
-				case 2:
+				case 5:
 					result = "c";
 					break;
 
-				case 3:
+				case 4:
 					result = "d";
 					break;
 
-				case 4:
+				case 3:
 					result = "e";
 					break;
 
-				case 5:
+				case 2:
 					result = "f";
 					break;
 
-				case 6:
+				case 1:
 					result = "g";
 					break;
 
-				case 7:
+				case 0:
 					result = "h";
 					break;
 			}
