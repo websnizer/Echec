@@ -22,9 +22,9 @@ namespace Echec
 
 		private void btn_Partie_Click(object sender, EventArgs e)
 		{
-            //Partie laPartie = new Partie();
-			FormPartie m_form = new FormPartie();
-			m_form.Show();
+			Joueur joueurBlanc = new Joueur("Bob", 0, 0, 0);
+			Joueur joueurNoir = new Joueur("Sanic", 0, 0, 0);
+			Partie laPartie = new Partie(joueurBlanc, joueurNoir);
 		}
 
 		private void jouer()

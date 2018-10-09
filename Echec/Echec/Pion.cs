@@ -10,6 +10,7 @@ namespace Echec
     {
 		public Pion(bool p_couleur, string p_nom, bool p_collision, bool p_aBougee) : base(p_couleur, p_nom, p_collision, p_aBougee)
 		{
+			m_collision = false;
 		}
 
 		//Vérifier si le déplacement fait partie de ses mouvements.

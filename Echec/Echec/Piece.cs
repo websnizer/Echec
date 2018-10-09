@@ -35,6 +35,11 @@ namespace Echec
 			return null;
 		}
 
+		public override string ToString()
+		{
+			return (m_couleur) ? m_nom.ToLower() : m_nom.ToUpper();
+		}
+
 		//Accesseur de la donnée membre collision
 		public bool Collision
 		{
