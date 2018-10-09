@@ -112,51 +112,93 @@ namespace Echec
 			string resultat = ""; //Le résultat de la conversion
 
 			//Conversion des coordonnées int en str
-			coordsInitial[0] = conversionUneCoordonne(p_posPiece[0]);
-			coordsInitial[1] = (p_posPiece[1] + 1).ToString();
-			coordsFinale[0] = conversionUneCoordonne(p_posCase[0]);
-			coordsFinale[1] = (p_posCase[1] + 1).ToString();
+			coordsInitial[0] = conversionUneCoordonneX(p_posPiece[0]);
+			coordsInitial[1] = conversionUneCoordonneY(p_posPiece[1]);
+			coordsFinale[0] = conversionUneCoordonneX(p_posCase[0]);
+			coordsFinale[1] = conversionUneCoordonneY(p_posCase[1]);
 
 			resultat = coordsInitial[0] + coordsInitial[1] + " -> " + coordsFinale[0] + coordsFinale[1];
 
 			return resultat;
 		}
 
-		private string conversionUneCoordonne(int coord)
+		private string conversionUneCoordonneY(int coord)
 		{
 			string result = "";
 
 			switch (coord)
 			{
-				case 7:
-					result = "a";
-					break;
-
-				case 6:
-					result = "b";
-					break;
-
-				case 5:
-					result = "c";
-					break;
-
-				case 4:
-					result = "d";
-					break;
-
-				case 3:
-					result = "e";
-					break;
-
-				case 2:
-					result = "f";
+				case 0:
+					result = "8";
 					break;
 
 				case 1:
+					result = "7";
+					break;
+
+				case 2:
+					result = "6";
+					break;
+
+				case 3:
+					result = "5";
+					break;
+
+				case 4:
+					result = "4";
+					break;
+
+				case 5:
+					result = "3";
+					break;
+
+				case 6:
+					result = "2";
+					break;
+
+				case 7:
+					result = "1";
+					break;
+			}
+
+			return result;
+		}
+
+		private string conversionUneCoordonneX(int coord)
+		{
+			string result = "";
+
+			switch (coord)
+			{
+				case 0:
+					result = "a";
+					break;
+
+				case 1:
+					result = "b";
+					break;
+
+				case 2:
+					result = "c";
+					break;
+
+				case 3:
+					result = "d";
+					break;
+
+				case 4:
+					result = "e";
+					break;
+
+				case 5:
+					result = "f";
+					break;
+
+				case 6:
 					result = "g";
 					break;
 
-				case 0:
+				case 7:
 					result = "h";
 					break;
 			}
