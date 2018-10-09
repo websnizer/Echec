@@ -20,7 +20,7 @@ namespace Echec
 		{
 			m_interface = new FormPartie(this);
 			m_interface.Show();
-			m_tour = false;
+			m_tour = true;
 
 			m_joueurBlanc = p_joueur1;
 			m_joueurNoir = p_joueur2;

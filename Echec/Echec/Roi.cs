@@ -28,8 +28,8 @@ namespace Echec
 			if (m_couleur)
 			{
 				//Roque
-				// O X O R O O X O
-				if (!(m_aBougee) && (p_posPiece[0] == 3 && p_posPiece[1] == 7) && (p_posCase[1] == p_posPiece[1]) && ((p_posCase[0] == p_posPiece[0] - 2) || (p_posCase[0] == p_posPiece[0] + 3)))
+				// O X O O R O X O
+				if (!(m_aBougee) && (p_posPiece[0] == 4 && p_posPiece[1] == 7) && (p_posCase[1] == p_posPiece[1]) && ((p_posCase[0] == p_posPiece[0] - 2) || (p_posCase[0] == p_posPiece[0] + 3)))
 					return true;
 			}
 			else

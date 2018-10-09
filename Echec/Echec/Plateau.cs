@@ -58,17 +58,19 @@ namespace Echec
 			m_echiquier[5, 0] = new Fou(false, "Fou", true); //Noir, nom, possibilité de collisions
 			m_echiquier[6, 0] = new Cavalier(false, "Cavalier", false); //Noir, nom, pas de possibilité de collisions
 			m_echiquier[7, 0] = new Tour(false, "Tour", true, false); //Noir, nom, possibilité de collisions, n'a pas bougé
-																	  //Placer les pions noirs
+						
+			//Placer les pions noirs
 			for (int x = 0; x < 8; x++)
 			{
 				m_echiquier[x, 1] = new Pion(false, "Pion", true, false); //Noir, nom, possibilité de collisions, n'a pas bougé
 			}
+
 			//Placer les pions blancs
 			for (int x = 0; x < 8; x++)
 			{
 				m_echiquier[x, 6] = new Pion(true, "Pion", true, false); //Blanc, nom, possibilité de collisions, n'a pas bougé
 			}
-			//Placer les pièces noires
+			//Placer les pièces blanches
 			m_echiquier[0, 7] = new Tour(true, "Tour", true, false); //Blanc, nom, possibilité de collisions, n'a pas bougé
 			m_echiquier[1, 7] = new Cavalier(true, "Cavalier", false); //Blanc, nom, pas de possibilité de collisions
 			m_echiquier[2, 7] = new Fou(true, "Fou", true); //Blanc, nom, possibilité de collisions
