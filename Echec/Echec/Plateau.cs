@@ -285,7 +285,7 @@ namespace Echec
 			return pieces;
 		}
 
-		public bool echecMat(bool p_couleur) //Vérifier si le joueur passé en paramètre est en état d'échec et mat
+		public bool deplacementsImpossibles(bool p_couleur) //Vérifier si le joueur passé en paramètre est en état d'échec et mat
 		{
 			List<int[]> pieces = emplacementsPieces(p_couleur); //Les pièces de la couleur
 			int[] posCase = new int[2]; //Les coordonnées des cases
@@ -297,9 +297,9 @@ namespace Echec
 					posCase[0] = x;
 					posCase[1] = y;
 
-					for (int i = 0; i < pieces.Count; i++) //Pour chaque pièce, regarder si un déplacement (du roi?) est possible
+					for (int i = 0; i < pieces.Count; i++) //Pour chaque pièce, regarder si un déplacement est possible
 					{
-						if (validerCoup(pieces[i], posCase, p_couleur) == 0) //Si au moins un déplacement est possible sans échec, ce n'est pas mat
+						if (validerCoup(pieces[i], posCase, p_couleur) == 0) //Si au moins un déplacement est possible sans échec, ce n'est pas mat ou pat
 						{
 							return false;
 						}
@@ -307,7 +307,7 @@ namespace Echec
 				}
 			}
 
-			return true; //Si tous les déplacements de pièces sont impossibles, c'est mat
+			return true; //Si tous les déplacements de pièces sont impossibles, c'est mat ou pat
 		}
 
         private bool memePlateau(Piece[,] p_plateau) //Regarder si la config de plateau est la même que l'échiquier
