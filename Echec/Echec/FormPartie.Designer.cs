@@ -28,6 +28,45 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.label1 = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
+			this.label3 = new System.Windows.Forms.Label();
+			this.label4 = new System.Windows.Forms.Label();
+			this.label5 = new System.Windows.Forms.Label();
+			this.label14 = new System.Windows.Forms.Label();
+			this.label15 = new System.Windows.Forms.Label();
+			this.label16 = new System.Windows.Forms.Label();
+			this.label25 = new System.Windows.Forms.Label();
+			this.label26 = new System.Windows.Forms.Label();
+			this.label27 = new System.Windows.Forms.Label();
+			this.label28 = new System.Windows.Forms.Label();
+			this.label29 = new System.Windows.Forms.Label();
+			this.label30 = new System.Windows.Forms.Label();
+			this.label31 = new System.Windows.Forms.Label();
+			this.label32 = new System.Windows.Forms.Label();
+			this.label33 = new System.Windows.Forms.Label();
+			this.label34 = new System.Windows.Forms.Label();
+			this.label35 = new System.Windows.Forms.Label();
+			this.label36 = new System.Windows.Forms.Label();
+			this.label37 = new System.Windows.Forms.Label();
+			this.label38 = new System.Windows.Forms.Label();
+			this.label39 = new System.Windows.Forms.Label();
+			this.label40 = new System.Windows.Forms.Label();
+			this.label17 = new System.Windows.Forms.Label();
+			this.lbl_infos = new System.Windows.Forms.Label();
+			this.label19 = new System.Windows.Forms.Label();
+			this.lst_historique = new System.Windows.Forms.ListBox();
+			this.listBox1 = new System.Windows.Forms.ListBox();
+			this.label20 = new System.Windows.Forms.Label();
+			this.label6 = new System.Windows.Forms.Label();
+			this.label7 = new System.Windows.Forms.Label();
+			this.label8 = new System.Windows.Forms.Label();
+			this.label9 = new System.Windows.Forms.Label();
+			this.label10 = new System.Windows.Forms.Label();
+			this.label11 = new System.Windows.Forms.Label();
+			this.label12 = new System.Windows.Forms.Label();
+			this.label13 = new System.Windows.Forms.Label();
+			this.lbl_codes = new System.Windows.Forms.Label();
 			this.pictureBox46 = new System.Windows.Forms.PictureBox();
 			this.pictureBox47 = new System.Windows.Forms.PictureBox();
 			this.pictureBox48 = new System.Windows.Forms.PictureBox();
@@ -95,45 +134,6 @@
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.pictureBox66 = new System.Windows.Forms.PictureBox();
 			this.pictureBox67 = new System.Windows.Forms.PictureBox();
-			this.label1 = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
-			this.label3 = new System.Windows.Forms.Label();
-			this.label4 = new System.Windows.Forms.Label();
-			this.label5 = new System.Windows.Forms.Label();
-			this.label14 = new System.Windows.Forms.Label();
-			this.label15 = new System.Windows.Forms.Label();
-			this.label16 = new System.Windows.Forms.Label();
-			this.label25 = new System.Windows.Forms.Label();
-			this.label26 = new System.Windows.Forms.Label();
-			this.label27 = new System.Windows.Forms.Label();
-			this.label28 = new System.Windows.Forms.Label();
-			this.label29 = new System.Windows.Forms.Label();
-			this.label30 = new System.Windows.Forms.Label();
-			this.label31 = new System.Windows.Forms.Label();
-			this.label32 = new System.Windows.Forms.Label();
-			this.label33 = new System.Windows.Forms.Label();
-			this.label34 = new System.Windows.Forms.Label();
-			this.label35 = new System.Windows.Forms.Label();
-			this.label36 = new System.Windows.Forms.Label();
-			this.label37 = new System.Windows.Forms.Label();
-			this.label38 = new System.Windows.Forms.Label();
-			this.label39 = new System.Windows.Forms.Label();
-			this.label40 = new System.Windows.Forms.Label();
-			this.label17 = new System.Windows.Forms.Label();
-			this.lbl_infos = new System.Windows.Forms.Label();
-			this.label19 = new System.Windows.Forms.Label();
-			this.lst_historique = new System.Windows.Forms.ListBox();
-			this.listBox1 = new System.Windows.Forms.ListBox();
-			this.label20 = new System.Windows.Forms.Label();
-			this.label6 = new System.Windows.Forms.Label();
-			this.label7 = new System.Windows.Forms.Label();
-			this.label8 = new System.Windows.Forms.Label();
-			this.label9 = new System.Windows.Forms.Label();
-			this.label10 = new System.Windows.Forms.Label();
-			this.label11 = new System.Windows.Forms.Label();
-			this.label12 = new System.Windows.Forms.Label();
-			this.label13 = new System.Windows.Forms.Label();
-			this.lbl_codes = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox46)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox47)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox48)).BeginInit();
@@ -202,740 +202,6 @@
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox66)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox67)).BeginInit();
 			this.SuspendLayout();
-			// 
-			// pictureBox46
-			// 
-			this.pictureBox46.BackColor = System.Drawing.Color.Black;
-			this.pictureBox46.Location = new System.Drawing.Point(497, 188);
-			this.pictureBox46.Name = "pictureBox46";
-			this.pictureBox46.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox46.TabIndex = 173;
-			this.pictureBox46.TabStop = false;
-			this.pictureBox46.Tag = "6,2";
-			this.pictureBox46.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox47
-			// 
-			this.pictureBox47.BackColor = System.Drawing.Color.Black;
-			this.pictureBox47.Location = new System.Drawing.Point(345, 188);
-			this.pictureBox47.Name = "pictureBox47";
-			this.pictureBox47.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox47.TabIndex = 172;
-			this.pictureBox47.TabStop = false;
-			this.pictureBox47.Tag = "4,2";
-			this.pictureBox47.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox48
-			// 
-			this.pictureBox48.BackColor = System.Drawing.Color.Black;
-			this.pictureBox48.Location = new System.Drawing.Point(193, 188);
-			this.pictureBox48.Name = "pictureBox48";
-			this.pictureBox48.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox48.TabIndex = 171;
-			this.pictureBox48.TabStop = false;
-			this.pictureBox48.Tag = "2,2";
-			this.pictureBox48.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox49
-			// 
-			this.pictureBox49.BackColor = System.Drawing.Color.Black;
-			this.pictureBox49.Location = new System.Drawing.Point(41, 188);
-			this.pictureBox49.Name = "pictureBox49";
-			this.pictureBox49.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox49.TabIndex = 170;
-			this.pictureBox49.TabStop = false;
-			this.pictureBox49.Tag = "0,2";
-			this.pictureBox49.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox50
-			// 
-			this.pictureBox50.BackColor = System.Drawing.Color.White;
-			this.pictureBox50.Location = new System.Drawing.Point(421, 188);
-			this.pictureBox50.Name = "pictureBox50";
-			this.pictureBox50.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox50.TabIndex = 169;
-			this.pictureBox50.TabStop = false;
-			this.pictureBox50.Tag = "5,2";
-			this.pictureBox50.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox51
-			// 
-			this.pictureBox51.BackColor = System.Drawing.Color.White;
-			this.pictureBox51.Location = new System.Drawing.Point(269, 188);
-			this.pictureBox51.Name = "pictureBox51";
-			this.pictureBox51.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox51.TabIndex = 168;
-			this.pictureBox51.TabStop = false;
-			this.pictureBox51.Tag = "3,2";
-			this.pictureBox51.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox52
-			// 
-			this.pictureBox52.BackColor = System.Drawing.Color.White;
-			this.pictureBox52.Location = new System.Drawing.Point(573, 188);
-			this.pictureBox52.Name = "pictureBox52";
-			this.pictureBox52.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox52.TabIndex = 167;
-			this.pictureBox52.TabStop = false;
-			this.pictureBox52.Tag = "7,2";
-			this.pictureBox52.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox53
-			// 
-			this.pictureBox53.BackColor = System.Drawing.Color.White;
-			this.pictureBox53.Location = new System.Drawing.Point(117, 188);
-			this.pictureBox53.Name = "pictureBox53";
-			this.pictureBox53.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox53.TabIndex = 166;
-			this.pictureBox53.TabStop = false;
-			this.pictureBox53.Tag = "1,2";
-			this.pictureBox53.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox54
-			// 
-			this.pictureBox54.BackColor = System.Drawing.Color.Black;
-			this.pictureBox54.Location = new System.Drawing.Point(573, 568);
-			this.pictureBox54.Name = "pictureBox54";
-			this.pictureBox54.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox54.TabIndex = 165;
-			this.pictureBox54.TabStop = false;
-			this.pictureBox54.Tag = "7,7";
-			this.pictureBox54.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox55
-			// 
-			this.pictureBox55.BackColor = System.Drawing.Color.Black;
-			this.pictureBox55.Location = new System.Drawing.Point(421, 568);
-			this.pictureBox55.Name = "pictureBox55";
-			this.pictureBox55.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox55.TabIndex = 164;
-			this.pictureBox55.TabStop = false;
-			this.pictureBox55.Tag = "5,7";
-			this.pictureBox55.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox56
-			// 
-			this.pictureBox56.BackColor = System.Drawing.Color.Black;
-			this.pictureBox56.Location = new System.Drawing.Point(269, 568);
-			this.pictureBox56.Name = "pictureBox56";
-			this.pictureBox56.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox56.TabIndex = 163;
-			this.pictureBox56.TabStop = false;
-			this.pictureBox56.Tag = "3,7";
-			this.pictureBox56.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox57
-			// 
-			this.pictureBox57.BackColor = System.Drawing.Color.Black;
-			this.pictureBox57.Location = new System.Drawing.Point(117, 568);
-			this.pictureBox57.Name = "pictureBox57";
-			this.pictureBox57.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox57.TabIndex = 162;
-			this.pictureBox57.TabStop = false;
-			this.pictureBox57.Tag = "1,7";
-			this.pictureBox57.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox58
-			// 
-			this.pictureBox58.BackColor = System.Drawing.Color.White;
-			this.pictureBox58.Location = new System.Drawing.Point(497, 568);
-			this.pictureBox58.Name = "pictureBox58";
-			this.pictureBox58.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox58.TabIndex = 161;
-			this.pictureBox58.TabStop = false;
-			this.pictureBox58.Tag = "6,7";
-			this.pictureBox58.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox59
-			// 
-			this.pictureBox59.BackColor = System.Drawing.Color.White;
-			this.pictureBox59.Location = new System.Drawing.Point(345, 568);
-			this.pictureBox59.Name = "pictureBox59";
-			this.pictureBox59.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox59.TabIndex = 160;
-			this.pictureBox59.TabStop = false;
-			this.pictureBox59.Tag = "4,7";
-			this.pictureBox59.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox60
-			// 
-			this.pictureBox60.BackColor = System.Drawing.Color.White;
-			this.pictureBox60.Location = new System.Drawing.Point(193, 568);
-			this.pictureBox60.Name = "pictureBox60";
-			this.pictureBox60.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox60.TabIndex = 159;
-			this.pictureBox60.TabStop = false;
-			this.pictureBox60.Tag = "2,7";
-			this.pictureBox60.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox61
-			// 
-			this.pictureBox61.BackColor = System.Drawing.Color.White;
-			this.pictureBox61.Location = new System.Drawing.Point(41, 568);
-			this.pictureBox61.Name = "pictureBox61";
-			this.pictureBox61.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox61.TabIndex = 158;
-			this.pictureBox61.TabStop = false;
-			this.pictureBox61.Tag = "0,7";
-			this.pictureBox61.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox30
-			// 
-			this.pictureBox30.BackColor = System.Drawing.Color.Black;
-			this.pictureBox30.Location = new System.Drawing.Point(497, 492);
-			this.pictureBox30.Name = "pictureBox30";
-			this.pictureBox30.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox30.TabIndex = 157;
-			this.pictureBox30.TabStop = false;
-			this.pictureBox30.Tag = "6,6";
-			this.pictureBox30.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox31
-			// 
-			this.pictureBox31.BackColor = System.Drawing.Color.Black;
-			this.pictureBox31.Location = new System.Drawing.Point(345, 492);
-			this.pictureBox31.Name = "pictureBox31";
-			this.pictureBox31.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox31.TabIndex = 156;
-			this.pictureBox31.TabStop = false;
-			this.pictureBox31.Tag = "4,6";
-			this.pictureBox31.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox32
-			// 
-			this.pictureBox32.BackColor = System.Drawing.Color.Black;
-			this.pictureBox32.Location = new System.Drawing.Point(193, 492);
-			this.pictureBox32.Name = "pictureBox32";
-			this.pictureBox32.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox32.TabIndex = 155;
-			this.pictureBox32.TabStop = false;
-			this.pictureBox32.Tag = "2,6";
-			this.pictureBox32.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox33
-			// 
-			this.pictureBox33.BackColor = System.Drawing.Color.Black;
-			this.pictureBox33.Location = new System.Drawing.Point(41, 492);
-			this.pictureBox33.Name = "pictureBox33";
-			this.pictureBox33.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox33.TabIndex = 154;
-			this.pictureBox33.TabStop = false;
-			this.pictureBox33.Tag = "0,6";
-			this.pictureBox33.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox34
-			// 
-			this.pictureBox34.BackColor = System.Drawing.Color.White;
-			this.pictureBox34.Location = new System.Drawing.Point(421, 492);
-			this.pictureBox34.Name = "pictureBox34";
-			this.pictureBox34.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox34.TabIndex = 153;
-			this.pictureBox34.TabStop = false;
-			this.pictureBox34.Tag = "5,6";
-			this.pictureBox34.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox35
-			// 
-			this.pictureBox35.BackColor = System.Drawing.Color.White;
-			this.pictureBox35.Location = new System.Drawing.Point(269, 492);
-			this.pictureBox35.Name = "pictureBox35";
-			this.pictureBox35.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox35.TabIndex = 152;
-			this.pictureBox35.TabStop = false;
-			this.pictureBox35.Tag = "3,6";
-			this.pictureBox35.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox36
-			// 
-			this.pictureBox36.BackColor = System.Drawing.Color.White;
-			this.pictureBox36.Location = new System.Drawing.Point(573, 492);
-			this.pictureBox36.Name = "pictureBox36";
-			this.pictureBox36.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox36.TabIndex = 151;
-			this.pictureBox36.TabStop = false;
-			this.pictureBox36.Tag = "7,6";
-			this.pictureBox36.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox37
-			// 
-			this.pictureBox37.BackColor = System.Drawing.Color.White;
-			this.pictureBox37.Location = new System.Drawing.Point(117, 492);
-			this.pictureBox37.Name = "pictureBox37";
-			this.pictureBox37.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox37.TabIndex = 150;
-			this.pictureBox37.TabStop = false;
-			this.pictureBox37.Tag = "1,6";
-			this.pictureBox37.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox38
-			// 
-			this.pictureBox38.BackColor = System.Drawing.Color.Black;
-			this.pictureBox38.Location = new System.Drawing.Point(573, 416);
-			this.pictureBox38.Name = "pictureBox38";
-			this.pictureBox38.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox38.TabIndex = 149;
-			this.pictureBox38.TabStop = false;
-			this.pictureBox38.Tag = "7,5";
-			this.pictureBox38.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox39
-			// 
-			this.pictureBox39.BackColor = System.Drawing.Color.Black;
-			this.pictureBox39.Location = new System.Drawing.Point(421, 416);
-			this.pictureBox39.Name = "pictureBox39";
-			this.pictureBox39.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox39.TabIndex = 148;
-			this.pictureBox39.TabStop = false;
-			this.pictureBox39.Tag = "5,5";
-			this.pictureBox39.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox40
-			// 
-			this.pictureBox40.BackColor = System.Drawing.Color.Black;
-			this.pictureBox40.Location = new System.Drawing.Point(269, 416);
-			this.pictureBox40.Name = "pictureBox40";
-			this.pictureBox40.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox40.TabIndex = 147;
-			this.pictureBox40.TabStop = false;
-			this.pictureBox40.Tag = "3,5";
-			this.pictureBox40.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox41
-			// 
-			this.pictureBox41.BackColor = System.Drawing.Color.Black;
-			this.pictureBox41.Location = new System.Drawing.Point(117, 416);
-			this.pictureBox41.Name = "pictureBox41";
-			this.pictureBox41.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox41.TabIndex = 146;
-			this.pictureBox41.TabStop = false;
-			this.pictureBox41.Tag = "1,5";
-			this.pictureBox41.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox42
-			// 
-			this.pictureBox42.BackColor = System.Drawing.Color.White;
-			this.pictureBox42.Location = new System.Drawing.Point(497, 416);
-			this.pictureBox42.Name = "pictureBox42";
-			this.pictureBox42.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox42.TabIndex = 145;
-			this.pictureBox42.TabStop = false;
-			this.pictureBox42.Tag = "6,5";
-			this.pictureBox42.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox43
-			// 
-			this.pictureBox43.BackColor = System.Drawing.Color.White;
-			this.pictureBox43.Location = new System.Drawing.Point(345, 416);
-			this.pictureBox43.Name = "pictureBox43";
-			this.pictureBox43.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox43.TabIndex = 144;
-			this.pictureBox43.TabStop = false;
-			this.pictureBox43.Tag = "4,5";
-			this.pictureBox43.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox44
-			// 
-			this.pictureBox44.BackColor = System.Drawing.Color.White;
-			this.pictureBox44.Location = new System.Drawing.Point(193, 416);
-			this.pictureBox44.Name = "pictureBox44";
-			this.pictureBox44.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox44.TabIndex = 143;
-			this.pictureBox44.TabStop = false;
-			this.pictureBox44.Tag = "2,5";
-			this.pictureBox44.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox45
-			// 
-			this.pictureBox45.BackColor = System.Drawing.Color.White;
-			this.pictureBox45.Location = new System.Drawing.Point(41, 416);
-			this.pictureBox45.Name = "pictureBox45";
-			this.pictureBox45.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox45.TabIndex = 142;
-			this.pictureBox45.TabStop = false;
-			this.pictureBox45.Tag = "0,5";
-			this.pictureBox45.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox14
-			// 
-			this.pictureBox14.BackColor = System.Drawing.Color.Black;
-			this.pictureBox14.Location = new System.Drawing.Point(497, 340);
-			this.pictureBox14.Name = "pictureBox14";
-			this.pictureBox14.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox14.TabIndex = 141;
-			this.pictureBox14.TabStop = false;
-			this.pictureBox14.Tag = "6,4";
-			this.pictureBox14.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox15
-			// 
-			this.pictureBox15.BackColor = System.Drawing.Color.Black;
-			this.pictureBox15.Location = new System.Drawing.Point(345, 340);
-			this.pictureBox15.Name = "pictureBox15";
-			this.pictureBox15.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox15.TabIndex = 140;
-			this.pictureBox15.TabStop = false;
-			this.pictureBox15.Tag = "4,4";
-			this.pictureBox15.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox16
-			// 
-			this.pictureBox16.BackColor = System.Drawing.Color.Black;
-			this.pictureBox16.Location = new System.Drawing.Point(193, 340);
-			this.pictureBox16.Name = "pictureBox16";
-			this.pictureBox16.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox16.TabIndex = 139;
-			this.pictureBox16.TabStop = false;
-			this.pictureBox16.Tag = "2,4";
-			this.pictureBox16.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox17
-			// 
-			this.pictureBox17.BackColor = System.Drawing.Color.Black;
-			this.pictureBox17.Location = new System.Drawing.Point(41, 340);
-			this.pictureBox17.Name = "pictureBox17";
-			this.pictureBox17.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox17.TabIndex = 138;
-			this.pictureBox17.TabStop = false;
-			this.pictureBox17.Tag = "0,4";
-			this.pictureBox17.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox18
-			// 
-			this.pictureBox18.BackColor = System.Drawing.Color.White;
-			this.pictureBox18.Location = new System.Drawing.Point(421, 340);
-			this.pictureBox18.Name = "pictureBox18";
-			this.pictureBox18.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox18.TabIndex = 137;
-			this.pictureBox18.TabStop = false;
-			this.pictureBox18.Tag = "5,4";
-			this.pictureBox18.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox19
-			// 
-			this.pictureBox19.BackColor = System.Drawing.Color.White;
-			this.pictureBox19.Location = new System.Drawing.Point(269, 340);
-			this.pictureBox19.Name = "pictureBox19";
-			this.pictureBox19.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox19.TabIndex = 136;
-			this.pictureBox19.TabStop = false;
-			this.pictureBox19.Tag = "3,4";
-			this.pictureBox19.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox20
-			// 
-			this.pictureBox20.BackColor = System.Drawing.Color.White;
-			this.pictureBox20.Location = new System.Drawing.Point(573, 340);
-			this.pictureBox20.Name = "pictureBox20";
-			this.pictureBox20.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox20.TabIndex = 135;
-			this.pictureBox20.TabStop = false;
-			this.pictureBox20.Tag = "7,4";
-			this.pictureBox20.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox21
-			// 
-			this.pictureBox21.BackColor = System.Drawing.Color.White;
-			this.pictureBox21.Location = new System.Drawing.Point(117, 340);
-			this.pictureBox21.Name = "pictureBox21";
-			this.pictureBox21.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox21.TabIndex = 134;
-			this.pictureBox21.TabStop = false;
-			this.pictureBox21.Tag = "1,4";
-			this.pictureBox21.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox22
-			// 
-			this.pictureBox22.BackColor = System.Drawing.Color.Black;
-			this.pictureBox22.Location = new System.Drawing.Point(573, 264);
-			this.pictureBox22.Name = "pictureBox22";
-			this.pictureBox22.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox22.TabIndex = 133;
-			this.pictureBox22.TabStop = false;
-			this.pictureBox22.Tag = "7,3";
-			this.pictureBox22.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox23
-			// 
-			this.pictureBox23.BackColor = System.Drawing.Color.Black;
-			this.pictureBox23.Location = new System.Drawing.Point(421, 264);
-			this.pictureBox23.Name = "pictureBox23";
-			this.pictureBox23.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox23.TabIndex = 132;
-			this.pictureBox23.TabStop = false;
-			this.pictureBox23.Tag = "5,3";
-			this.pictureBox23.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox24
-			// 
-			this.pictureBox24.BackColor = System.Drawing.Color.Black;
-			this.pictureBox24.Location = new System.Drawing.Point(269, 264);
-			this.pictureBox24.Name = "pictureBox24";
-			this.pictureBox24.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox24.TabIndex = 131;
-			this.pictureBox24.TabStop = false;
-			this.pictureBox24.Tag = "3,3";
-			this.pictureBox24.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox25
-			// 
-			this.pictureBox25.BackColor = System.Drawing.Color.Black;
-			this.pictureBox25.Location = new System.Drawing.Point(117, 264);
-			this.pictureBox25.Name = "pictureBox25";
-			this.pictureBox25.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox25.TabIndex = 130;
-			this.pictureBox25.TabStop = false;
-			this.pictureBox25.Tag = "1,3";
-			this.pictureBox25.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox26
-			// 
-			this.pictureBox26.BackColor = System.Drawing.Color.White;
-			this.pictureBox26.Location = new System.Drawing.Point(497, 264);
-			this.pictureBox26.Name = "pictureBox26";
-			this.pictureBox26.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox26.TabIndex = 129;
-			this.pictureBox26.TabStop = false;
-			this.pictureBox26.Tag = "6,3";
-			this.pictureBox26.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox27
-			// 
-			this.pictureBox27.BackColor = System.Drawing.Color.White;
-			this.pictureBox27.Location = new System.Drawing.Point(345, 264);
-			this.pictureBox27.Name = "pictureBox27";
-			this.pictureBox27.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox27.TabIndex = 128;
-			this.pictureBox27.TabStop = false;
-			this.pictureBox27.Tag = "4,3";
-			this.pictureBox27.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox28
-			// 
-			this.pictureBox28.BackColor = System.Drawing.Color.White;
-			this.pictureBox28.Location = new System.Drawing.Point(193, 264);
-			this.pictureBox28.Name = "pictureBox28";
-			this.pictureBox28.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox28.TabIndex = 127;
-			this.pictureBox28.TabStop = false;
-			this.pictureBox28.Tag = "2,3";
-			this.pictureBox28.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox29
-			// 
-			this.pictureBox29.BackColor = System.Drawing.Color.White;
-			this.pictureBox29.Location = new System.Drawing.Point(41, 264);
-			this.pictureBox29.Name = "pictureBox29";
-			this.pictureBox29.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox29.TabIndex = 126;
-			this.pictureBox29.TabStop = false;
-			this.pictureBox29.Tag = "0,3";
-			this.pictureBox29.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox6
-			// 
-			this.pictureBox6.BackColor = System.Drawing.Color.White;
-			this.pictureBox6.Location = new System.Drawing.Point(497, 112);
-			this.pictureBox6.Name = "pictureBox6";
-			this.pictureBox6.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox6.TabIndex = 125;
-			this.pictureBox6.TabStop = false;
-			this.pictureBox6.Tag = "6,1";
-			this.pictureBox6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox7
-			// 
-			this.pictureBox7.BackColor = System.Drawing.Color.White;
-			this.pictureBox7.Location = new System.Drawing.Point(345, 112);
-			this.pictureBox7.Name = "pictureBox7";
-			this.pictureBox7.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox7.TabIndex = 124;
-			this.pictureBox7.TabStop = false;
-			this.pictureBox7.Tag = "4,1";
-			this.pictureBox7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox8
-			// 
-			this.pictureBox8.BackColor = System.Drawing.Color.White;
-			this.pictureBox8.Location = new System.Drawing.Point(193, 112);
-			this.pictureBox8.Name = "pictureBox8";
-			this.pictureBox8.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox8.TabIndex = 123;
-			this.pictureBox8.TabStop = false;
-			this.pictureBox8.Tag = "2,1";
-			this.pictureBox8.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox9
-			// 
-			this.pictureBox9.BackColor = System.Drawing.Color.White;
-			this.pictureBox9.Location = new System.Drawing.Point(41, 112);
-			this.pictureBox9.Name = "pictureBox9";
-			this.pictureBox9.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox9.TabIndex = 122;
-			this.pictureBox9.TabStop = false;
-			this.pictureBox9.Tag = "0,1";
-			this.pictureBox9.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox10
-			// 
-			this.pictureBox10.BackColor = System.Drawing.Color.Black;
-			this.pictureBox10.Location = new System.Drawing.Point(421, 112);
-			this.pictureBox10.Name = "pictureBox10";
-			this.pictureBox10.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox10.TabIndex = 121;
-			this.pictureBox10.TabStop = false;
-			this.pictureBox10.Tag = "5,1";
-			this.pictureBox10.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox11
-			// 
-			this.pictureBox11.BackColor = System.Drawing.Color.Black;
-			this.pictureBox11.Location = new System.Drawing.Point(269, 112);
-			this.pictureBox11.Name = "pictureBox11";
-			this.pictureBox11.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox11.TabIndex = 120;
-			this.pictureBox11.TabStop = false;
-			this.pictureBox11.Tag = "3,1";
-			this.pictureBox11.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox12
-			// 
-			this.pictureBox12.BackColor = System.Drawing.Color.Black;
-			this.pictureBox12.Location = new System.Drawing.Point(573, 112);
-			this.pictureBox12.Name = "pictureBox12";
-			this.pictureBox12.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox12.TabIndex = 119;
-			this.pictureBox12.TabStop = false;
-			this.pictureBox12.Tag = "7,1";
-			this.pictureBox12.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox13
-			// 
-			this.pictureBox13.BackColor = System.Drawing.Color.Black;
-			this.pictureBox13.Location = new System.Drawing.Point(117, 112);
-			this.pictureBox13.Name = "pictureBox13";
-			this.pictureBox13.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox13.TabIndex = 118;
-			this.pictureBox13.TabStop = false;
-			this.pictureBox13.Tag = "1,1";
-			this.pictureBox13.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox62
-			// 
-			this.pictureBox62.BackColor = System.Drawing.Color.White;
-			this.pictureBox62.Location = new System.Drawing.Point(573, 36);
-			this.pictureBox62.Name = "pictureBox62";
-			this.pictureBox62.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox62.TabIndex = 117;
-			this.pictureBox62.TabStop = false;
-			this.pictureBox62.Tag = "7,0";
-			this.pictureBox62.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox63
-			// 
-			this.pictureBox63.BackColor = System.Drawing.Color.White;
-			this.pictureBox63.Location = new System.Drawing.Point(421, 36);
-			this.pictureBox63.Name = "pictureBox63";
-			this.pictureBox63.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox63.TabIndex = 116;
-			this.pictureBox63.TabStop = false;
-			this.pictureBox63.Tag = "5,0";
-			this.pictureBox63.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox64
-			// 
-			this.pictureBox64.BackColor = System.Drawing.Color.White;
-			this.pictureBox64.Location = new System.Drawing.Point(269, 36);
-			this.pictureBox64.Name = "pictureBox64";
-			this.pictureBox64.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox64.TabIndex = 115;
-			this.pictureBox64.TabStop = false;
-			this.pictureBox64.Tag = "3,0";
-			this.pictureBox64.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox65
-			// 
-			this.pictureBox65.BackColor = System.Drawing.Color.White;
-			this.pictureBox65.Location = new System.Drawing.Point(117, 36);
-			this.pictureBox65.Name = "pictureBox65";
-			this.pictureBox65.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox65.TabIndex = 114;
-			this.pictureBox65.TabStop = false;
-			this.pictureBox65.Tag = "1,0";
-			this.pictureBox65.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox5
-			// 
-			this.pictureBox5.BackColor = System.Drawing.Color.Black;
-			this.pictureBox5.Location = new System.Drawing.Point(497, 36);
-			this.pictureBox5.Name = "pictureBox5";
-			this.pictureBox5.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox5.TabIndex = 113;
-			this.pictureBox5.TabStop = false;
-			this.pictureBox5.Tag = "6,0";
-			this.pictureBox5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox4
-			// 
-			this.pictureBox4.BackColor = System.Drawing.Color.Black;
-			this.pictureBox4.Location = new System.Drawing.Point(345, 36);
-			this.pictureBox4.Name = "pictureBox4";
-			this.pictureBox4.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox4.TabIndex = 112;
-			this.pictureBox4.TabStop = false;
-			this.pictureBox4.Tag = "4,0";
-			this.pictureBox4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox3
-			// 
-			this.pictureBox3.BackColor = System.Drawing.Color.Black;
-			this.pictureBox3.Location = new System.Drawing.Point(193, 36);
-			this.pictureBox3.Name = "pictureBox3";
-			this.pictureBox3.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox3.TabIndex = 111;
-			this.pictureBox3.TabStop = false;
-			this.pictureBox3.Tag = "2,0";
-			this.pictureBox3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox2
-			// 
-			this.pictureBox2.BackColor = System.Drawing.Color.Black;
-			this.pictureBox2.Location = new System.Drawing.Point(41, 36);
-			this.pictureBox2.Name = "pictureBox2";
-			this.pictureBox2.Size = new System.Drawing.Size(75, 75);
-			this.pictureBox2.TabIndex = 110;
-			this.pictureBox2.TabStop = false;
-			this.pictureBox2.Tag = "0,0";
-			this.pictureBox2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
-			// 
-			// pictureBox1
-			// 
-			this.pictureBox1.BackColor = System.Drawing.Color.Black;
-			this.pictureBox1.Location = new System.Drawing.Point(39, 36);
-			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(611, 613);
-			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.pictureBox1.TabIndex = 174;
-			this.pictureBox1.TabStop = false;
-			// 
-			// pictureBox66
-			// 
-			this.pictureBox66.BackColor = System.Drawing.Color.White;
-			this.pictureBox66.Location = new System.Drawing.Point(32, 32);
-			this.pictureBox66.Name = "pictureBox66";
-			this.pictureBox66.Size = new System.Drawing.Size(624, 624);
-			this.pictureBox66.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.pictureBox66.TabIndex = 175;
-			this.pictureBox66.TabStop = false;
-			// 
-			// pictureBox67
-			// 
-			this.pictureBox67.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-			this.pictureBox67.Location = new System.Drawing.Point(0, 1);
-			this.pictureBox67.Name = "pictureBox67";
-			this.pictureBox67.Size = new System.Drawing.Size(690, 690);
-			this.pictureBox67.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.pictureBox67.TabIndex = 176;
-			this.pictureBox67.TabStop = false;
 			// 
 			// label1
 			// 
@@ -1290,7 +556,7 @@
 			this.listBox1.FormattingEnabled = true;
 			this.listBox1.Location = new System.Drawing.Point(709, 453);
 			this.listBox1.Name = "listBox1";
-			this.listBox1.Size = new System.Drawing.Size(334, 238);
+			this.listBox1.Size = new System.Drawing.Size(334, 225);
 			this.listBox1.TabIndex = 230;
 			// 
 			// label20
@@ -1411,14 +677,749 @@
 			this.lbl_codes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lbl_codes.Location = new System.Drawing.Point(706, 61);
 			this.lbl_codes.Name = "lbl_codes";
-			this.lbl_codes.Size = new System.Drawing.Size(350, 150);
+			this.lbl_codes.Size = new System.Drawing.Size(338, 150);
 			this.lbl_codes.TabIndex = 239;
+			// 
+			// pictureBox46
+			// 
+			this.pictureBox46.BackColor = System.Drawing.Color.White;
+			this.pictureBox46.Location = new System.Drawing.Point(497, 188);
+			this.pictureBox46.Name = "pictureBox46";
+			this.pictureBox46.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox46.TabIndex = 173;
+			this.pictureBox46.TabStop = false;
+			this.pictureBox46.Tag = "6,2";
+			this.pictureBox46.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox47
+			// 
+			this.pictureBox47.BackColor = System.Drawing.Color.White;
+			this.pictureBox47.Location = new System.Drawing.Point(345, 188);
+			this.pictureBox47.Name = "pictureBox47";
+			this.pictureBox47.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox47.TabIndex = 172;
+			this.pictureBox47.TabStop = false;
+			this.pictureBox47.Tag = "4,2";
+			this.pictureBox47.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox48
+			// 
+			this.pictureBox48.BackColor = System.Drawing.Color.White;
+			this.pictureBox48.Location = new System.Drawing.Point(193, 188);
+			this.pictureBox48.Name = "pictureBox48";
+			this.pictureBox48.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox48.TabIndex = 171;
+			this.pictureBox48.TabStop = false;
+			this.pictureBox48.Tag = "2,2";
+			this.pictureBox48.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox49
+			// 
+			this.pictureBox49.BackColor = System.Drawing.Color.White;
+			this.pictureBox49.Location = new System.Drawing.Point(41, 188);
+			this.pictureBox49.Name = "pictureBox49";
+			this.pictureBox49.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox49.TabIndex = 170;
+			this.pictureBox49.TabStop = false;
+			this.pictureBox49.Tag = "0,2";
+			this.pictureBox49.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox50
+			// 
+			this.pictureBox50.BackColor = System.Drawing.Color.Black;
+			this.pictureBox50.Location = new System.Drawing.Point(421, 188);
+			this.pictureBox50.Name = "pictureBox50";
+			this.pictureBox50.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox50.TabIndex = 169;
+			this.pictureBox50.TabStop = false;
+			this.pictureBox50.Tag = "5,2";
+			this.pictureBox50.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox51
+			// 
+			this.pictureBox51.BackColor = System.Drawing.Color.Black;
+			this.pictureBox51.Location = new System.Drawing.Point(269, 188);
+			this.pictureBox51.Name = "pictureBox51";
+			this.pictureBox51.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox51.TabIndex = 168;
+			this.pictureBox51.TabStop = false;
+			this.pictureBox51.Tag = "3,2";
+			this.pictureBox51.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox52
+			// 
+			this.pictureBox52.BackColor = System.Drawing.Color.Black;
+			this.pictureBox52.Location = new System.Drawing.Point(573, 188);
+			this.pictureBox52.Name = "pictureBox52";
+			this.pictureBox52.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox52.TabIndex = 167;
+			this.pictureBox52.TabStop = false;
+			this.pictureBox52.Tag = "7,2";
+			this.pictureBox52.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox53
+			// 
+			this.pictureBox53.BackColor = System.Drawing.Color.Black;
+			this.pictureBox53.Location = new System.Drawing.Point(117, 188);
+			this.pictureBox53.Name = "pictureBox53";
+			this.pictureBox53.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox53.TabIndex = 166;
+			this.pictureBox53.TabStop = false;
+			this.pictureBox53.Tag = "1,2";
+			this.pictureBox53.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox54
+			// 
+			this.pictureBox54.BackColor = System.Drawing.Color.White;
+			this.pictureBox54.Location = new System.Drawing.Point(573, 568);
+			this.pictureBox54.Name = "pictureBox54";
+			this.pictureBox54.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox54.TabIndex = 165;
+			this.pictureBox54.TabStop = false;
+			this.pictureBox54.Tag = "7,7";
+			this.pictureBox54.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox55
+			// 
+			this.pictureBox55.BackColor = System.Drawing.Color.White;
+			this.pictureBox55.Location = new System.Drawing.Point(421, 568);
+			this.pictureBox55.Name = "pictureBox55";
+			this.pictureBox55.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox55.TabIndex = 164;
+			this.pictureBox55.TabStop = false;
+			this.pictureBox55.Tag = "5,7";
+			this.pictureBox55.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox56
+			// 
+			this.pictureBox56.BackColor = System.Drawing.Color.White;
+			this.pictureBox56.Location = new System.Drawing.Point(269, 568);
+			this.pictureBox56.Name = "pictureBox56";
+			this.pictureBox56.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox56.TabIndex = 163;
+			this.pictureBox56.TabStop = false;
+			this.pictureBox56.Tag = "3,7";
+			this.pictureBox56.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox57
+			// 
+			this.pictureBox57.BackColor = System.Drawing.Color.White;
+			this.pictureBox57.Location = new System.Drawing.Point(117, 568);
+			this.pictureBox57.Name = "pictureBox57";
+			this.pictureBox57.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox57.TabIndex = 162;
+			this.pictureBox57.TabStop = false;
+			this.pictureBox57.Tag = "1,7";
+			this.pictureBox57.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox58
+			// 
+			this.pictureBox58.BackColor = System.Drawing.Color.Black;
+			this.pictureBox58.Location = new System.Drawing.Point(497, 568);
+			this.pictureBox58.Name = "pictureBox58";
+			this.pictureBox58.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox58.TabIndex = 161;
+			this.pictureBox58.TabStop = false;
+			this.pictureBox58.Tag = "6,7";
+			this.pictureBox58.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox59
+			// 
+			this.pictureBox59.BackColor = System.Drawing.Color.Black;
+			this.pictureBox59.Location = new System.Drawing.Point(345, 568);
+			this.pictureBox59.Name = "pictureBox59";
+			this.pictureBox59.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox59.TabIndex = 160;
+			this.pictureBox59.TabStop = false;
+			this.pictureBox59.Tag = "4,7";
+			this.pictureBox59.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox60
+			// 
+			this.pictureBox60.BackColor = System.Drawing.Color.Black;
+			this.pictureBox60.Location = new System.Drawing.Point(193, 568);
+			this.pictureBox60.Name = "pictureBox60";
+			this.pictureBox60.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox60.TabIndex = 159;
+			this.pictureBox60.TabStop = false;
+			this.pictureBox60.Tag = "2,7";
+			this.pictureBox60.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox61
+			// 
+			this.pictureBox61.BackColor = System.Drawing.Color.Black;
+			this.pictureBox61.Location = new System.Drawing.Point(41, 568);
+			this.pictureBox61.Name = "pictureBox61";
+			this.pictureBox61.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox61.TabIndex = 158;
+			this.pictureBox61.TabStop = false;
+			this.pictureBox61.Tag = "0,7";
+			this.pictureBox61.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox30
+			// 
+			this.pictureBox30.BackColor = System.Drawing.Color.White;
+			this.pictureBox30.Location = new System.Drawing.Point(497, 492);
+			this.pictureBox30.Name = "pictureBox30";
+			this.pictureBox30.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox30.TabIndex = 157;
+			this.pictureBox30.TabStop = false;
+			this.pictureBox30.Tag = "6,6";
+			this.pictureBox30.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox31
+			// 
+			this.pictureBox31.BackColor = System.Drawing.Color.White;
+			this.pictureBox31.Location = new System.Drawing.Point(345, 492);
+			this.pictureBox31.Name = "pictureBox31";
+			this.pictureBox31.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox31.TabIndex = 156;
+			this.pictureBox31.TabStop = false;
+			this.pictureBox31.Tag = "4,6";
+			this.pictureBox31.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox32
+			// 
+			this.pictureBox32.BackColor = System.Drawing.Color.White;
+			this.pictureBox32.Location = new System.Drawing.Point(193, 492);
+			this.pictureBox32.Name = "pictureBox32";
+			this.pictureBox32.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox32.TabIndex = 155;
+			this.pictureBox32.TabStop = false;
+			this.pictureBox32.Tag = "2,6";
+			this.pictureBox32.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox33
+			// 
+			this.pictureBox33.BackColor = System.Drawing.Color.White;
+			this.pictureBox33.Location = new System.Drawing.Point(41, 492);
+			this.pictureBox33.Name = "pictureBox33";
+			this.pictureBox33.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox33.TabIndex = 154;
+			this.pictureBox33.TabStop = false;
+			this.pictureBox33.Tag = "0,6";
+			this.pictureBox33.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox34
+			// 
+			this.pictureBox34.BackColor = System.Drawing.Color.Black;
+			this.pictureBox34.Location = new System.Drawing.Point(421, 492);
+			this.pictureBox34.Name = "pictureBox34";
+			this.pictureBox34.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox34.TabIndex = 153;
+			this.pictureBox34.TabStop = false;
+			this.pictureBox34.Tag = "5,6";
+			this.pictureBox34.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox35
+			// 
+			this.pictureBox35.BackColor = System.Drawing.Color.Black;
+			this.pictureBox35.Location = new System.Drawing.Point(269, 492);
+			this.pictureBox35.Name = "pictureBox35";
+			this.pictureBox35.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox35.TabIndex = 152;
+			this.pictureBox35.TabStop = false;
+			this.pictureBox35.Tag = "3,6";
+			this.pictureBox35.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox36
+			// 
+			this.pictureBox36.BackColor = System.Drawing.Color.Black;
+			this.pictureBox36.Location = new System.Drawing.Point(573, 492);
+			this.pictureBox36.Name = "pictureBox36";
+			this.pictureBox36.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox36.TabIndex = 151;
+			this.pictureBox36.TabStop = false;
+			this.pictureBox36.Tag = "7,6";
+			this.pictureBox36.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox37
+			// 
+			this.pictureBox37.BackColor = System.Drawing.Color.Black;
+			this.pictureBox37.Location = new System.Drawing.Point(117, 492);
+			this.pictureBox37.Name = "pictureBox37";
+			this.pictureBox37.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox37.TabIndex = 150;
+			this.pictureBox37.TabStop = false;
+			this.pictureBox37.Tag = "1,6";
+			this.pictureBox37.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox38
+			// 
+			this.pictureBox38.BackColor = System.Drawing.Color.White;
+			this.pictureBox38.Location = new System.Drawing.Point(573, 416);
+			this.pictureBox38.Name = "pictureBox38";
+			this.pictureBox38.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox38.TabIndex = 149;
+			this.pictureBox38.TabStop = false;
+			this.pictureBox38.Tag = "7,5";
+			this.pictureBox38.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox39
+			// 
+			this.pictureBox39.BackColor = System.Drawing.Color.White;
+			this.pictureBox39.Location = new System.Drawing.Point(421, 416);
+			this.pictureBox39.Name = "pictureBox39";
+			this.pictureBox39.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox39.TabIndex = 148;
+			this.pictureBox39.TabStop = false;
+			this.pictureBox39.Tag = "5,5";
+			this.pictureBox39.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox40
+			// 
+			this.pictureBox40.BackColor = System.Drawing.Color.White;
+			this.pictureBox40.Location = new System.Drawing.Point(269, 416);
+			this.pictureBox40.Name = "pictureBox40";
+			this.pictureBox40.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox40.TabIndex = 147;
+			this.pictureBox40.TabStop = false;
+			this.pictureBox40.Tag = "3,5";
+			this.pictureBox40.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox41
+			// 
+			this.pictureBox41.BackColor = System.Drawing.Color.White;
+			this.pictureBox41.Location = new System.Drawing.Point(117, 416);
+			this.pictureBox41.Name = "pictureBox41";
+			this.pictureBox41.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox41.TabIndex = 146;
+			this.pictureBox41.TabStop = false;
+			this.pictureBox41.Tag = "1,5";
+			this.pictureBox41.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox42
+			// 
+			this.pictureBox42.BackColor = System.Drawing.Color.Black;
+			this.pictureBox42.Location = new System.Drawing.Point(497, 416);
+			this.pictureBox42.Name = "pictureBox42";
+			this.pictureBox42.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox42.TabIndex = 145;
+			this.pictureBox42.TabStop = false;
+			this.pictureBox42.Tag = "6,5";
+			this.pictureBox42.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox43
+			// 
+			this.pictureBox43.BackColor = System.Drawing.Color.Black;
+			this.pictureBox43.Location = new System.Drawing.Point(345, 416);
+			this.pictureBox43.Name = "pictureBox43";
+			this.pictureBox43.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox43.TabIndex = 144;
+			this.pictureBox43.TabStop = false;
+			this.pictureBox43.Tag = "4,5";
+			this.pictureBox43.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox44
+			// 
+			this.pictureBox44.BackColor = System.Drawing.Color.Black;
+			this.pictureBox44.Location = new System.Drawing.Point(193, 416);
+			this.pictureBox44.Name = "pictureBox44";
+			this.pictureBox44.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox44.TabIndex = 143;
+			this.pictureBox44.TabStop = false;
+			this.pictureBox44.Tag = "2,5";
+			this.pictureBox44.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox45
+			// 
+			this.pictureBox45.BackColor = System.Drawing.Color.Black;
+			this.pictureBox45.Location = new System.Drawing.Point(41, 416);
+			this.pictureBox45.Name = "pictureBox45";
+			this.pictureBox45.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox45.TabIndex = 142;
+			this.pictureBox45.TabStop = false;
+			this.pictureBox45.Tag = "0,5";
+			this.pictureBox45.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox14
+			// 
+			this.pictureBox14.BackColor = System.Drawing.Color.White;
+			this.pictureBox14.Location = new System.Drawing.Point(497, 340);
+			this.pictureBox14.Name = "pictureBox14";
+			this.pictureBox14.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox14.TabIndex = 141;
+			this.pictureBox14.TabStop = false;
+			this.pictureBox14.Tag = "6,4";
+			this.pictureBox14.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox15
+			// 
+			this.pictureBox15.BackColor = System.Drawing.Color.White;
+			this.pictureBox15.Location = new System.Drawing.Point(345, 340);
+			this.pictureBox15.Name = "pictureBox15";
+			this.pictureBox15.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox15.TabIndex = 140;
+			this.pictureBox15.TabStop = false;
+			this.pictureBox15.Tag = "4,4";
+			this.pictureBox15.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox16
+			// 
+			this.pictureBox16.BackColor = System.Drawing.Color.White;
+			this.pictureBox16.Location = new System.Drawing.Point(193, 340);
+			this.pictureBox16.Name = "pictureBox16";
+			this.pictureBox16.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox16.TabIndex = 139;
+			this.pictureBox16.TabStop = false;
+			this.pictureBox16.Tag = "2,4";
+			this.pictureBox16.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox17
+			// 
+			this.pictureBox17.BackColor = System.Drawing.Color.White;
+			this.pictureBox17.Location = new System.Drawing.Point(41, 340);
+			this.pictureBox17.Name = "pictureBox17";
+			this.pictureBox17.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox17.TabIndex = 138;
+			this.pictureBox17.TabStop = false;
+			this.pictureBox17.Tag = "0,4";
+			this.pictureBox17.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox18
+			// 
+			this.pictureBox18.BackColor = System.Drawing.Color.Black;
+			this.pictureBox18.Location = new System.Drawing.Point(421, 340);
+			this.pictureBox18.Name = "pictureBox18";
+			this.pictureBox18.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox18.TabIndex = 137;
+			this.pictureBox18.TabStop = false;
+			this.pictureBox18.Tag = "5,4";
+			this.pictureBox18.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox19
+			// 
+			this.pictureBox19.BackColor = System.Drawing.Color.Black;
+			this.pictureBox19.Location = new System.Drawing.Point(269, 340);
+			this.pictureBox19.Name = "pictureBox19";
+			this.pictureBox19.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox19.TabIndex = 136;
+			this.pictureBox19.TabStop = false;
+			this.pictureBox19.Tag = "3,4";
+			this.pictureBox19.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox20
+			// 
+			this.pictureBox20.BackColor = System.Drawing.Color.Black;
+			this.pictureBox20.Location = new System.Drawing.Point(573, 340);
+			this.pictureBox20.Name = "pictureBox20";
+			this.pictureBox20.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox20.TabIndex = 135;
+			this.pictureBox20.TabStop = false;
+			this.pictureBox20.Tag = "7,4";
+			this.pictureBox20.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox21
+			// 
+			this.pictureBox21.BackColor = System.Drawing.Color.Black;
+			this.pictureBox21.Location = new System.Drawing.Point(117, 340);
+			this.pictureBox21.Name = "pictureBox21";
+			this.pictureBox21.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox21.TabIndex = 134;
+			this.pictureBox21.TabStop = false;
+			this.pictureBox21.Tag = "1,4";
+			this.pictureBox21.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox22
+			// 
+			this.pictureBox22.BackColor = System.Drawing.Color.White;
+			this.pictureBox22.Location = new System.Drawing.Point(573, 264);
+			this.pictureBox22.Name = "pictureBox22";
+			this.pictureBox22.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox22.TabIndex = 133;
+			this.pictureBox22.TabStop = false;
+			this.pictureBox22.Tag = "7,3";
+			this.pictureBox22.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox23
+			// 
+			this.pictureBox23.BackColor = System.Drawing.Color.White;
+			this.pictureBox23.Location = new System.Drawing.Point(421, 264);
+			this.pictureBox23.Name = "pictureBox23";
+			this.pictureBox23.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox23.TabIndex = 132;
+			this.pictureBox23.TabStop = false;
+			this.pictureBox23.Tag = "5,3";
+			this.pictureBox23.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox24
+			// 
+			this.pictureBox24.BackColor = System.Drawing.Color.White;
+			this.pictureBox24.Location = new System.Drawing.Point(269, 264);
+			this.pictureBox24.Name = "pictureBox24";
+			this.pictureBox24.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox24.TabIndex = 131;
+			this.pictureBox24.TabStop = false;
+			this.pictureBox24.Tag = "3,3";
+			this.pictureBox24.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox25
+			// 
+			this.pictureBox25.BackColor = System.Drawing.Color.White;
+			this.pictureBox25.Location = new System.Drawing.Point(117, 264);
+			this.pictureBox25.Name = "pictureBox25";
+			this.pictureBox25.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox25.TabIndex = 130;
+			this.pictureBox25.TabStop = false;
+			this.pictureBox25.Tag = "1,3";
+			this.pictureBox25.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox26
+			// 
+			this.pictureBox26.BackColor = System.Drawing.Color.Black;
+			this.pictureBox26.Location = new System.Drawing.Point(497, 264);
+			this.pictureBox26.Name = "pictureBox26";
+			this.pictureBox26.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox26.TabIndex = 129;
+			this.pictureBox26.TabStop = false;
+			this.pictureBox26.Tag = "6,3";
+			this.pictureBox26.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox27
+			// 
+			this.pictureBox27.BackColor = System.Drawing.Color.Black;
+			this.pictureBox27.Location = new System.Drawing.Point(345, 264);
+			this.pictureBox27.Name = "pictureBox27";
+			this.pictureBox27.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox27.TabIndex = 128;
+			this.pictureBox27.TabStop = false;
+			this.pictureBox27.Tag = "4,3";
+			this.pictureBox27.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox28
+			// 
+			this.pictureBox28.BackColor = System.Drawing.Color.Black;
+			this.pictureBox28.Location = new System.Drawing.Point(193, 264);
+			this.pictureBox28.Name = "pictureBox28";
+			this.pictureBox28.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox28.TabIndex = 127;
+			this.pictureBox28.TabStop = false;
+			this.pictureBox28.Tag = "2,3";
+			this.pictureBox28.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox29
+			// 
+			this.pictureBox29.BackColor = System.Drawing.Color.Black;
+			this.pictureBox29.Location = new System.Drawing.Point(41, 264);
+			this.pictureBox29.Name = "pictureBox29";
+			this.pictureBox29.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox29.TabIndex = 126;
+			this.pictureBox29.TabStop = false;
+			this.pictureBox29.Tag = "0,3";
+			this.pictureBox29.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox6
+			// 
+			this.pictureBox6.BackColor = System.Drawing.Color.Black;
+			this.pictureBox6.Location = new System.Drawing.Point(497, 112);
+			this.pictureBox6.Name = "pictureBox6";
+			this.pictureBox6.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox6.TabIndex = 125;
+			this.pictureBox6.TabStop = false;
+			this.pictureBox6.Tag = "6,1";
+			this.pictureBox6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox7
+			// 
+			this.pictureBox7.BackColor = System.Drawing.Color.Black;
+			this.pictureBox7.Location = new System.Drawing.Point(345, 112);
+			this.pictureBox7.Name = "pictureBox7";
+			this.pictureBox7.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox7.TabIndex = 124;
+			this.pictureBox7.TabStop = false;
+			this.pictureBox7.Tag = "4,1";
+			this.pictureBox7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox8
+			// 
+			this.pictureBox8.BackColor = System.Drawing.Color.Black;
+			this.pictureBox8.Location = new System.Drawing.Point(193, 112);
+			this.pictureBox8.Name = "pictureBox8";
+			this.pictureBox8.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox8.TabIndex = 123;
+			this.pictureBox8.TabStop = false;
+			this.pictureBox8.Tag = "2,1";
+			this.pictureBox8.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox9
+			// 
+			this.pictureBox9.BackColor = System.Drawing.Color.Black;
+			this.pictureBox9.Location = new System.Drawing.Point(41, 112);
+			this.pictureBox9.Name = "pictureBox9";
+			this.pictureBox9.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox9.TabIndex = 122;
+			this.pictureBox9.TabStop = false;
+			this.pictureBox9.Tag = "0,1";
+			this.pictureBox9.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox10
+			// 
+			this.pictureBox10.BackColor = System.Drawing.Color.White;
+			this.pictureBox10.Location = new System.Drawing.Point(421, 112);
+			this.pictureBox10.Name = "pictureBox10";
+			this.pictureBox10.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox10.TabIndex = 121;
+			this.pictureBox10.TabStop = false;
+			this.pictureBox10.Tag = "5,1";
+			this.pictureBox10.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox11
+			// 
+			this.pictureBox11.BackColor = System.Drawing.Color.White;
+			this.pictureBox11.Location = new System.Drawing.Point(269, 112);
+			this.pictureBox11.Name = "pictureBox11";
+			this.pictureBox11.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox11.TabIndex = 120;
+			this.pictureBox11.TabStop = false;
+			this.pictureBox11.Tag = "3,1";
+			this.pictureBox11.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox12
+			// 
+			this.pictureBox12.BackColor = System.Drawing.Color.White;
+			this.pictureBox12.Location = new System.Drawing.Point(573, 112);
+			this.pictureBox12.Name = "pictureBox12";
+			this.pictureBox12.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox12.TabIndex = 119;
+			this.pictureBox12.TabStop = false;
+			this.pictureBox12.Tag = "7,1";
+			this.pictureBox12.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox13
+			// 
+			this.pictureBox13.BackColor = System.Drawing.Color.White;
+			this.pictureBox13.Location = new System.Drawing.Point(117, 112);
+			this.pictureBox13.Name = "pictureBox13";
+			this.pictureBox13.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox13.TabIndex = 118;
+			this.pictureBox13.TabStop = false;
+			this.pictureBox13.Tag = "1,1";
+			this.pictureBox13.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox62
+			// 
+			this.pictureBox62.BackColor = System.Drawing.Color.Black;
+			this.pictureBox62.Location = new System.Drawing.Point(573, 36);
+			this.pictureBox62.Name = "pictureBox62";
+			this.pictureBox62.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox62.TabIndex = 117;
+			this.pictureBox62.TabStop = false;
+			this.pictureBox62.Tag = "7,0";
+			this.pictureBox62.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox63
+			// 
+			this.pictureBox63.BackColor = System.Drawing.Color.Black;
+			this.pictureBox63.Location = new System.Drawing.Point(421, 36);
+			this.pictureBox63.Name = "pictureBox63";
+			this.pictureBox63.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox63.TabIndex = 116;
+			this.pictureBox63.TabStop = false;
+			this.pictureBox63.Tag = "5,0";
+			this.pictureBox63.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox64
+			// 
+			this.pictureBox64.BackColor = System.Drawing.Color.Black;
+			this.pictureBox64.Location = new System.Drawing.Point(269, 36);
+			this.pictureBox64.Name = "pictureBox64";
+			this.pictureBox64.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox64.TabIndex = 115;
+			this.pictureBox64.TabStop = false;
+			this.pictureBox64.Tag = "3,0";
+			this.pictureBox64.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox65
+			// 
+			this.pictureBox65.BackColor = System.Drawing.Color.Black;
+			this.pictureBox65.Location = new System.Drawing.Point(117, 36);
+			this.pictureBox65.Name = "pictureBox65";
+			this.pictureBox65.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox65.TabIndex = 114;
+			this.pictureBox65.TabStop = false;
+			this.pictureBox65.Tag = "1,0";
+			this.pictureBox65.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox5
+			// 
+			this.pictureBox5.BackColor = System.Drawing.Color.White;
+			this.pictureBox5.Location = new System.Drawing.Point(497, 36);
+			this.pictureBox5.Name = "pictureBox5";
+			this.pictureBox5.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox5.TabIndex = 113;
+			this.pictureBox5.TabStop = false;
+			this.pictureBox5.Tag = "6,0";
+			this.pictureBox5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox4
+			// 
+			this.pictureBox4.BackColor = System.Drawing.Color.White;
+			this.pictureBox4.Location = new System.Drawing.Point(345, 36);
+			this.pictureBox4.Name = "pictureBox4";
+			this.pictureBox4.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox4.TabIndex = 112;
+			this.pictureBox4.TabStop = false;
+			this.pictureBox4.Tag = "4,0";
+			this.pictureBox4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox3
+			// 
+			this.pictureBox3.BackColor = System.Drawing.Color.White;
+			this.pictureBox3.Location = new System.Drawing.Point(193, 36);
+			this.pictureBox3.Name = "pictureBox3";
+			this.pictureBox3.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox3.TabIndex = 111;
+			this.pictureBox3.TabStop = false;
+			this.pictureBox3.Tag = "2,0";
+			this.pictureBox3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox2
+			// 
+			this.pictureBox2.BackColor = System.Drawing.Color.White;
+			this.pictureBox2.Location = new System.Drawing.Point(41, 36);
+			this.pictureBox2.Name = "pictureBox2";
+			this.pictureBox2.Size = new System.Drawing.Size(75, 75);
+			this.pictureBox2.TabIndex = 110;
+			this.pictureBox2.TabStop = false;
+			this.pictureBox2.Tag = "0,0";
+			this.pictureBox2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.caseClick);
+			// 
+			// pictureBox1
+			// 
+			this.pictureBox1.BackColor = System.Drawing.Color.Black;
+			this.pictureBox1.Location = new System.Drawing.Point(39, 36);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Size = new System.Drawing.Size(611, 613);
+			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.pictureBox1.TabIndex = 174;
+			this.pictureBox1.TabStop = false;
+			// 
+			// pictureBox66
+			// 
+			this.pictureBox66.BackColor = System.Drawing.Color.White;
+			this.pictureBox66.Location = new System.Drawing.Point(32, 32);
+			this.pictureBox66.Name = "pictureBox66";
+			this.pictureBox66.Size = new System.Drawing.Size(624, 624);
+			this.pictureBox66.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.pictureBox66.TabIndex = 175;
+			this.pictureBox66.TabStop = false;
+			// 
+			// pictureBox67
+			// 
+			this.pictureBox67.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.pictureBox67.Location = new System.Drawing.Point(0, 1);
+			this.pictureBox67.Name = "pictureBox67";
+			this.pictureBox67.Size = new System.Drawing.Size(690, 690);
+			this.pictureBox67.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.pictureBox67.TabIndex = 176;
+			this.pictureBox67.TabStop = false;
 			// 
 			// FormPartie
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1783, 691);
+			this.BackColor = System.Drawing.SystemColors.Window;
+			this.ClientSize = new System.Drawing.Size(1064, 704);
 			this.Controls.Add(this.lbl_codes);
 			this.Controls.Add(this.label6);
 			this.Controls.Add(this.label7);

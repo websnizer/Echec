@@ -46,7 +46,11 @@ namespace Echec
 				// O O O
 				// O P O
 				else if ((p_posPiece[1] - 2 == p_posCase[1]) && (p_posPiece[0] == p_posCase[0])  && (p_caseVide == true) && ( p_caseVide == true ) && (m_aBougee == false))
+				{
+					m_aBougee = true;
 					return true;
+				}
+					
 				else
 					return false;
 			}
@@ -59,7 +63,10 @@ namespace Echec
 				else if ((p_posPiece[1] + 1 == p_posCase[1]) && (p_posPiece[0] + 1 == p_posCase[0]) && (p_caseVide == false))
 					return true;
 				else if ((p_posPiece[1] + 2 == p_posCase[1]) && (p_posPiece[0] == p_posCase[0]) && (p_caseVide == true) && (p_caseVide == true) && (m_aBougee == false))
+				{
+					m_aBougee = true;
 					return true;
+				}
 				else
 					return false;
 			}

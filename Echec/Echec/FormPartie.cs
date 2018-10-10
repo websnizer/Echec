@@ -122,6 +122,8 @@ namespace Echec
 			return resultat;
 		}
 
+
+		//Convertir la donnée Y
 		private string conversionUneCoordonneY(int coord)
 		{
 			string result = "";
@@ -164,6 +166,7 @@ namespace Echec
 			return result;
 		}
 
+		//Convertir la donnée X
 		private string conversionUneCoordonneX(int coord)
 		{
 			string result = "";
@@ -213,17 +216,18 @@ namespace Echec
 			string[] coordsCaseStr = new string[2]; //Corodonnées finales X,Y en string
 			int[] coordPieceInt = new int[2]; //Corodonnées initiales X,Y en int
 			int[] coordCaseInt = new int[2]; //Corodonnées finales X,Y en int
+			PictureBox snd = (sender as PictureBox);
 
 			if (e.Button == MouseButtons.Left)
 			{
-				coordPieceStr = (sender as PictureBox).Tag + "";
+				coordPieceStr = (snd.Parent.Tag != null) ? snd.Parent.Tag + "" : snd.Tag + "";
 				//couleurCaseInitiale = (sender as PictureBox).BackColor;
 				//caseInitiale = (sender as PictureBox);
 				//caseInitiale.BackColor = Color.Green;
 			}
 			else if (e.Button == MouseButtons.Right)
 			{
-				coordCaseStr = (sender as PictureBox).Tag + "";
+				coordCaseStr = (snd.Parent.Tag != null) ? snd.Parent.Tag + "" : snd.Tag + "";
 				//couleurCaseFinale = (sender as PictureBox).BackColor;
 				//caseFinale = (sender as PictureBox);
 				//caseInitiale.BackColor = Color.Green;
@@ -256,25 +260,27 @@ namespace Echec
 		//Effacer toutes les pièces
 		public void effacerPiece()
 		{
-			List<Label> labelDelete = new List<Label>(); //Liste des label à supprimer
+			List<PictureBox> pieceDelete = new List<PictureBox>(); //Liste des label à supprimer
 
 			//Ajouter le label dans la liste
-			foreach (Label lbl in this.Controls.OfType<Label>())
+			foreach (PictureBox box in this.Controls.OfType<PictureBox>())
 			{
-				if (lbl.Tag != null && lbl.Tag.ToString() == "piece")
+				foreach (PictureBox xx in box.Controls.OfType<PictureBox>())
 				{
-					labelDelete.Add(lbl);
+					if (xx.Tag != null && xx.Tag.ToString() == "piece")
+					{
+						pieceDelete.Add(xx);
+					}
 				}
 			}
 				
 			//Disposer tous les elements de la liste
-			foreach (Label lbl in labelDelete)
+			foreach (PictureBox piece in pieceDelete)
 			{
-				this.Controls.Remove(lbl);
-				lbl.Dispose();
+				PictureBox parent = (PictureBox)piece.Parent;
+				parent.Controls.Remove(piece);
+				piece.Dispose();
 			}
-
-
 		}
 
 		//Afficher les pièces selon la chaine recue
@@ -292,28 +298,56 @@ namespace Echec
 				if (p != "x") //Si la case n'est pas vide
 				{
 					//Création d'un label
-					Label lbl = new Label();
-					lbl.Text = p;
-					lbl.Font = new Font("Arial", 24, FontStyle.Bold);
-					lbl.Width = 40;
-					lbl.Height = 40;
-					lbl.Tag = "piece";
+					PictureBox box = new PictureBox();
+					box.Width = 63;
+					box.Height = 65;
+					box.Tag = "piece";
+					box.BackColor = Color.Transparent;
+					box.MouseClick += new MouseEventHandler(caseClick);
+
+					if (p == "tour")
+						box.Image = (Image)Properties.Resources.ResourceManager.GetObject("Tour");
+					else if (p == "TOUR")
+						box.Image = (Image)Properties.Resources.ResourceManager.GetObject("TourN");
+					else if (p == "reine")
+						box.Image = (Image)Properties.Resources.ResourceManager.GetObject("Reine");
+					else if (p == "REINE")
+						box.Image = (Image)Properties.Resources.ResourceManager.GetObject("ReineN");
+					else if (p == "roi")
+						box.Image = (Image)Properties.Resources.ResourceManager.GetObject("Roi");
+					else if (p == "ROI")
+						box.Image = (Image)Properties.Resources.ResourceManager.GetObject("RoiN");
+					else if (p == "fou")
+						box.Image = (Image)Properties.Resources.ResourceManager.GetObject("Fou");
+					else if (p == "FOU")
+						box.Image = (Image)Properties.Resources.ResourceManager.GetObject("FouN");
+					else if (p == "pion")
+						box.Image = (Image)Properties.Resources.ResourceManager.GetObject("Pion");
+					else if (p == "PION")
+						box.Image = (Image)Properties.Resources.ResourceManager.GetObject("PionN");
+					else if (p == "cavalier")
+						box.Image = (Image)Properties.Resources.ResourceManager.GetObject("Cavalier");
+					else if (p == "CAVALIER")
+						box.Image = (Image)Properties.Resources.ResourceManager.GetObject("CavalierN");
+
 
 					//Positionnement dans la fenêtre
 					foreach (PictureBox pb in this.Controls.OfType<PictureBox>())
 					{
 						if (pb.Tag != null && (pb.Tag.ToString() == (y.ToString() + "," + x.ToString())) )
 						{
-							coordx = pb.Left;
-							coordy = pb.Top;
+							coordx =  6;
+							coordy = 5;
+							box.Parent = pb;
+							pb.Controls.Add(box);
 						}
 					}
-					lbl.Left = coordx;
-					lbl.Top = coordy;
+					box.Left = coordx;
+					box.Top = coordy;
 
 					//Ajout du control et affichage
-					this.Controls.Add(lbl);
-					lbl.BringToFront();
+					//this.Controls.Add(box);
+					box.BringToFront();
 
 					//Passer à la prochaine case
 					x++;
