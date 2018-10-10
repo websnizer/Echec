@@ -8,7 +8,6 @@ namespace Echec
 {
 	public class Roi : Mouvement
     {
-
 		public Roi(bool p_couleur, string p_nom, bool p_collision, bool p_aBougee) : base(p_couleur, p_nom, p_collision, p_aBougee)
 		{
 		}
@@ -30,8 +29,8 @@ namespace Echec
 				//Roque
 				// O X O O R O X O
 				if (!(m_aBougee) && (p_posPiece[0] == 4 && p_posPiece[1] == 7) && (p_posCase[1] == p_posPiece[1]) && (p_posCase[0] == p_posPiece[0] - 2) )
-					return true;
-			}
+                    return true;
+            }
 			else
 			{
 				//Roque
@@ -44,7 +43,7 @@ namespace Echec
 			// X R X
 			// X X X
 			if ((p_posCase[1] <= p_posPiece[1] + 1) && (p_posCase[1] >= p_posPiece[1] - 1) && (p_posCase[0] >= p_posPiece[0] - 1) && (p_posCase[0] <= p_posPiece[0] + 1))
-				return true;
+                return true;
 			else
 				return false;
 		}
@@ -129,8 +128,13 @@ namespace Echec
 			return null;
 		}
 
-		//Ajouter une position à la liste
-		private void ajouterPosition(int x, int y, List<int[]> liste)
+        public void bougee()
+        {
+            m_aBougee = true;
+        }
+
+        //Ajouter une position à la liste
+        private void ajouterPosition(int x, int y, List<int[]> liste)
 		{
 			int[] position = new int[2]; //Une position
 			position[0] = x;

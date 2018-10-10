@@ -27,8 +27,8 @@ namespace Echec
 			// X T X
 			// O X O
 			if ((p_posPiece[1] == p_posCase[1]) || (p_posPiece[0] == p_posCase[0]))
-				return true;
-			else
+                return true;
+            else
 				return false;
 		}
 
@@ -97,8 +97,13 @@ namespace Echec
 			return null;
 		}
 
-		//Ajouter une position à la liste
-		private void ajouterPosition(int x, int y, List<int[]> liste)
+        public void bougee()
+        {
+            m_aBougee = true;
+        }
+
+        //Ajouter une position à la liste
+        private void ajouterPosition(int x, int y, List<int[]> liste)
 		{
 			int[] position = new int[2]; //Une position
 			position[0] = x;
