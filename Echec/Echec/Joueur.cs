@@ -41,6 +41,8 @@ namespace Echec
                 if (leGagnant.m_classement > this.m_classement)
                 leGagnant.m_classement += Difference / 2;
 
+            this.m_defaites++;
+
             //Mettre à jour le fichier ?
         }
 
@@ -64,8 +66,10 @@ namespace Echec
                 if (lePerdant.m_classement > this.m_classement)
                 lePerdant.m_classement -= Difference / 2;
 
+            this.m_victoires++;
+
             //Mettre à jour le fichier ?
-		}
+        }
 
         public string NomJoueur
         {
