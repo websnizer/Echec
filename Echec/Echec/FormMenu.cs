@@ -109,7 +109,7 @@ namespace Echec
                         string Nom = item.SubItems[0].Text;
                         int Victoires = Int32.Parse(item.SubItems[1].Text);
                         int Defaites = Int32.Parse(item.SubItems[2].Text);
-                        int Classement = Int32.Parse(lst_ListeJoueurs.SelectedItems[0].SubItems[3].Text);
+                        int Classement = Int32.Parse(item.SubItems[3].Text);
                         joueurBlanc = new Joueur(Nom, Victoires, Defaites, Classement);
                     }
                     else if (item.Name == Name2)
@@ -118,7 +118,7 @@ namespace Echec
                         string Nom = item.SubItems[0].Text;
                         int Victoires = Int32.Parse(item.SubItems[1].Text);
                         int Defaites = Int32.Parse(item.SubItems[2].Text);
-                        int Classement = Int32.Parse(lst_ListeJoueurs.SelectedItems[0].SubItems[3].Text);
+                        int Classement = Int32.Parse(item.SubItems[3].Text);
                         joueurNoir = new Joueur(Nom, Victoires, Defaites, Classement);
                     }
                 }

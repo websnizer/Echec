@@ -23,35 +23,48 @@ namespace Echec
 
 		public void perdant ( Joueur leGagnant)
 		{
-            //Ajuster le score en conséquence?
-            //à tester
+            //La diférence entre les deux classements
             int Difference = Math.Abs(this.m_classement - leGagnant.m_classement);
-            if (Math.Abs(this.m_classement - leGagnant.m_classement) < 500)
+
+            if (Math.Abs(Difference) < 500)
             {
-                if (this.m_classement > leGagnant.m_classement)
-                    this.m_classement += Difference / 4;
+                //Si la différence entre les deux classements est plus petite que 500
+                //Si le gagnant à un classement plus élevé que le perdant, on ajoute la différence divisé par 4 à son classement
+                if (leGagnant.m_classement > this.m_classement)
+                    leGagnant.m_classement += Difference / 4;
                 else
-                    this.m_classement += Difference / 2;
+                    //Si le classement du gagnant est plus petit que le classement du perdant, on lui ajoute la différence divisé par 2
+                    leGagnant.m_classement += Difference / 2;
             }
             else
-                if (this.m_classement > leGagnant.m_classement)
-                this.m_classement += Difference / 2;
+                //Si la différence est plus grande que 500 on ajoute la différence divisé par 2
+                if (leGagnant.m_classement > this.m_classement)
+                leGagnant.m_classement += Difference / 2;
+
+            //Mettre à jour le fichier ?
         }
 
-		public void gagnant ( Joueur lePerdant)
+        public void gagnant ( Joueur lePerdant)
 		{
-			//Ajuster le score en conséquence?
-            //à tester
+            //La diférence entre les deux classements
             int Difference = Math.Abs(this.m_classement - lePerdant.m_classement);
-            if (Math.Abs(this.m_classement - lePerdant.m_classement) < 500)
+            
+            if (Math.Abs(Difference) < 500)
             {
+                //Si la différence entre les deux classements est plus petite que 500
+                //Si le perdant à un classement plus élevé que le gagnant, on ôte la différence divisé par 2 à son classement
                 if (lePerdant.m_classement > this.m_classement)
                     lePerdant.m_classement -= Difference / 2;
                 else
+                    //Si son classment est plus petit que le gagnant on divise par 4
                     lePerdant.m_classement -= Difference / 4;
             }
+            else
+                //Si la différence est plus grande que 500 on ôte la différence divisé par 2
                 if (lePerdant.m_classement > this.m_classement)
                 lePerdant.m_classement -= Difference / 2;
+
+            //Mettre à jour le fichier ?
 		}
 
         public string NomJoueur
