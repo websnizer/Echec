@@ -20,6 +20,7 @@ namespace Echec
 		PictureBox caseFinale; //Stoque la case finale
 		Color couleurCaseInitiale; //Stoque la couleur de la case initiale
 		Color couleurCaseFinale; //Stoque la couleur de la case finale
+        int nbClick; //Nombre de click de l'utilisateur
 
 		//Constructeur
 		public FormPartie(Partie p_partie)
@@ -70,21 +71,41 @@ namespace Echec
 					break;
 				case 8:
 					message = m_partie.JoueurTour.NomJoueur + " est en Échec";
+                    messagebox(message);
 					couleur = Color.HotPink;
 					break;
 				case 9:
 					message = m_partie.JoueurTour.NomJoueur + " peut upgrader son pion";
-					couleur = Color.Orange;
+                    messagebox(message);
+                    couleur = Color.Orange;
 					break;
 				case 10:
 					message = m_partie.JoueurTour.NomJoueur + " est échec et Mat.";
-					couleur = Color.Orange;
+                    messagebox(message);
+                    couleur = Color.Orange;
 					break;
-			}
+                case 11:
+                    message = "La partie est nulle.";
+                    messagebox(message);
+                    couleur = Color.Azure;
+                    break;
+            }
 
 			lbl_codes.Text = message;
 			lbl_codes.ForeColor = couleur;
 		}
+
+        //Freeze l'interface utilisateur
+        public void freezeInterface()
+        {
+            //Freeze toutes les controls
+            foreach (Control control in this.Controls.OfType<Control>())
+            {
+                control.Enabled = false;
+            }
+
+        }
+
 
 		public void afficherTour(string p_joueur)
 		{
@@ -93,7 +114,7 @@ namespace Echec
 
 
 		//Todelete, mais peut-être utile
-		public void message(string p_msg)
+		public void messagebox(string p_msg)
 		{
 			MessageBox.Show(p_msg); //Messagebox de la form
 		}
@@ -222,22 +243,25 @@ namespace Echec
 			int[] coordCaseInt = new int[2]; //Corodonnées finales X,Y en int
 			PictureBox snd = (sender as PictureBox);
 
-			if (coordPieceStr == null)
+			if (nbClick == 0)
 			{
 				coordPieceStr = (snd.Parent.Tag != null) ? snd.Parent.Tag + "" : snd.Tag + "";
-				couleurCaseInitiale = (sender as PictureBox).BackColor;
-				caseInitiale = (sender as PictureBox);
+                couleurCaseInitiale = (sender as PictureBox).BackColor;
+                caseInitiale = (sender as PictureBox);
 				caseInitiale.BackColor = Color.Green;
+                nbClick++;
 			}
-			else
+			else if (nbClick == 1 && caseInitiale != snd)
 			{
 				coordCaseStr = (snd.Parent.Tag != null) ? snd.Parent.Tag + "" : snd.Tag + "";
-				couleurCaseFinale = (sender as PictureBox).BackColor;
-				caseFinale = (sender as PictureBox);
+                couleurCaseFinale = (sender as PictureBox).BackColor;
+                caseFinale = (sender as PictureBox);
 				caseInitiale.BackColor = Color.Green;
+                nbClick++;
 			}
 
-			if (coordPieceStr != null && coordCaseStr != null)
+
+            if (nbClick == 2)
 			{
 				//Split les coordonnées x et y dans un tableau
 				coordsPieceStr = coordPieceStr.Split(',');
@@ -254,10 +278,11 @@ namespace Echec
 
 				coordPieceStr = null;
 				coordCaseStr = null;
-				caseInitiale.BackColor = couleurCaseInitiale;
-				caseFinale.BackColor = couleurCaseFinale;
+                caseInitiale.BackColor = couleurCaseInitiale;
+                caseFinale.BackColor = couleurCaseFinale;
 				caseInitiale = null;
 				caseFinale = null;
+                nbClick = 0;
 			}
 		}
 
@@ -380,7 +405,8 @@ namespace Echec
 		private void FormPartie_Load(object sender, EventArgs e)
 		{
 			changeColor(155,155,155);
-		}
+            AfficherClassementJoueur();
+        }
 
 		//Changement de couleur
 		private void changeColor(int p_rouge, int o_vert, int o_bleu)
@@ -409,5 +435,53 @@ namespace Echec
 					lb.BackColor = Color.Transparent;
 				}
 		}
-	}
+
+        private void AfficherClassementJoueur()
+        {
+            //Ajoute les colonnes au listview (avec leur largeur)
+            lst_Classement.View = View.Details;
+            lst_Classement.Columns.Add("Nom", 100);
+            lst_Classement.Columns.Add("Victoires", 75);
+            lst_Classement.Columns.Add("Défaites", 75);
+            lst_Classement.Columns.Add("Classement", 75);
+
+
+
+            /*  POUR LE JOUEUR BLANC */
+            //Les infos du joueur blanc
+            string leJoueurBlanc = m_partie.JoueurBlanc.ToString();
+            string[] InfosJoueurBlanc = leJoueurBlanc.Split(',');
+            string LeNomBlanc = InfosJoueurBlanc[0];
+            int lesVictoiresBlanc = Int32.Parse(InfosJoueurBlanc[1]);
+            int lesDefaitesBlanc = Int32.Parse(InfosJoueurBlanc[2]);
+            int LeClassementBlanc = Int32.Parse(InfosJoueurBlanc[3]);
+
+            //Crée les informations du joueurs dans le listview
+            ListViewItem rowBlanc = new ListViewItem(LeNomBlanc);
+            rowBlanc.Name = LeNomBlanc;
+            rowBlanc.SubItems.Add(new ListViewItem.ListViewSubItem(rowBlanc, lesVictoiresBlanc.ToString()));
+            rowBlanc.SubItems.Add(new ListViewItem.ListViewSubItem(rowBlanc, lesDefaitesBlanc.ToString()));
+            rowBlanc.SubItems.Add(new ListViewItem.ListViewSubItem(rowBlanc, LeClassementBlanc.ToString()));
+            lst_Classement.Items.Add(rowBlanc);
+
+
+
+            /*  POUR LE JOUEUR NOIR */
+            //Les infos du joueur noir
+            string leJoueurNoir = m_partie.JoueurNoir.ToString();
+            string[] InfosJoueurNoir = leJoueurNoir.Split(',');
+            string LeNomNoir = InfosJoueurNoir[0];
+            int lesVictoiresNoir = Int32.Parse(InfosJoueurNoir[1]);
+            int lesDefaitesNoir = Int32.Parse(InfosJoueurNoir[2]);
+            int LeClassementNoir = Int32.Parse(InfosJoueurNoir[3]);
+
+            //Crée les informations du joueurs dans le listview
+            ListViewItem rowNoir = new ListViewItem(LeNomNoir);
+            rowNoir.Name = LeNomNoir;
+            rowNoir.SubItems.Add(new ListViewItem.ListViewSubItem(rowNoir, lesVictoiresNoir.ToString()));
+            rowNoir.SubItems.Add(new ListViewItem.ListViewSubItem(rowNoir, lesDefaitesNoir.ToString()));
+            rowNoir.SubItems.Add(new ListViewItem.ListViewSubItem(rowNoir, LeClassementNoir.ToString()));
+            lst_Classement.Items.Add(rowNoir);
+        }
+    }
 }

@@ -18,12 +18,13 @@ namespace Echec
 
 		public Partie(Joueur p_joueur1, Joueur p_joueur2)
 		{
-			m_interface = new FormPartie(this);
+            m_joueurBlanc = p_joueur1;
+            m_joueurNoir = p_joueur2;
+
+            m_interface = new FormPartie(this);
 			m_interface.Show();
 			m_tour = true;
 
-			m_joueurBlanc = p_joueur1;
-			m_joueurNoir = p_joueur2;
 			m_plateau = new Plateau();
 			m_interface.effacerPiece();
 			m_interface.afficherPiece(m_plateau.ToString());
@@ -35,10 +36,15 @@ namespace Echec
 		public void jouerCoup( int[] p_posPiece, int[] p_posCase)
 		{
 			int test;
-
 			test = m_plateau.validerCoup(p_posPiece, p_posCase, m_tour);
 
-			if (test == 0)
+            if (m_plateau.echecMat(m_tour))
+                m_interface.messagebox("La partie est terminée. Echec et mat");
+            
+            else if ( m_plateau.nulle() )
+                m_interface.messagebox("La partie est nulle.");
+
+            if (test == 0)
 			{
 				//Vérifier le statut du jeu
 				verifierStatutJeu();
@@ -77,16 +83,30 @@ namespace Echec
 		private void verifierStatutJeu()
 		{
 			//Afficher si le joueur est en echec.
-			if (m_plateau.echec(m_tour))
+			if (m_plateau.echec(m_tour) && !m_plateau.echecMat(m_tour))
 			{
-				m_interface.afficherStatut(8);
+                m_interface.afficherStatut(8);
 			}
 
 			if ( m_plateau.echecMat(m_tour) )
 			{
 				m_interface.afficherStatut(10);
-			}
+                finPartie();
+            }
+
+            if ( m_plateau.nulle() )
+            {
+                m_interface.afficherStatut(11);
+                finPartie();
+            }
 		}
+
+
+        public void finPartie()
+        {
+            m_interface.freezeInterface();
+            //Ajuster score
+        }
 
 		public bool Tour
 		{

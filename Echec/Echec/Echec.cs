@@ -68,9 +68,17 @@ namespace Echec
 
 		}
 
-        public List<Joueur> ListeJoueurs
+        public List<string> ListeJoueurs
         {
-            get {return m_joueurs; }
+            get
+            {
+                List<string> ListJoueurString = new List<string>();
+                foreach (Joueur J in m_joueurs)
+                {
+                    ListJoueurString.Add(J.ToString());
+                }
+                return ListJoueurString;
+            }
         }
     }
 }

@@ -20,3 +20,14 @@ E:\Session 5\prog\TP\Echec\Echec\Echec\obj\Debug\Echec.pdb
 E:\Session 5\prog\TP\Echec\Echec\Echec\bin\Debug\Echec.exe.config
 E:\Session 5\prog\TP\Echec\Echec\Echec\bin\Debug\Echec.exe
 E:\Session 5\prog\TP\Echec\Echec\Echec\bin\Debug\Echec.pdb
+E:\Session 5\prog\TP\Echec\Echec\Echec\Echec\bin\Debug\Echec.exe.config
+E:\Session 5\prog\TP\Echec\Echec\Echec\Echec\bin\Debug\Echec.exe
+E:\Session 5\prog\TP\Echec\Echec\Echec\Echec\bin\Debug\Echec.pdb
+E:\Session 5\prog\TP\Echec\Echec\Echec\Echec\obj\Debug\Echec.csprojAssemblyReference.cache
+E:\Session 5\prog\TP\Echec\Echec\Echec\Echec\obj\Debug\Echec.FormMenu.resources
+E:\Session 5\prog\TP\Echec\Echec\Echec\Echec\obj\Debug\Echec.FormPartie.resources
+E:\Session 5\prog\TP\Echec\Echec\Echec\Echec\obj\Debug\Echec.Properties.Resources.resources
+E:\Session 5\prog\TP\Echec\Echec\Echec\Echec\obj\Debug\Echec.csproj.GenerateResource.cache
+E:\Session 5\prog\TP\Echec\Echec\Echec\Echec\obj\Debug\Echec.csproj.CoreCompileInputs.cache
+E:\Session 5\prog\TP\Echec\Echec\Echec\Echec\obj\Debug\Echec.exe
+E:\Session 5\prog\TP\Echec\Echec\Echec\Echec\obj\Debug\Echec.pdb

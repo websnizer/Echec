@@ -6,23 +6,23 @@ using System.Threading.Tasks;
 
 namespace Echec
 {
-	public class Joueur
+    public class Joueur
     {
-		string m_nom;
-		int m_victoires;
-		int m_defaites;
-		int m_classement;
+        string m_nom;
+        int m_victoires;
+        int m_defaites;
+        int m_classement;
 
-		public Joueur(string p_nom, int p_victoires, int p_defaites, int p_classement)
-		{
-			m_nom = p_nom;
-			m_victoires = p_victoires;
-			m_defaites = p_defaites;
-			m_classement = p_classement;
-		}
+        public Joueur(string p_nom, int p_victoires, int p_defaites, int p_classement)
+        {
+            m_nom = p_nom;
+            m_victoires = p_victoires;
+            m_defaites = p_defaites;
+            m_classement = p_classement;
+        }
 
-		public void perdant ( Joueur leGagnant)
-		{
+        public void perdant(Joueur leGagnant)
+        {
             //La diférence entre les deux classements
             int Difference = Math.Abs(this.m_classement - leGagnant.m_classement);
 
@@ -46,11 +46,11 @@ namespace Echec
             //Mettre à jour le fichier ?
         }
 
-        public void gagnant ( Joueur lePerdant)
-		{
+        public void gagnant(Joueur lePerdant)
+        {
             //La diférence entre les deux classements
             int Difference = Math.Abs(this.m_classement - lePerdant.m_classement);
-            
+
             if (Math.Abs(Difference) < 500)
             {
                 //Si la différence entre les deux classements est plus petite que 500
@@ -73,32 +73,32 @@ namespace Echec
 
         public string NomJoueur
         {
-            get {return m_nom; }
+            get { return m_nom; }
         }
 
         public int VictoiresJoueur
         {
-            get {return m_victoires; }
+            get { return m_victoires; }
             set { m_victoires = value; }
         }
 
         public int DefaitesJoueur
         {
-            get {return m_defaites; }
-            set {m_defaites = value; }
+            get { return m_defaites; }
+            set { m_defaites = value; }
         }
 
         public int ClassementJoueur
         {
-            get {return m_classement; }
-            set { m_classement = value;}
+            get { return m_classement; }
+            set { m_classement = value; }
         }
 
 
         //Sérialiser l'échiquier
         public override string ToString()
         {
-            return (m_nom + "," + m_victoires + "," + m_defaites + "," + m_classement); 
+            return (m_nom + "," + m_victoires + "," + m_defaites + "," + m_classement);
         }
     }
 }

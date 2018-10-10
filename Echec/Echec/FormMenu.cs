@@ -12,7 +12,7 @@ namespace Echec
 {
     public partial class FormMenu : Form
     {
-		Echec m_echec;
+        Echec m_echec;
         Joueur joueurBlanc;
         Joueur joueurNoir;
 
@@ -20,16 +20,16 @@ namespace Echec
         public FormMenu(Echec p_echec)
         {
             InitializeComponent();
-			m_echec = p_echec;
+            m_echec = p_echec;
         }
 
-		private void btn_Partie_Click(object sender, EventArgs e)
-		{
+        private void btn_Partie_Click(object sender, EventArgs e)
+        {
             jouer();
-		}
+        }
 
-		private void jouer()
-		{
+        private void jouer()
+        {
             //Si deux joueurs sont sélectionner
             if (lst_ListeJoueurs.SelectedItems.Count == 2)
             {
@@ -44,13 +44,13 @@ namespace Echec
             }
         }
 
-		private void quitter()
-		{
+        private void quitter()
+        {
             Close();
-		}
+        }
 
-		private void afficherJoueurs()
-		{
+        private void afficherJoueurs()
+        {
             //Ajoute les colonnes au listview (avec leur largeur)
             lst_ListeJoueurs.View = View.Details;
             lst_ListeJoueurs.Columns.Add("Nom", 100);
