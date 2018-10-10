@@ -84,6 +84,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -97,6 +98,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cavalier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CavalierN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fou.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FouN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PionN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ReineN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Roi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RoiN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tour.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TourN.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
