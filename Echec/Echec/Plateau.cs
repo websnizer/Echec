@@ -58,7 +58,7 @@ namespace Echec
 			m_echiquier[5, 0] = new Fou(false, "Fou", true); //Noir, nom, possibilité de collisions
 			m_echiquier[6, 0] = new Cavalier(false, "Cavalier", false); //Noir, nom, pas de possibilité de collisions
 			m_echiquier[7, 0] = new Tour(false, "Tour", true, false); //Noir, nom, possibilité de collisions, n'a pas bougé					
-																	  //Placer les pions noirs
+			//Placer les pions noirs
 			for (int x = 0; x < 8; x++)
 			{
 				m_echiquier[x, 1] = new Pion(false, "Pion", true, false); //Noir, nom, possibilité de collisions, n'a pas bougé
@@ -242,7 +242,7 @@ namespace Echec
 				{
 					posDepart[0] = x;
 					posDepart[1] = y;
-					if (validerCoup(posDepart, posRoi, !p_couleur) == 0) //Jouer les coups comme si c'est le tour du joueur opposé
+					if (validerCoup(posDepart, posRoi, !p_couleur) == 0 || validerCoup(posDepart, posRoi, !p_couleur) == 7) //Jouer les coups comme si c'est le tour du joueur opposé
 					{
 						return true;
 					}
@@ -303,38 +303,38 @@ namespace Echec
 			return false;
 		}
 
-		private bool miseEnEchec(int[] p_posPiece, int[] p_posCase, bool p_couleur) //Vérifier si le joueur se met en échec avec le déplacement voulu
-		{
-			bool miseEnEchec; //Si le joueur se met en échec
-			Piece anciennePiece = null; //Conserver la pièce qui sera écrasée
-			int xPiece = p_posPiece[0]; //x de la pièce
-			int yPiece = p_posPiece[1]; //y de la pièce
-			int xCase = p_posCase[0]; //x de la case
-			int yCase = p_posCase[1]; //y de la case
+        private bool miseEnEchec(int[] p_posPiece, int[] p_posCase, bool p_couleur) //Vérifier si le joueur se met en échec avec le déplacement voulu
+        {
+            bool miseEnEchec; //Si le joueur se met en échec
+            Piece anciennePiece = null; //Conserver la pièce qui sera écrasée
+            int xPiece = p_posPiece[0]; //x de la pièce
+            int yPiece = p_posPiece[1]; //y de la pièce
+            int xCase = p_posCase[0]; //x de la case
+            int yCase = p_posCase[1]; //y de la case
 
-			if (m_echiquier[xCase, yCase] != null) //Vérifier si une pièce sera écrasée
-			{
-				anciennePiece = m_echiquier[xCase, yCase];
-			}
+            if (m_echiquier[xCase, yCase] != null) //Vérifier si une pièce sera écrasée
+            {
+                anciennePiece = m_echiquier[xCase, yCase];
+            }
 
-			m_echiquier[xCase, yCase] = m_echiquier[xPiece, yPiece]; //Déplacer la pièce temporairement pour le test
-			m_echiquier[xPiece, yPiece] = null;
+            m_echiquier[xCase, yCase] = m_echiquier[xPiece, yPiece]; //Déplacer la pièce temporairement pour le test
+            m_echiquier[xPiece, yPiece] = null;
 
-			miseEnEchec = echec(p_couleur); //Tester la mise en échec
+            miseEnEchec = echec(p_couleur); //Tester la mise en échec
 
-			m_echiquier[xPiece, yPiece] = m_echiquier[xCase, yCase]; //Remettre les pièces à leur place
+            m_echiquier[xPiece, yPiece] = m_echiquier[xCase, yCase]; //Remettre les pièces à leur place
 
-			if (anciennePiece != null) //Remettre la pièce écrasée si c'est le cas
-			{
-				m_echiquier[xCase, yCase] = anciennePiece;
-			}
-			else //Sinon remettre à null
-			{
-				m_echiquier[xCase, yCase] = null;
-			}
+            if (anciennePiece != null) //Remettre la pièce écrasée si c'est le cas
+            {
+                m_echiquier[xCase, yCase] = anciennePiece;
+            }
+            else //Sinon remettre à null
+            {
+                m_echiquier[xCase, yCase] = null;
+            }
 
-			return miseEnEchec;
-		}
+            return miseEnEchec;
+        }
 
 		public bool verifierPromo(int[] p_posCase) //Vérifier si un pion du joueur a atteint le fond de l'échiquier
 		{
