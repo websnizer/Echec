@@ -76,6 +76,10 @@ namespace Echec
 					message = m_partie.JoueurTour.NomJoueur + " peut upgrader son pion";
 					couleur = Color.Orange;
 					break;
+				case 10:
+					message = m_partie.JoueurTour.NomJoueur + " est échec et Mat.";
+					couleur = Color.Orange;
+					break;
 			}
 
 			lbl_codes.Text = message;
@@ -218,19 +222,19 @@ namespace Echec
 			int[] coordCaseInt = new int[2]; //Corodonnées finales X,Y en int
 			PictureBox snd = (sender as PictureBox);
 
-			if (e.Button == MouseButtons.Left)
+			if (coordPieceStr == null)
 			{
 				coordPieceStr = (snd.Parent.Tag != null) ? snd.Parent.Tag + "" : snd.Tag + "";
-				//couleurCaseInitiale = (sender as PictureBox).BackColor;
-				//caseInitiale = (sender as PictureBox);
-				//caseInitiale.BackColor = Color.Green;
+				couleurCaseInitiale = (sender as PictureBox).BackColor;
+				caseInitiale = (sender as PictureBox);
+				caseInitiale.BackColor = Color.Green;
 			}
-			else if (e.Button == MouseButtons.Right)
+			else
 			{
 				coordCaseStr = (snd.Parent.Tag != null) ? snd.Parent.Tag + "" : snd.Tag + "";
-				//couleurCaseFinale = (sender as PictureBox).BackColor;
-				//caseFinale = (sender as PictureBox);
-				//caseInitiale.BackColor = Color.Green;
+				couleurCaseFinale = (sender as PictureBox).BackColor;
+				caseFinale = (sender as PictureBox);
+				caseInitiale.BackColor = Color.Green;
 			}
 
 			if (coordPieceStr != null && coordCaseStr != null)
@@ -250,10 +254,10 @@ namespace Echec
 
 				coordPieceStr = null;
 				coordCaseStr = null;
-				//caseInitiale.BackColor = couleurCaseInitiale;
-				//caseFinale.BackColor = couleurCaseFinale;
-				//caseInitiale = null;
-				//caseFinale = null;
+				caseInitiale.BackColor = couleurCaseInitiale;
+				caseFinale.BackColor = couleurCaseFinale;
+				caseInitiale = null;
+				caseFinale = null;
 			}
 		}
 
@@ -375,7 +379,7 @@ namespace Echec
 		//Initialiser des paramètres au chargement de la fenêtre
 		private void FormPartie_Load(object sender, EventArgs e)
 		{
-			changeColor(75,75,75);
+			changeColor(155,155,155);
 		}
 
 		//Changement de couleur

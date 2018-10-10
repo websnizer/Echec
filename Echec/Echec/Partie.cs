@@ -40,30 +40,32 @@ namespace Echec
 
 			if (test == 0)
 			{
+				//Vérifier le statut du jeu
+				verifierStatutJeu();
+				
 				m_plateau.deplacerPiece(p_posPiece, p_posCase);
 				m_interface.afficherStatut(test);
 				m_interface.afficherDeplacement(p_posPiece, p_posCase, m_joueurTour.NomJoueur);
 				m_interface.effacerPiece();
 				m_interface.afficherPiece(m_plateau.ToString());
 
-				//Changer le tour
-				m_tour = !m_tour;
-
-				//Actualiser c'est le tour de quel joueur
-				m_joueurTour = (m_tour) ? JoueurNoir: JoueurBlanc;
-				m_interface.afficherTour(m_joueurTour.NomJoueur);
-
-				//Afficher si le joueur est en echec.
-				if (m_plateau.echec(m_tour))
-					m_interface.afficherStatut(8);
 
 				if (m_plateau.verifierPromo(p_posCase))
 				{
 					m_interface.afficherStatut(9);
 					m_plateau.promouvoirPion(p_posCase, "Reine");
 				}
-				
 
+
+				//Changer le tour
+				m_tour = !m_tour;
+
+				//Actualiser c'est le tour de quel joueur
+				m_joueurTour = (m_tour) ? JoueurBlanc : JoueurNoir;
+				m_interface.afficherTour(m_joueurTour.NomJoueur);
+
+				//Vérifier le statut du jeu
+				verifierStatutJeu();
 			}
 			else
 			{
@@ -74,6 +76,16 @@ namespace Echec
 
 		private void verifierStatutJeu()
 		{
+			//Afficher si le joueur est en echec.
+			if (m_plateau.echec(m_tour))
+			{
+				m_interface.afficherStatut(8);
+			}
+
+			if ( m_plateau.echecMat(m_tour) )
+			{
+				m_interface.afficherStatut(10);
+			}
 		}
 
 		public bool Tour

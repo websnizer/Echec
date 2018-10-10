@@ -29,14 +29,14 @@ namespace Echec
 			{
 				//Roque
 				// O X O O R O X O
-				if (!(m_aBougee) && (p_posPiece[0] == 4 && p_posPiece[1] == 7) && (p_posCase[1] == p_posPiece[1]) && ((p_posCase[0] == p_posPiece[0] - 2) || (p_posCase[0] == p_posPiece[0] + 3)))
+				if (!(m_aBougee) && (p_posPiece[0] == 4 && p_posPiece[1] == 7) && (p_posCase[1] == p_posPiece[1]) && (p_posCase[0] == p_posPiece[0] - 2) )
 					return true;
 			}
 			else
 			{
 				//Roque
 				// O X O O R O X O
-				if (!(m_aBougee) && (p_posPiece[0] == 4 && p_posPiece[1] == 0) && (p_posCase[1] == p_posPiece[1]) && ((p_posCase[0] == p_posPiece[0] - 2) || (p_posCase[0] == p_posPiece[0] + 3)))
+				if (!(m_aBougee) && (p_posPiece[0] == 4 && p_posPiece[1] == 0) && (p_posCase[1] == p_posPiece[1]) && (p_posCase[0] == p_posPiece[0] - 2))
 					return true;
 			}
 
