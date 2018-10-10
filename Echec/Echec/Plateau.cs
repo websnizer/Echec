@@ -57,8 +57,7 @@ namespace Echec
 			m_echiquier[4, 0] = new Roi(false, "Roi", true, false); //Noir, nom, possibilité de collisions, n'a pas bougé
 			m_echiquier[5, 0] = new Fou(false, "Fou", true); //Noir, nom, possibilité de collisions
 			m_echiquier[6, 0] = new Cavalier(false, "Cavalier", false); //Noir, nom, pas de possibilité de collisions
-			m_echiquier[7, 0] = new Tour(false, "Tour", true, false); //Noir, nom, possibilité de collisions, n'a pas bougé
-						
+			m_echiquier[7, 0] = new Tour(false, "Tour", true, false); //Noir, nom, possibilité de collisions, n'a pas bougé					
 			//Placer les pions noirs
 			for (int x = 0; x < 8; x++)
 			{
@@ -199,7 +198,7 @@ namespace Echec
 			}
 		}
 
-		private void effectuerDeplacement(int[] p_posPiece, int[] p_posCase)
+		private void effectuerDeplacement(int[] p_posPiece, int[] p_posCase) //Effectuer un déplacement normal d'une pièce
 		{
 			int xPiece = p_posPiece[0]; //x de la pièce
 			int yPiece = p_posPiece[1]; //y de la pièce
@@ -221,21 +220,21 @@ namespace Echec
 
 		public bool echec(bool p_couleur) //Vérifier si le joueur passé en paramètre est en état d'échec
 		{
-			int[] posRoi = new int[2]; //La case du roi du joueur
+            int[] posRoi = new int[2]; //La case du roi du joueur
 
-			for (int x = 0; x < 8; x++) //Trouver le roi
-			{
-				for (int y = 0; y < 8; y++)
-				{
-					if ((m_echiquier[x, y] is Roi) && (m_echiquier[x, y].Couleur == p_couleur)) //Si c'est un roi de la même couleur
-					{
-						posRoi[0] = x;
-						posRoi[1] = y;
-					}
-				}
-			}
+            for (int x = 0; x < 8; x++) //Trouver le roi
+            {
+                for (int y = 0; y < 8; y++)
+                {
+                    if ((m_echiquier[x, y] is Roi) && (m_echiquier[x, y].Couleur == p_couleur)) //Si c'est un roi de la même couleur
+                    {
+                        posRoi[0] = x;
+                        posRoi[1] = y;
+                    }
+                }
+            }
 
-			int[] posDepart = new int[2]; //La case à tester
+            int[] posDepart = new int[2]; //La case à tester
 
 			for (int x = 0; x < 8; x++) //Tester si les pièces peuvent se rendre jusqu'au roi
 			{
@@ -253,9 +252,50 @@ namespace Echec
 			return false;
 		}
 
-		public bool echecMat(bool p_couleur) //Vérifier si le joueur passé en paramètre est en état d'échec et mat
+        private List<int[]> emplacementsPieces(bool p_couleur) //Retourner toutes les pièces de cette couleur
+        {
+            List<int[]> pieces = new List<int[]>(); //Les pièces de la couleur
+            int[] pos = new int[2]; //Les coordonnées à entrer
+
+            for (int x = 0; x < 8; x++) //Trouver toutes les pièces
+            {
+                for (int y = 0; y < 8; y++)
+                {
+                    if ((m_echiquier[x, y] != null) && (m_echiquier[x, y].Couleur == p_couleur)) //Si la couleur est la même
+                    {
+                        pos[0] = x;
+                        pos[1] = y;
+                        pieces.Add(pos);
+                    }
+                }
+            }
+
+            return pieces;
+        }
+
+        public bool echecMat(bool p_couleur) //Vérifier si le joueur passé en paramètre est en état d'échec et mat
 		{
-			return false;
+            List<int[]> pieces = emplacementsPieces(p_couleur); //Les pièces de la couleur
+            int[] posCase = new int[2]; //Les coordonnées des cases
+
+            for (int x = 0; x < 8; x++) //Boucler sur toutes les cases
+            {
+                for (int y = 0; y < 8; y++)
+                {
+                    posCase[0] = x;
+                    posCase[1] = y;
+
+                    for (int i = 0; i < pieces.Count; i++) //Pour chaque pièce, regarder si un déplacement est possible
+                    {
+                        if (validerCoup(pieces[i], posCase, p_couleur) == 0) //Si au moins un déplacement est possible sans échec, ce n'est pas mat
+                        {
+                            return false;
+                        } 
+                    }
+                }
+            }
+
+            return true; //Si tous les déplacements de pièces sont impossibles, c'est mat
 		}
 
 		public bool nulle() //Vérifier si le jeu se termine par une nulle
@@ -358,13 +398,13 @@ namespace Echec
 			List<int> xCasesEntre = new List<int>(); //Liste des coordonnées en x entre le roi et la tour
 
 			//La pièce est son roi et n'a jamais bougé du jeu
-			if ( (m_echiquier[xPiece, yPiece] is Roi) && !(m_echiquier[xPiece, yPiece].aBougee) )
+			if ((m_echiquier[xPiece, yPiece] is Roi) && !m_echiquier[xPiece, yPiece].aBougee)
 			{
 				Piece tour; //La tour visée par le roque
 
 				if (xCase > xPiece) //Viser la tour supérieure
 				{
-					if ((xCase + 1) < m_echiquier.Length)
+					if ((xCase + 1) < 8)
 					{
 						tour = m_echiquier[xCase + 1, yCase];
 
@@ -402,7 +442,7 @@ namespace Echec
 			return false;
 		}
 
-		private bool verifierRoqueLegal(List<int> p_xCasesEntre, int[] p_posPiece, bool p_couleur)
+		private bool verifierRoqueLegal(List<int> p_xCasesEntre, int[] p_posPiece, bool p_couleur) //Vérifier que le roque est aussi légal
 		{
 			int xPiece = p_posPiece[0]; //x de la pièce
 			int yPiece = p_posPiece[1]; //y de la pièce
@@ -426,7 +466,7 @@ namespace Echec
 
 					if (miseEnEchec(p_posPiece, posTest, p_couleur)) //Cette case est menacée d'un échec
 					{
-						return false;
+                        return false;
 					}
 				}
 			}
