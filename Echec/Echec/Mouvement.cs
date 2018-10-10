@@ -21,5 +21,8 @@ namespace Echec
 			get { return m_aBougee; }
 		}
 
-	}
+        public override void bouge()
+        {
+        }
+    }
 }

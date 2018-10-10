@@ -22,8 +22,8 @@ namespace Echec
 		Color couleurCaseFinale; //Stoque la couleur de la case finale
         int nbClick; //Nombre de click de l'utilisateur
 
-		//Constructeur
-		public FormPartie(Partie p_partie)
+        //Constructeur
+        public FormPartie(Partie p_partie)
         {
             InitializeComponent();
 			m_partie = p_partie;
@@ -89,7 +89,12 @@ namespace Echec
                     messagebox(message);
                     couleur = Color.Azure;
                     break;
-            }
+				case 12:
+					message = "Echec et Pat. La partie est nulle.";
+					messagebox(message);
+					couleur = Color.Azure;
+					break;
+			}
 
 			lbl_codes.Text = message;
 			lbl_codes.ForeColor = couleur;
@@ -106,8 +111,7 @@ namespace Echec
 
         }
 
-
-		public void afficherTour(string p_joueur)
+        public void afficherTour(string p_joueur)
 		{
 			lbl_infos.Text = "C'est au tour de : " + p_joueur + ".";
 		}
@@ -375,7 +379,6 @@ namespace Echec
 					box.Top = coordy;
 
 					//Ajout du control et affichage
-					//this.Controls.Add(box);
 					box.BringToFront();
 
 					//Passer à la prochaine case
@@ -436,8 +439,11 @@ namespace Echec
 				}
 		}
 
-        private void AfficherClassementJoueur()
+        public void AfficherClassementJoueur()
         {
+            //Vide le listview avant
+            lst_Classement.Clear();
+
             //Ajoute les colonnes au listview (avec leur largeur)
             lst_Classement.View = View.Details;
             lst_Classement.Columns.Add("Nom", 100);

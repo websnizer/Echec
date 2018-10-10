@@ -30,6 +30,10 @@ namespace Echec
 			return false;
 		}
 
+        public virtual void bouge()
+        {
+        }
+
 		public virtual List<int[]> routeDeplacement(int[] p_posPiece, int[] p_posCase, bool p_caseVide)
 		{
 			return null;

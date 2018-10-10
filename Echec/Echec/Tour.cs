@@ -97,7 +97,7 @@ namespace Echec
 			return null;
 		}
 
-        public void bougee()
+        public override void bouge()
         {
             m_aBougee = true;
         }

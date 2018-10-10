@@ -49,6 +49,7 @@ namespace Echec
 
 		private void preparerEchiquier() //Préparer l'échiquier pour une partie
 		{
+			/*
 			//Placer les pièces noires
 			m_echiquier[0, 0] = new Tour(false, "Tour", true, false); //Noir, nom, possibilité de collisions, n'a pas bougé
 			m_echiquier[1, 0] = new Cavalier(false, "Cavalier", false); //Noir, nom, pas de possibilité de collisions
@@ -58,7 +59,7 @@ namespace Echec
 			m_echiquier[5, 0] = new Fou(false, "Fou", true); //Noir, nom, possibilité de collisions
 			m_echiquier[6, 0] = new Cavalier(false, "Cavalier", false); //Noir, nom, pas de possibilité de collisions
 			m_echiquier[7, 0] = new Tour(false, "Tour", true, false); //Noir, nom, possibilité de collisions, n'a pas bougé					
-			//Placer les pions noirs
+																	  //Placer les pions noirs
 			for (int x = 0; x < 8; x++)
 			{
 				m_echiquier[x, 1] = new Pion(false, "Pion", true, false); //Noir, nom, possibilité de collisions, n'a pas bougé
@@ -78,21 +79,34 @@ namespace Echec
 			m_echiquier[5, 7] = new Fou(true, "Fou", true); //Blanc, nom, possibilité de collisions
 			m_echiquier[6, 7] = new Cavalier(true, "Cavalier", false); //Blanc, nom, pas de possibilité de collisions
 			m_echiquier[7, 7] = new Tour(true, "Tour", true, false); //Blanc, nom, possibilité de collisions, n'a pas bougé
+			*/
+
+			m_echiquier[5, 0] = new Tour(false, "Tour", true, false);
+			m_echiquier[4, 4] = new Reine(false, "Reine", true);
+			m_echiquier[3, 5] = new Cavalier(false, "Cavalier", false);
+			m_echiquier[7, 5] = new Roi(false, "Roi", true, false);
+
+			m_echiquier[4, 5] = new Pion(true, "Pion", true, false);
+			m_echiquier[3, 6] = new Pion(true, "Pion", true, false);
+			m_echiquier[7, 6] = new Pion(true, "Pion", true, false);
+			m_echiquier[5, 7] = new Cavalier(true, "Cavalier", false);
+			m_echiquier[5, 4] = new Fou(true, "Fou", true);
+			m_echiquier[6, 7] = new Roi(true, "Roi", true, false);
 		}
 
 		private void ajouterHistorique() //Ajouter l'échiquier à l'historique avant de le modifier
 		{
-            Piece[,] historique = new Piece[8, 8];
+			Piece[,] historique = new Piece[8, 8];
 
-            for (int x = 0; x < 8; x++)
-            {
-                for (int y = 0; y < 8; y++)
-                {
-                    historique[x, y] = m_echiquier[x, y]; //Copier les pièces
-                }
-            }
+			for (int x = 0; x < 8; x++)
+			{
+				for (int y = 0; y < 8; y++)
+				{
+					historique[x, y] = m_echiquier[x, y]; //Copier les pièces
+				}
+			}
 
-            m_historique.Push(historique);        
+			m_historique.Push(historique);
 		}
 
 		private void effacerHistorique() //Effacer l'historique
@@ -215,7 +229,7 @@ namespace Echec
 			int xCase = p_posCase[0]; //x de la case
 			int yCase = p_posCase[1]; //y de la case 
 
-            if ((m_echiquier[xPiece, yPiece] is Pion) || (m_echiquier[xCase, yCase] != null)) //Gérer l'historique
+			if ((m_echiquier[xPiece, yPiece] is Pion) || (m_echiquier[xCase, yCase] != null)) //Gérer l'historique
 			{
 				effacerHistorique(); //Effacer si pièce est pion ou si pièce mangée
 			}
@@ -224,7 +238,7 @@ namespace Echec
 				ajouterHistorique(); //Ajouter l'échiquier à l'historique avant de le changer
 			}
 
-            m_echiquier[xPiece, yPiece].bougee(); //La pièce a bougé
+			m_echiquier[xPiece, yPiece].bouge(); //La pièce a bougé
 
 			m_echiquier[xCase, yCase] = m_echiquier[xPiece, yPiece];
 			m_echiquier[xPiece, yPiece] = null;
@@ -310,78 +324,78 @@ namespace Echec
 			return true; //Si tous les déplacements de pièces sont impossibles, c'est mat ou pat
 		}
 
-        private bool memePlateau(Piece[,] p_plateau) //Regarder si la config de plateau est la même que l'échiquier
-        {
-            for (int x = 0; x < 8; x++)
-            {
-                for (int y = 0; y < 8; y++)
-                {
-                    if (p_plateau[x, y] != m_echiquier[x, y])
-                    {
-                        return false; //Si au moins une pièce est différente
-                    }
-                }
-            }
+		private bool memePlateau(Piece[,] p_plateau) //Regarder si la config de plateau est la même que l'échiquier
+		{
+			for (int x = 0; x < 8; x++)
+			{
+				for (int y = 0; y < 8; y++)
+				{
+					if (p_plateau[x, y] != m_echiquier[x, y])
+					{
+						return false; //Si au moins une pièce est différente
+					}
+				}
+			}
 
-            return true;
-        }
+			return true;
+		}
 
 		public bool nulle() //Vérifier si le jeu se termine par une nulle
 		{
-            int nbConfigs = 0; //Nombre de configs pareilles
+			int nbConfigs = 0; //Nombre de configs pareilles
 
-            //Empêcher d'avoir 3 fois la même config de plateau
-            if (m_historique.Count > 0)
-            {
-                foreach (Piece[,] i in m_historique)
-                {
-                    if (memePlateau(i))
-                    {
-                        nbConfigs++;
-                    }
-                }
-            }
+			//Empêcher d'avoir 3 fois la même config de plateau
+			if (m_historique.Count > 0)
+			{
+				foreach (Piece[,] i in m_historique)
+				{
+					if (memePlateau(i))
+					{
+						nbConfigs++;
+					}
+				}
+			}
 
-            if (nbConfigs == 2) //2 fois la même config que celle qui est présentement affichée
-            {
-                return true;
-            }
+			if (nbConfigs == 2) //2 fois la même config que celle qui est présentement affichée
+			{
+				return true;
+			}
 
 			return false;
 		}
 
-        private bool miseEnEchec(int[] p_posPiece, int[] p_posCase, bool p_couleur) //Vérifier si le joueur se met en échec avec le déplacement voulu
-        {
-            bool miseEnEchec; //Si le joueur se met en échec
-            Piece anciennePiece = null; //Conserver la pièce qui sera écrasée
-            int xPiece = p_posPiece[0]; //x de la pièce
-            int yPiece = p_posPiece[1]; //y de la pièce
-            int xCase = p_posCase[0]; //x de la case
-            int yCase = p_posCase[1]; //y de la case
+		private bool miseEnEchec(int[] p_posPiece, int[] p_posCase, bool p_couleur) //Vérifier si le joueur se met en échec avec le déplacement voulu
+		{
+			bool miseEnEchec; //Si le joueur se met en échec
+			Piece anciennePiece = null; //Conserver la pièce qui sera écrasée
+			int xPiece = p_posPiece[0]; //x de la pièce
+			int yPiece = p_posPiece[1]; //y de la pièce
+			int xCase = p_posCase[0]; //x de la case
+			int yCase = p_posCase[1]; //y de la case
 
-            if (m_echiquier[xCase, yCase] != null) //Vérifier si une pièce sera écrasée
-            {
-                anciennePiece = m_echiquier[xCase, yCase];
-            }
+			if (m_echiquier[xCase, yCase] != null) //Vérifier si une pièce sera écrasée
+			{
+				anciennePiece = m_echiquier[xCase, yCase];
+			}
 
-            m_echiquier[xCase, yCase] = m_echiquier[xPiece, yPiece]; //Déplacer la pièce temporairement pour le test
-            m_echiquier[xPiece, yPiece] = null;
+			m_echiquier[xCase, yCase] = m_echiquier[xPiece, yPiece]; //Déplacer la pièce temporairement pour le test
+			m_echiquier[xPiece, yPiece] = null;
 
-            miseEnEchec = echec(p_couleur); //Tester la mise en échec
+			miseEnEchec = echec(p_couleur); //Tester la mise en échec
 
-            m_echiquier[xPiece, yPiece] = m_echiquier[xCase, yCase]; //Remettre les pièces à leur place
+			m_echiquier[xPiece, yPiece] = m_echiquier[xCase, yCase]; //Remettre les pièces à leur place
 
-            if (anciennePiece != null) //Remettre la pièce écrasée si c'est le cas
-            {
-                m_echiquier[xCase, yCase] = anciennePiece;
-            }
-            else //Sinon remettre à null
-            {
-                m_echiquier[xCase, yCase] = null;
-            }
+			if (anciennePiece != null) //Remettre la pièce écrasée si c'est le cas
+			{
+				m_echiquier[xCase, yCase] = anciennePiece;
+			}
+			else //Sinon remettre à null
+			{
+				m_echiquier[xCase, yCase] = null;
+			}
 
-            return miseEnEchec;
-        }
+			return miseEnEchec;
+		}
 
 		public bool verifierPromo(int[] p_posCase) //Vérifier si un pion du joueur a atteint le fond de l'échiquier
 		{

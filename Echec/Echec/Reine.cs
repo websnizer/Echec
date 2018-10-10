@@ -138,9 +138,13 @@ namespace Echec
 			liste.Add(position);
 		}
 
-		public virtual bool aBougee
+		public override bool aBougee
 		{
 			get { return false; }
 		}
-	}
+
+        public override void bouge()
+        {
+        }
+    }
 }

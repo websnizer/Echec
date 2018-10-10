@@ -144,13 +144,13 @@ namespace Echec
 		}
 
 
-        public void bougee()
+        public override void bouge()
         {
             m_aBougee = true;
         }
 
-		//Ajouter une position à la liste
-		private void ajouterPosition(int x, int y, List<int[]> liste)
+        //Ajouter une position à la liste
+        private void ajouterPosition(int x, int y, List<int[]> liste)
 		{
 			int[] position = new int[2]; //Une position
 			position[0] = x;

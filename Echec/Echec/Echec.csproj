@@ -46,6 +46,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cavalier.cs" />
+    <Compile Include="FormChoixPiece.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChoixPiece.Designer.cs">
+      <DependentUpon>FormChoixPiece.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,9 @@
     <Compile Include="Reine.cs" />
     <Compile Include="Roi.cs" />
     <Compile Include="Tour.cs" />
+    <EmbeddedResource Include="FormChoixPiece.resx">
+      <DependentUpon>FormChoixPiece.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </EmbeddedResource>
