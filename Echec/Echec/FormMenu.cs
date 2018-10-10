@@ -13,8 +13,11 @@ namespace Echec
     public partial class FormMenu : Form
     {
 		Echec m_echec;
+        Joueur joueurBlanc;
+        Joueur joueurNoir;
 
-		public FormMenu(Echec p_echec)
+
+        public FormMenu(Echec p_echec)
         {
             InitializeComponent();
 			m_echec = p_echec;
@@ -22,15 +25,24 @@ namespace Echec
 
 		private void btn_Partie_Click(object sender, EventArgs e)
 		{
-			Joueur joueurBlanc = new Joueur("Bob", 0, 0, 0);
-			Joueur joueurNoir = new Joueur("Sanic", 0, 0, 0);
-			Partie laPartie = new Partie(joueurBlanc, joueurNoir);
+            jouer();
 		}
 
 		private void jouer()
 		{
-
-		}
+            //Si deux joueurs sont sélectionner
+            if (lst_ListeJoueurs.SelectedItems.Count == 2)
+            {
+                //Assigne les deux joueurs sélectionner
+                SelectionJoueurs();
+                //Commence la partie avec les deux joueurs sélectionnés
+                Partie laPartie = new Partie(joueurBlanc, joueurNoir);
+            }
+            else
+            {
+                MessageBox.Show("Veuillez choisir deux joueurs.");
+            }
+        }
 
 		private void quitter()
 		{
@@ -39,6 +51,13 @@ namespace Echec
 
 		private void afficherJoueurs()
 		{
+            //Ajoute les colonnes au listview (avec leur largeur)
+            lst_ListeJoueurs.View = View.Details;
+            lst_ListeJoueurs.Columns.Add("Nom", 100);
+            lst_ListeJoueurs.Columns.Add("Victoires", 75);
+            lst_ListeJoueurs.Columns.Add("Défaites", 75);
+            lst_ListeJoueurs.Columns.Add("Classement", 75);
+
             for (int i = 0; i < m_echec.ListeJoueurs.Count; i++)
             {
                 //les informations du joueurs en cours (dans la boucle)
@@ -46,16 +65,10 @@ namespace Echec
                 int lesVictoires = m_echec.ListeJoueurs[i].VictoiresJoueur;
                 int lesDefaites = m_echec.ListeJoueurs[i].DefaitesJoueur;
                 int LeClassement = m_echec.ListeJoueurs[i].ClassementJoueur;
-                //lst_ListeJoueurs.Items.Add(new ListViewItem(new string[] { LeNom, lesVictoires.ToString(), lesDefaites.ToString(), LeClassement.ToString() }));
 
-
-                //This shit doesn't work
-                lst_ListeJoueurs.Columns.Add("Nom", 100);
-                lst_ListeJoueurs.Columns.Add("Victoires", 50);
-                lst_ListeJoueurs.Columns.Add("Défaites", 50);
-                lst_ListeJoueurs.Columns.Add("Classement", 50);
-
+                //Crée les informations du joueurs dans le listview
                 ListViewItem row = new ListViewItem(LeNom);
+                row.Name = LeNom;
                 row.SubItems.Add(new ListViewItem.ListViewSubItem(row, lesVictoires.ToString()));
                 row.SubItems.Add(new ListViewItem.ListViewSubItem(row, lesDefaites.ToString()));
                 row.SubItems.Add(new ListViewItem.ListViewSubItem(row, LeClassement.ToString()));
@@ -63,20 +76,53 @@ namespace Echec
             }
         }
 
-        private void btn_AfficherJoueurs_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btn_Quitter_Click(object sender, EventArgs e)
         {
-
+            //Ferme l'applcation
+            Close();
         }
 
         private void FormMenu_Load(object sender, EventArgs e)
         {
+            //Crée la liste des joueurs (à partir du fichier .txt)
             m_echec.creerListeJoueur();
+            //Affiche les joueurs dans le listview
             afficherJoueurs();
+        }
+
+        private void SelectionJoueurs()
+        {
+            if (lst_ListeJoueurs.SelectedItems.Count == 2)
+            {
+                //Le name de l'item dans le listview pour le premier joueur
+                string Name1 = lst_ListeJoueurs.SelectedItems[0].Name.ToString();
+
+                //Le name de l'item dans le listview pour le deuxième joueur
+                string Name2 = lst_ListeJoueurs.SelectedItems[1].Name.ToString();
+
+                //Pour tous les items dans le listview
+                foreach (ListViewItem item in lst_ListeJoueurs.Items)
+                {
+                    if (item.Name == Name1)
+                    {
+                        //Crée le joueur blanc
+                        string Nom = item.SubItems[0].Text;
+                        int Victoires = Int32.Parse(item.SubItems[1].Text);
+                        int Defaites = Int32.Parse(item.SubItems[2].Text);
+                        int Classement = Int32.Parse(item.SubItems[3].Text);
+                        joueurBlanc = new Joueur(Nom, Victoires, Defaites, Classement);
+                    }
+                    else if (item.Name == Name2)
+                    {
+                        //Crée le joueur noir
+                        string Nom = item.SubItems[0].Text;
+                        int Victoires = Int32.Parse(item.SubItems[1].Text);
+                        int Defaites = Int32.Parse(item.SubItems[2].Text);
+                        int Classement = Int32.Parse(item.SubItems[3].Text);
+                        joueurNoir = new Joueur(Nom, Victoires, Defaites, Classement);
+                    }
+                }
+            }
         }
     }
 }
