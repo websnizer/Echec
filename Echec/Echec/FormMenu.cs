@@ -36,7 +36,7 @@ namespace Echec
                 //Assigne les deux joueurs sélectionner
                 SelectionJoueurs();
                 //Commence la partie avec les deux joueurs sélectionnés
-                Partie laPartie = new Partie(joueurBlanc, joueurNoir);
+                Partie laPartie = new Partie(joueurBlanc, joueurNoir, m_echec);
             }
             else
             {
@@ -51,6 +51,10 @@ namespace Echec
 
         private void afficherJoueurs()
         {
+
+            //Vide le listview avant
+            lst_ListeJoueurs.Clear();
+
             //Ajoute les colonnes au listview (avec leur largeur)
             lst_ListeJoueurs.View = View.Details;
             lst_ListeJoueurs.Columns.Add("Nom", 100);
@@ -60,6 +64,7 @@ namespace Echec
 
             for (int i = 0; i < m_echec.ListeJoueurs.Count; i++)
             {
+
                 //les informations du joueurs en cours (dans la boucle)
                 string leJoueur = m_echec.ListeJoueurs[i];
                 string[] InfosJoueur = leJoueur.Split(',');
@@ -125,6 +130,12 @@ namespace Echec
                     }
                 }
             }
+        }
+
+        private void FormMenu_Activated(object sender, EventArgs e)
+        {
+            m_echec.majFichierJoueurs();
+            afficherJoueurs();
         }
     }
 }
