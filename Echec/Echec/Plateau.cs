@@ -82,7 +82,17 @@ namespace Echec
 
 		private void ajouterHistorique() //Ajouter l'échiquier à l'historique avant de le modifier
 		{
-			m_historique.Push(m_echiquier);
+            Piece[,] historique = new Piece[8, 8];
+
+            for (int x = 0; x < 8; x++)
+            {
+                for (int y = 0; y < 8; y++)
+                {
+                    historique[x, y] = m_echiquier[x, y]; //Copier les pièces
+                }
+            }
+
+            m_historique.Push(historique);        
 		}
 
 		private void effacerHistorique() //Effacer l'historique
@@ -203,9 +213,9 @@ namespace Echec
 			int xPiece = p_posPiece[0]; //x de la pièce
 			int yPiece = p_posPiece[1]; //y de la pièce
 			int xCase = p_posCase[0]; //x de la case
-			int yCase = p_posCase[1]; //y de la case
+			int yCase = p_posCase[1]; //y de la case 
 
-			if ((m_echiquier[xPiece, yPiece] is Pion) || (m_echiquier[xCase, yCase] != null)) //Gérer l'historique
+            if ((m_echiquier[xPiece, yPiece] is Pion) || (m_echiquier[xCase, yCase] != null)) //Gérer l'historique
 			{
 				effacerHistorique(); //Effacer si pièce est pion ou si pièce mangée
 			}
@@ -213,6 +223,8 @@ namespace Echec
 			{
 				ajouterHistorique(); //Ajouter l'échiquier à l'historique avant de le changer
 			}
+
+            m_echiquier[xPiece, yPiece].bougee(); //La pièce a bougé
 
 			m_echiquier[xCase, yCase] = m_echiquier[xPiece, yPiece];
 			m_echiquier[xPiece, yPiece] = null;
@@ -298,8 +310,43 @@ namespace Echec
 			return true; //Si tous les déplacements de pièces sont impossibles, c'est mat
 		}
 
+        private bool memePlateau(Piece[,] p_plateau) //Regarder si la config de plateau est la même que l'échiquier
+        {
+            for (int x = 0; x < 8; x++)
+            {
+                for (int y = 0; y < 8; y++)
+                {
+                    if (p_plateau[x, y] != m_echiquier[x, y])
+                    {
+                        return false; //Si au moins une pièce est différente
+                    }
+                }
+            }
+
+            return true;
+        }
+
 		public bool nulle() //Vérifier si le jeu se termine par une nulle
 		{
+            int nbConfigs = 0; //Nombre de configs pareilles
+
+            //Empêcher d'avoir 3 fois la même config de plateau
+            if (m_historique.Count > 0)
+            {
+                foreach (Piece[,] i in m_historique)
+                {
+                    if (memePlateau(i))
+                    {
+                        nbConfigs++;
+                    }
+                }
+            }
+
+            if (nbConfigs == 2) //2 fois la même config que celle qui est présentement affichée
+            {
+                return true;
+            }
+
 			return false;
 		}
 
