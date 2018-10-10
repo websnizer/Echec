@@ -61,10 +61,12 @@ namespace Echec
             for (int i = 0; i < m_echec.ListeJoueurs.Count; i++)
             {
                 //les informations du joueurs en cours (dans la boucle)
-                string LeNom = m_echec.ListeJoueurs[i].NomJoueur;
-                int lesVictoires = m_echec.ListeJoueurs[i].VictoiresJoueur;
-                int lesDefaites = m_echec.ListeJoueurs[i].DefaitesJoueur;
-                int LeClassement = m_echec.ListeJoueurs[i].ClassementJoueur;
+                string leJoueur = m_echec.ListeJoueurs[i];
+                string[] InfosJoueur = leJoueur.Split(',');
+                string LeNom = InfosJoueur[0];
+                int lesVictoires = Int32.Parse(InfosJoueur[1]);
+                int lesDefaites = Int32.Parse(InfosJoueur[2]);
+                int LeClassement = Int32.Parse(InfosJoueur[3]);
 
                 //Crée les informations du joueurs dans le listview
                 ListViewItem row = new ListViewItem(LeNom);

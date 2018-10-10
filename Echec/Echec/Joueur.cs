@@ -93,5 +93,12 @@ namespace Echec
             get {return m_classement; }
             set { m_classement = value;}
         }
+
+
+        //Sérialiser l'échiquier
+        public override string ToString()
+        {
+            return (m_nom + "," + m_victoires + "," + m_defaites + "," + m_classement); 
+        }
     }
 }
