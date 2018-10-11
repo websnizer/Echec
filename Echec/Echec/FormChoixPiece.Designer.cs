@@ -90,6 +90,7 @@
 			this.Controls.Add(this.pct_Reine);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "FormChoixPiece";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Choix de pièce";
 			this.TopMost = true;
 			((System.ComponentModel.ISupportInitialize)(this.pct_Tour)).EndInit();
