@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -59,7 +60,7 @@ namespace Echec
 
 					//Demander le choix à l'utilisateur avec une form en dialog
 					FormChoixPiece m_choixpiece = new FormChoixPiece(this, m_tour);
-					m_choixpiece.ShowDialog();	
+					m_choixpiece.ShowDialog();
 
 					m_plateau.promouvoirPion(p_posCase, m_piece);
 					m_interface.afficherStatut(14);

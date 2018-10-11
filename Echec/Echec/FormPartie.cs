@@ -118,6 +118,8 @@ namespace Echec
                 control.Enabled = false;
             }
 
+			lst_historique.Enabled = true;
+
         }
 
         public void afficherTour(string p_joueur)

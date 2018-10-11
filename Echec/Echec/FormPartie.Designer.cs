@@ -545,7 +545,6 @@
 			// 
 			// lst_historique
 			// 
-			this.lst_historique.Enabled = false;
 			this.lst_historique.FormattingEnabled = true;
 			this.lst_historique.Location = new System.Drawing.Point(709, 331);
 			this.lst_historique.Name = "lst_historique";

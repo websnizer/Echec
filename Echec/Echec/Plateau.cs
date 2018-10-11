@@ -456,10 +456,10 @@ namespace Echec
 					m_echiquier[x, y] = new Tour(couleurPiece, "Tour", true, true);
 					break;
 				case "Cavalier":
-					m_echiquier[x, y] = new Fou(couleurPiece, "Cavalier", true);
+					m_echiquier[x, y] = new Cavalier(couleurPiece, "Cavalier", true);
 					break;
 				case "Fou":
-					m_echiquier[x, y] = new Cavalier(couleurPiece, "Fou", false);
+					m_echiquier[x, y] = new Fou(couleurPiece, "Fou", false);
 					break;
 			}
 		}
