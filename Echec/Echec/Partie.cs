@@ -116,7 +116,7 @@ namespace Echec
             }
 
 			//Les joueurs ne sont pas en échec et le joueur n'a aucun déplacement possible (échec et pat)
-			if (echec && !m_plateau.echec(!m_tour) && deplacementsImpossibles)
+			if (!echec && !m_plateau.echec(!m_tour) && deplacementsImpossibles)
 			{
 				m_interface.afficherStatut(12);
 				finPartie();
