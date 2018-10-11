@@ -91,37 +91,39 @@ namespace Echec
 			m_interface.afficherPiece(m_plateau.ToString()); //Afficher la nouvelle configuration
 		}
 
-		private void verifierStatutJeu()
+		private void verifierStatutJeu() //Vérifier les échecs, échecs et mat, échecs et pat, nulles
 		{
+            bool echec = m_plateau.echec(m_tour);
+            bool deplacementsImpossibles = m_plateau.deplacementsImpossibles(m_tour);
 
-			if ( m_plateau.nbCoups() == 50)
+			if (m_plateau.nbCoups() == 50)
 			{
 				m_interface.afficherStatut(13);
 				finPartie();
 			}
 
-			//Le joueur est en echec et au minimum un deplacement est possible.
-			if ( m_plateau.echec(m_tour) && !m_plateau.deplacementsImpossibles(m_tour) )
+			//Le joueur est en échec, mais peut se déplacer
+			if (echec && !deplacementsImpossibles)
 			{
                 m_interface.afficherStatut(8);
 			}
 
-			//Le joueur n'a aucun deplacement possible (echec et mat)
-			if ( m_plateau.echec(m_tour) && m_plateau.deplacementsImpossibles(m_tour) )
+			//Le joueur n'a aucun déplacement possible (échec et mat)
+			if (echec && deplacementsImpossibles)
 			{
 				m_interface.afficherStatut(10);
                 finPartie();
             }
 
-			//Les joueurs ne sont pas en échec et il n'y a aucun deplacement possible. (echec et pat)
-			if ( !m_plateau.echec(m_tour) && !m_plateau.echec(!m_tour) && m_plateau.deplacementsImpossibles(m_tour) )
+			//Les joueurs ne sont pas en échec et le joueur n'a aucun déplacement possible (échec et pat)
+			if (echec && !m_plateau.echec(!m_tour) && deplacementsImpossibles)
 			{
 				m_interface.afficherStatut(12);
 				finPartie();
 			}
 
 			//La partie est nulle
-			if ( m_plateau.nulle() )
+			if (m_plateau.nulle())
             {
                 m_interface.afficherStatut(11);
                 finPartie();
