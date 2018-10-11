@@ -34,7 +34,7 @@ namespace Echec
             if (lst_ListeJoueurs.SelectedItems.Count == 2)
             {
                 //Assigne les deux joueurs sélectionner
-                SelectionJoueurs();
+                //SelectionJoueurs();
                 //Commence la partie avec les deux joueurs sélectionnés
                 Partie laPartie = new Partie(joueurBlanc, joueurNoir, m_echec);
             }
@@ -136,6 +136,21 @@ namespace Echec
         {
             m_echec.majFichierJoueurs();
             afficherJoueurs();
+        }
+
+        private void lst_ListeJoueurs_Click(object sender, EventArgs e)
+        {
+            //Vide le listbox
+            lst_classementsFuturs.Items.Clear();
+            //Si deux joueurs sont sélectionnés
+            if (lst_ListeJoueurs.SelectedItems.Count == 2)
+            {
+                //Assigne les deux joueurs sélectionner
+                SelectionJoueurs();
+                //Affiche le classement futur en cas de victoire et en cas de défaite des deux joueurs
+                lst_classementsFuturs.Items.Add(joueurBlanc.NomJoueur + " : " + joueurBlanc.FuturGagnant(joueurNoir).ToString() + ", " + joueurBlanc.FuturPerdant(joueurNoir).ToString());
+                lst_classementsFuturs.Items.Add(joueurNoir.NomJoueur + " : " + joueurNoir.FuturGagnant(joueurBlanc).ToString() + ", " + joueurNoir.FuturPerdant(joueurBlanc).ToString());
+            }
         }
     }
 }

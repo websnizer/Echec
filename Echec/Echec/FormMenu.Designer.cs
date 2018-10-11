@@ -31,6 +31,8 @@
             this.btn_Partie = new System.Windows.Forms.Button();
             this.btn_Quitter = new System.Windows.Forms.Button();
             this.lst_ListeJoueurs = new System.Windows.Forms.ListView();
+            this.lst_classementsFuturs = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_Partie
@@ -61,16 +63,39 @@
             this.lst_ListeJoueurs.Size = new System.Drawing.Size(342, 147);
             this.lst_ListeJoueurs.TabIndex = 3;
             this.lst_ListeJoueurs.UseCompatibleStateImageBehavior = false;
+            this.lst_ListeJoueurs.Click += new System.EventHandler(this.lst_ListeJoueurs_Click);
+            // 
+            // lst_classementsFuturs
+            // 
+            this.lst_classementsFuturs.FormattingEnabled = true;
+            this.lst_classementsFuturs.ItemHeight = 16;
+            this.lst_classementsFuturs.Location = new System.Drawing.Point(13, 313);
+            this.lst_classementsFuturs.Name = "lst_classementsFuturs";
+            this.lst_classementsFuturs.Size = new System.Drawing.Size(342, 52);
+            this.lst_classementsFuturs.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 289);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(125, 17);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Classement Futurs";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // FormMenu
             // 
-            this.ClientSize = new System.Drawing.Size(369, 294);
+            this.ClientSize = new System.Drawing.Size(369, 377);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lst_classementsFuturs);
             this.Controls.Add(this.lst_ListeJoueurs);
             this.Controls.Add(this.btn_Quitter);
             this.Controls.Add(this.btn_Partie);
             this.Name = "FormMenu";
             this.Load += new System.EventHandler(this.FormMenu_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -79,6 +104,8 @@
 		private System.Windows.Forms.Button btn_Partie;
         private System.Windows.Forms.Button btn_Quitter;
         private System.Windows.Forms.ListView lst_ListeJoueurs;
+        private System.Windows.Forms.ListBox lst_classementsFuturs;
+        private System.Windows.Forms.Label label1;
     }
 }
 
