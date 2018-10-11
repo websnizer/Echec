@@ -10,12 +10,14 @@ namespace Echec
 	{
 		private Piece[,] m_echiquier; //Tableau qui représente l'échiquier avec ses pièces
 		private Stack<Piece[,]> m_historique; //Historique des échiquiers
+        private Stack<Piece[,]> m_historiqueComplet; //Historique complet des échiquiers
 
 		public Plateau() //Constructeur
 		{
 			m_echiquier = new Piece[8, 8]; //Créer l'échiquier
 			m_historique = new Stack<Piece[,]>(); //Créer l'historique
-			preparerEchiquier();
+            m_historiqueComplet = new Stack<Piece[,]>(); //Créer l'historique
+            preparerEchiquier();
 		}
 
 		public override string ToString() //Sérialiser l'échiquier
@@ -49,7 +51,6 @@ namespace Echec
 
 		private void preparerEchiquier() //Préparer l'échiquier pour une partie
 		{
-			/*
 			//Placer les pièces noires
 			m_echiquier[0, 0] = new Tour(false, "Tour", true, false); //Noir, nom, possibilité de collisions, n'a pas bougé
 			m_echiquier[1, 0] = new Cavalier(false, "Cavalier", false); //Noir, nom, pas de possibilité de collisions
@@ -59,12 +60,11 @@ namespace Echec
 			m_echiquier[5, 0] = new Fou(false, "Fou", true); //Noir, nom, possibilité de collisions
 			m_echiquier[6, 0] = new Cavalier(false, "Cavalier", false); //Noir, nom, pas de possibilité de collisions
 			m_echiquier[7, 0] = new Tour(false, "Tour", true, false); //Noir, nom, possibilité de collisions, n'a pas bougé					
-																	  //Placer les pions noirs
+		    //Placer les pions noirs
 			for (int x = 0; x < 8; x++)
 			{
 				m_echiquier[x, 1] = new Pion(false, "Pion", true, false); //Noir, nom, possibilité de collisions, n'a pas bougé
 			}
-
 			//Placer les pions blancs
 			for (int x = 0; x < 8; x++)
 			{
@@ -79,20 +79,22 @@ namespace Echec
 			m_echiquier[5, 7] = new Fou(true, "Fou", true); //Blanc, nom, possibilité de collisions
 			m_echiquier[6, 7] = new Cavalier(true, "Cavalier", false); //Blanc, nom, pas de possibilité de collisions
 			m_echiquier[7, 7] = new Tour(true, "Tour", true, false); //Blanc, nom, possibilité de collisions, n'a pas bougé
-			*/
-
-			m_echiquier[5, 0] = new Tour(false, "Tour", true, false);
-			m_echiquier[4, 4] = new Reine(false, "Reine", true);
-			m_echiquier[3, 5] = new Cavalier(false, "Cavalier", false);
-			m_echiquier[7, 5] = new Roi(false, "Roi", true, false);
-
-			m_echiquier[4, 5] = new Pion(true, "Pion", true, false);
-			m_echiquier[3, 6] = new Pion(true, "Pion", true, false);
-			m_echiquier[7, 6] = new Pion(true, "Pion", true, false);
-			m_echiquier[5, 7] = new Cavalier(true, "Cavalier", false);
-			m_echiquier[5, 4] = new Fou(true, "Fou", true);
-			m_echiquier[6, 7] = new Roi(true, "Roi", true, false);
 		}
+
+        private void ajouterHistoriqueComplet() //Ajouter l'échiquier à l'historique complet avant de le modifier
+        {
+            Piece[,] historique = new Piece[8, 8];
+
+            for (int x = 0; x < 8; x++)
+            {
+                for (int y = 0; y < 8; y++)
+                {
+                    historique[x, y] = m_echiquier[x, y]; //Copier les pièces
+                }
+            }
+
+            m_historiqueComplet.Push(historique);
+        }
 
 		private void ajouterHistorique() //Ajouter l'échiquier à l'historique avant de le modifier
 		{
@@ -147,29 +149,35 @@ namespace Echec
 				return 4;
 			}
 
-			if (!verifierRoque(p_posPiece, p_posCase)) //Vérifier si le joueur a voulu faire un roque et si ce roque est possible
-			{
-				//Cas erreur 5: La pièce ne peut pas se déplacer de cette façon
-				if (!m_echiquier[xPiece, yPiece].validerDeplacement(p_posPiece, p_posCase, m_echiquier[xCase, yCase] == null))
-				{
-					return 5;
-				}
+            bool roque = verifierRoque(p_posPiece, p_posCase); //Vérifier si le joueur a voulu faire un roque et si ce roque est possible
+            bool prise = priseEnPassant(p_posPiece, p_posCase); //Vérifier si le joueur a voulu faire une prise en passant
 
-				//Cas erreur 6: Une pièce est dans le chemin et empêche le déplacement
-				if (m_echiquier[xPiece, yPiece].Collision) //Si la pièce n'a pas la permission de passer par dessus d'autres pièces
-				{
-					if (collision(p_posPiece, p_posCase))
-					{
-						return 6;
-					}
-				}
+            if (!roque && !prise) //S'il n'y a pas de roque ou de prise en passant
+            {
+                //Cas erreur 5: La pièce ne peut pas se déplacer de cette façon
+                if (!m_echiquier[xPiece, yPiece].validerDeplacement(p_posPiece, p_posCase, m_echiquier[xCase, yCase] == null))
+                {
+                    return 5;
+                }
 
-				//Cas erreur 7: Le joueur se met lui-même en échec avec ce coup
-				if (miseEnEchec(p_posPiece, p_posCase, couleurPiece))
-				{
-					return 7;
-				}
-			}
+                //Cas erreur 6: Une pièce est dans le chemin et empêche le déplacement
+                if (m_echiquier[xPiece, yPiece].Collision) //Si la pièce n'a pas la permission de passer par dessus d'autres pièces
+                {
+                    if (collision(p_posPiece, p_posCase))
+                    {
+                        return 6;
+                    }
+                }
+            }
+
+            if (!roque) //S'il n'y a pas de roque
+            {
+                //Cas erreur 7: Le joueur se met lui-même en échec avec ce coup
+                if (miseEnEchec(p_posPiece, p_posCase, couleurPiece))
+                {
+                    return 7;
+                }
+            }
 
 			return 0; //Le coup est accepté
 		}
@@ -216,6 +224,10 @@ namespace Echec
 			{
 				effectuerRoque(p_posPiece, p_posCase);
 			}
+            else if (priseEnPassant(p_posPiece, p_posCase))
+            {
+                effectuerPriseEnPassant(p_posPiece, p_posCase);
+            }
 			else //Sinon faire un déplacement normal
 			{
 				effectuerDeplacement(p_posPiece, p_posCase);
@@ -228,6 +240,8 @@ namespace Echec
 			int yPiece = p_posPiece[1]; //y de la pièce
 			int xCase = p_posCase[0]; //x de la case
 			int yCase = p_posCase[1]; //y de la case 
+
+            ajouterHistoriqueComplet();
 
 			if ((m_echiquier[xPiece, yPiece] is Pion) || (m_echiquier[xCase, yCase] != null)) //Gérer l'historique
 			{
@@ -430,7 +444,8 @@ namespace Echec
 			int y = p_posCase[1]; //y de la pièce
 			bool couleurPiece = m_echiquier[x, y].Couleur; //Couleur de la pièce
 
-			effacerHistorique(); //Effacer l'historique 
+            ajouterHistoriqueComplet();
+            effacerHistorique(); //Effacer l'historique 
 
 			switch (p_pieceChoisie) //Changer selon la pièce désirée
 			{
@@ -563,5 +578,87 @@ namespace Echec
 
 			effectuerDeplacement(tour, tourCase); //Déplacer la tour également
 		}
-	}
+
+        private bool memePionPrecedence(int[] p_pos, Piece pion) //Regarder si la précédente case du pion est celle-là
+        {
+            int x = p_pos[0]; //x de la pièce
+            int y = p_pos[1]; //y de la pièce
+            Piece[,] precedent; //L'échiquier précédent
+
+            precedent = m_historiqueComplet.Peek();
+
+            if (precedent[x, y] == pion)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private bool priseEnPassant(int[] p_posPiece, int[] p_posCase) //Vérifier si la prise en passant est permise ou non pour ce coup
+        {
+            int xPiece = p_posPiece[0]; //x de la pièce
+            int yPiece = p_posPiece[1]; //y de la pièce
+            int xCase = p_posCase[0]; //x de la case
+            int yCase = p_posCase[1]; //y de la case
+            bool couleur = m_echiquier[xPiece, yPiece].Couleur; //Couleur de la pièce
+            int[] caseTest = new int[2]; //La case où le pion est sensé être précédemment
+
+            if ((m_echiquier[xPiece, yPiece] is Pion) && (yCase == 5)) //Bas du plateau
+            {
+                //Il y a un pion de couleur différente en haut de la case
+                if ((m_echiquier[xCase, yCase - 1] != null) && (m_echiquier[xCase, yCase - 1] is Pion) && (m_echiquier[xCase, yCase - 1].Couleur != couleur))
+                {
+                    caseTest[0] = xCase;
+                    caseTest[1] = yCase + 1;
+
+                    if (memePionPrecedence(caseTest, m_echiquier[xCase, yCase - 1])) //Si le même pion arrive d'en bas de la case
+                    {
+                        return true;
+                    }
+                }
+            }
+            if ((m_echiquier[xPiece, yPiece] is Pion) && (yCase == 2)) //Haut du plateau
+            {
+                //Il y a un pion de couleur différente en bas de la case
+                if ((m_echiquier[xCase, yCase + 1] != null) && (m_echiquier[xCase, yCase + 1] is Pion) && (m_echiquier[xCase, yCase + 1].Couleur != couleur))
+                {
+                    caseTest[0] = xCase;
+                    caseTest[1] = yCase - 1;
+
+                    if (memePionPrecedence(caseTest, m_echiquier[xCase, yCase + 1])) //Si le même pion arrive d'en bas de la case
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        private void effectuerPriseEnPassant(int[] p_posPiece, int[] p_posCase) //Effectuer la prise en passant
+        {
+            int xCase = p_posCase[0]; //x de la case
+            int yCase = p_posCase[1]; //y de la case
+
+            effectuerDeplacement(p_posPiece, p_posCase);
+
+            ajouterHistoriqueComplet();
+            effacerHistorique();
+
+            if (yCase == 5)
+            {
+                m_echiquier[xCase, yCase - 1] = null; //Manger le pion
+            }
+            else
+            {
+                m_echiquier[xCase, yCase + 1] = null; //Manger le pion
+            }
+        }
+
+        public int nbCoups() //Retourner le nombre de coups sans prise de pièce et mouvement de pion
+        {
+            return m_historique.Count();
+        }
+    }
 }
