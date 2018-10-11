@@ -16,9 +16,10 @@ namespace Echec
 		bool m_tour; //Le tour en boolean
 		Plateau m_plateau;  //Référence au plateau de la partie
         string m_piece = ""; //Le choix de l'utilisateur
+		Echec m_echec; //Référence à Echec
 
 		//Constructeur
-        public Partie(Joueur p_joueur1, Joueur p_joueur2)
+        public Partie(Joueur p_joueur1, Joueur p_joueur2, Echec p_echec)
 		{
             m_joueurBlanc = p_joueur1;
             m_joueurNoir = p_joueur2;
@@ -33,6 +34,7 @@ namespace Echec
 
 			m_joueurTour = m_joueurBlanc;
 			m_interface.afficherTour(m_joueurTour.NomJoueur);
+			m_echec = p_echec;
 		}
 
 		public void jouerCoup( int[] p_posPiece, int[] p_posCase)
@@ -60,6 +62,7 @@ namespace Echec
 					m_choixpiece.ShowDialog();	
 
 					m_plateau.promouvoirPion(p_posCase, m_piece);
+					m_interface.afficherStatut(14);
 					refreshForm();
 				}
 
@@ -89,6 +92,13 @@ namespace Echec
 
 		private void verifierStatutJeu()
 		{
+
+			if ( m_plateau.nbCoups() == 50)
+			{
+				m_interface.afficherStatut(13);
+				finPartie();
+			}
+
 			//Le joueur est en echec et au minimum un deplacement est possible.
 			if ( m_plateau.echec(m_tour) && !m_plateau.deplacementsImpossibles(m_tour) )
 			{
@@ -96,7 +106,7 @@ namespace Echec
 			}
 
 			//Le joueur n'a aucun deplacement possible (echec et mat)
-			if (m_plateau.echec(m_tour) && m_plateau.deplacementsImpossibles(m_tour) )
+			if ( m_plateau.echec(m_tour) && m_plateau.deplacementsImpossibles(m_tour) )
 			{
 				m_interface.afficherStatut(10);
                 finPartie();
@@ -126,22 +136,104 @@ namespace Echec
         public void finPartie() {
             m_interface.freezeInterface();
 
-            //Ajuster score si échec et mat
-            if (m_plateau.deplacementsImpossibles(m_tour)) {
-                if (JoueurTour == m_joueurBlanc) {
-                    m_joueurBlanc.perdant(m_joueurNoir);
-                    m_joueurNoir.gagnant(m_joueurBlanc);
-                }
-                else if (JoueurTour == m_joueurNoir) {
-                    m_joueurNoir.perdant(m_joueurBlanc);
-                    m_joueurBlanc.gagnant(m_joueurNoir);
-                }
+			//Ajuster score si échec et mat
+			if (m_plateau.deplacementsImpossibles(m_tour))
+			{
+				if (JoueurTour == m_joueurBlanc)
+				{
+					m_joueurBlanc.perdant(m_joueurNoir);
+					m_joueurNoir.gagnant(m_joueurBlanc);
+				}
+				else if (JoueurTour == m_joueurNoir)
+				{
+					m_joueurNoir.perdant(m_joueurBlanc);
+					m_joueurBlanc.gagnant(m_joueurNoir);
+				}
+				m_interface.AfficherClassementJoueur();
 
-                m_interface.AfficherClassementJoueur();
-            }
-        }
+				//Mettre la liste de joueur à jour
+				MettreAJourClassement();
+			}
+		}
 
-        public bool Tour
+		private void MettreAJourClassement()
+		{
+			//Les noms des joueurs
+			string NomJoueurBlanc;
+			string NomJoueurNoir;
+			string NomJoueurListe;
+
+			//La liste avec les valeurs mises à jours
+			List<string> ListJoueurUpdate = new List<string>();
+
+			//Pour tous les éléments dans la liste de joueurs
+			for (int i = 0; i < m_echec.ListeJoueurs.Count; i++)
+			{
+				//Met le nom du joueur blanc dans une variable
+				string leJoueurBlanc = m_joueurBlanc.ToString();
+				string[] InfosJoueurBlanc = leJoueurBlanc.Split(',');
+				NomJoueurBlanc = InfosJoueurBlanc[0];
+
+				//Met le nom du joueur noir dans une variable
+				string leJoueurNoir = m_joueurNoir.ToString();
+				string[] InfosJoueurNoir = leJoueurNoir.Split(',');
+				NomJoueurNoir = InfosJoueurNoir[0];
+
+				//Le nom du joueur dans la liste (à l'index de la boucle)
+				string leJoueurListe = m_echec.ListeJoueurs[i].ToString();
+				string[] InfosJoueurListe = leJoueurListe.Split(',');
+				NomJoueurListe = InfosJoueurListe[0];
+
+				if (NomJoueurBlanc == NomJoueurListe)
+				{
+					//Si le nom du joueur blanc est le joueur dans la liste on l'ajoute dans la liste mis à jour
+					//Avec ses stats mis à jours
+					string LeJoueur = m_joueurBlanc.ToString();
+
+					ListJoueurUpdate.Add(LeJoueur);
+					//m_echec.ListeJoueurs[m_echec.ListeJoueurs.FindIndex(ind => ind.Equals(leJoueurListe))] = m_joueurBlanc.ToString();
+
+				}
+				else if (NomJoueurNoir == NomJoueurListe)
+				{
+					//Si le nom du joueur noir est le joueur dans la liste on l'ajoute dans la liste mis à jour
+					//Avec ses stats mis à jour
+					m_echec.ListeJoueurs[i] = m_joueurNoir.ToString();
+
+					string LeJoueur = m_joueurNoir.ToString();
+
+					ListJoueurUpdate.Add(LeJoueur);
+
+					//m_echec.ListeJoueurs[m_echec.ListeJoueurs.FindIndex(ind => ind.Equals(leJoueurListe))] = m_joueurNoir.ToString();
+				}
+				else
+				{
+					//Sinon on parcour tous les éléments dans la liste de joueurs
+					foreach (string J in m_echec.ListeJoueurs)
+					{
+						//Stock le nom du joueur en cours (dans la boucle)
+						string[] InfosJoueur = J.Split(',');
+						string NomJoueur = InfosJoueur[0];
+
+						//Si le nom du joueur est égale au nom du joueur dans la liste (non mis à jour)
+						//On l'ajoute à la liste (mis à jour)
+						if (NomJoueur == NomJoueurListe)
+						{
+							string LeJoueur = J;
+
+							ListJoueurUpdate.Add(LeJoueur);
+
+						}
+					}
+				}
+			}
+
+			//Assigne la liste mis à jour à l'ancienne liste
+			m_echec.ListeJoueurs.Clear();
+			m_echec.ListeJoueurs = ListJoueurUpdate;
+		}
+
+		public bool Tour
 		{
 			get { return m_tour; }
 		}

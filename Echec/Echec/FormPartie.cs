@@ -94,6 +94,15 @@ namespace Echec
 					messagebox(message);
 					couleur = Color.Azure;
 					break;
+				case 13:
+					message = "Partie nulle. 50 coups ont été joués sans mouvement de pion ou qu'une pièce soit prises.";
+					messagebox(message);
+					couleur = Color.Azure;
+					break;
+				case 14:
+					message = "Piece valide.";
+					couleur = Color.Green;
+					break;
 			}
 
 			lbl_codes.Text = message;
