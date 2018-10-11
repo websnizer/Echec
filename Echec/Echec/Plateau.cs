@@ -60,7 +60,7 @@ namespace Echec
 			m_echiquier[5, 0] = new Fou(false, "Fou", true); //Noir, nom, possibilité de collisions
 			m_echiquier[6, 0] = new Cavalier(false, "Cavalier", false); //Noir, nom, pas de possibilité de collisions
 			m_echiquier[7, 0] = new Tour(false, "Tour", true, false); //Noir, nom, possibilité de collisions, n'a pas bougé					
-																	  //Placer les pions noirs
+			//Placer les pions noirs
 			for (int x = 0; x < 8; x++)
 			{
 				m_echiquier[x, 1] = new Pion(false, "Pion", true, false); //Noir, nom, possibilité de collisions, n'a pas bougé
@@ -313,7 +313,7 @@ namespace Echec
 			return pieces;
 		}
 
-		public bool deplacementsImpossibles(bool p_couleur) //Vérifier si le joueur passé en paramètre est en état d'échec et mat
+		public bool deplacementsImpossibles(bool p_couleur) //Vérifier si le joueur passé en paramètre est en état d'échec et mat ou pat
 		{
 			List<int[]> pieces = emplacementsPieces(p_couleur); //Les pièces de la couleur
 			int[] posCase = new int[2]; //Les coordonnées des cases
@@ -456,10 +456,10 @@ namespace Echec
 					m_echiquier[x, y] = new Tour(couleurPiece, "Tour", true, true);
 					break;
 				case "Cavalier":
-					m_echiquier[x, y] = new Cavalier(couleurPiece, "Cavalier", true);
+					m_echiquier[x, y] = new Cavalier(couleurPiece, "Cavalier", false);
 					break;
 				case "Fou":
-					m_echiquier[x, y] = new Fou(couleurPiece, "Fou", false);
+					m_echiquier[x, y] = new Fou(couleurPiece, "Fou", true);
 					break;
 			}
 		}
@@ -579,7 +579,7 @@ namespace Echec
 			effectuerDeplacement(tour, tourCase); //Déplacer la tour également
 		}
 
-		private bool memePionPrecedence(int[] p_pos, Piece pion) //Regarder si la précédente case du pion est celle-là
+		private bool memePionPrecedence(int[] p_pos, Piece p_pion) //Regarder si la précédente case du pion est celle-là
 		{
 			int x = p_pos[0]; //x de la pièce
 			int y = p_pos[1]; //y de la pièce
@@ -587,7 +587,7 @@ namespace Echec
 
 			precedent = m_historiqueComplet.Peek();
 
-			if (precedent[x, y] == pion)
+			if (precedent[x, y] == p_pion)
 			{
 				return true;
 			}
